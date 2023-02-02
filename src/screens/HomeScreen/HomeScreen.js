@@ -1,5 +1,6 @@
 import React, { } from 'react';
 import NavBar from '../../components/NavBar/NavBar';
+import LeftNavBar from '../../components/NavBar/LeftNavBar';
 
 
 
@@ -9,15 +10,16 @@ const HomeScreen = () => {
 
 
         <>
-            <NavBar />
-            <div className="home-container">
-                <div className="home-content">
+            <div className=" flex  items-center w-full h-screen bg-gray-500">
+                <LeftNavBar />
+                <div className="main">
                     <div className="home-header">
-                        <h1>Groupomania</h1>
-                        <h2>Le réseau social de l'entreprise</h2>
                     </div>
-                    <div className="home-btn">
-                        <h3>Bienvenue sur Groupomania</h3>
+                </div>
+                <div className="right-side">
+                    <div className="right-side-container">
+                        <div className="wrapper">
+                        </div>
                     </div>
                 </div>
             </div>
