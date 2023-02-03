@@ -1,5 +1,4 @@
 import React, { } from 'react';
-import NavBar from '../../components/NavBar/NavBar';
 import LeftNavBar from '../../components/NavBar/LeftNavBar';
 
 
@@ -7,8 +6,6 @@ import LeftNavBar from '../../components/NavBar/LeftNavBar';
 const HomeScreen = () => {
 
     return (
-
-
         <>
             <div className=" flex  items-center w-full h-screen bg-gray-500">
                 <LeftNavBar />

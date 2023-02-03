@@ -5,6 +5,7 @@ import SignInScreen from '../screens/SignInScreen/SignInScreen';
 import SignUpScreen from '../screens/SignUpScreen/SignUpScreen';
 import NavBar from '../components/NavBar/NavBar';
 import Profile from '../screens/Profile/Profile';
+import StartPage from '../screens/StartPage/StartPage';
 
 
 const Navigation = () => {
@@ -13,10 +14,11 @@ const Navigation = () => {
         <BrowserRouter>
             <NavBar />
             <Routes>
+                <Route path="/start" element={<StartPage />} />
                 <Route path="/" element={<HomeScreen />} />
                 <Route path="sign-in" element={<SignInScreen />} />
                 <Route path="sign-up" element={<SignUpScreen />} />
-                <Route path="/profile" element={<Profile/>} />
+                <Route path="/profile" element={<Profile />} />
                 <Route path="*" element={<h1>404 Not Found</h1>} />
 
             </Routes>

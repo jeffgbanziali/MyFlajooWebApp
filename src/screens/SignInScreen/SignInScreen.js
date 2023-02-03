@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import image from "../../../src/assets/Logos/2.png";
+import image2 from "../../../src/assets/Images/Backgroung.png";
 
 
 
@@ -47,68 +49,67 @@ const SignInScreen = () => {
 
    return (
       <>
-         <div className="flex items-center justify-center min-h-screen bg-black">
-            <div className="w-full max-w-sm">
-               <div className="flex items-center mb-6">
-                  <Link to="/">
-                     <img className="w-16 h-16 mr-4" src="https://www.freepnglogos.com/uploads/instagram-logo-png-transparent-0.png" alt="" />
-                  </Link>
-                  <Link to="/">
-                     <h1 className="text-white font-bold text-xl">Home</h1>
-                  </Link>
-               </div>
-               <div className="bg-gray-300 py-8 px-8 rounded-lg shadow-lg justify-center text-black w-full">
+         <div className="flex justify-center min-h-screen bg-black">
+            <div className=" ">
+               <div className="bg-gray-900 ml-10 rounded-lg shadow-lg text-black ">
+                  <h1 className="text-white text-center mt-10 font-semibold text-xl">Login for a account</h1>
+                  <div className="flex ml-10 mt-10 items-center">
+                     <Link to="/">
+                        <img className=" w-12 h-12 mr-4 mt-10 " src={image} alt="logo" />
+                     </Link>
+                     <Link to="/">
+                        <h1 className="text-white  mt-10 font-semibold text-3xl">Flajoo</h1>
+                     </Link>
 
-                  <h2 className="text-gray-700 text-xl font-bold mb-4">Log In</h2>
-                  <form
-                     className=' w-full px-4'
-                     action=""
-                     onSubmit={handleSignIn}
-                     id="sign-up-form" >
-                     <div className="w-full py-7 ">
-                        <label
-                           className="text-sm font-bold text-gray-700 tracking-wide"
-                           htmlFor="email">Email</label>
-                        <br />
+                  </div>
 
-                        <input
-                           className='flex  mt-7 items-center pl-[10px] w-[320px] h-[50px] rounded-[10px] bg-[grey] border-0 text-white'
-                           type="text"
-                           name="email"
-                           id="email"
-                           placeholder='enter your email'
-                           onChange={(e) => setEmail(e.target.value)}
-                           value={email}
-                        />
-                        <div className=" flex items-center justify-center">
-                           <p className="email error"></p>
+                  <div className="flex items-center content-center self-center justify-center ">
+                     <form
+                        className=' w-full px-8 pt-6 pb-8 -mt-10 flex  text-black '
+                        action=""
+                        onSubmit={handleSignIn}
+                        id="sign-up-form" >
+                        <div className="w-full py-7 ">
+                           <br />
+                           <input
+                              className='flex  mt-7 items-center pl-[10px] w-[320px] h-[50px] rounded-[10px] bg-[grey] border-0 text-white'
+                              type="text"
+                              name="email"
+                              id="email"
+                              placeholder='enter your email'
+                              onChange={(e) => setEmail(e.target.value)}
+                              value={email}
+                           />
+                           <div className=" flex items-center justify-center">
+                              <p className="email error"></p>
+                           </div>
+                           <br />
+                           <input
+                              className='flex  mt-7 items-center pl-[10px] w-[320px] h-[50px] rounded-[10px] bg-[grey] border-0 text-white'
+                              type="password"
+                              name="password"
+                              id="password"
+                              placeholder='enter your password'
+                              onChange={(e) => setPassword(e.target.value)}
+                              value={password}
+                           />
+                           <div className="password error"></div>
+                           <br />
+                           <div className='flex justify-between w-[320px]'>
+                              <button onClick={Clear} className=' w-[49%] h-[50px] rounded-[15px] bg-[lightblue] hover:bg-blue-500 text-white font-bold'>Clean</button>
+                              <input className='w-[49%] h-[50px] rounded-[15px] bg-red-400 hover:bg-red-700 cursor-pointer text-white font-bold' type={"submit"} value="Login" >
+                              </input>
+                           </div>
+                           <div className=' flex mt-10 ml-10'>
+                              <h3 className='text-white'>Don't have an account ?</h3>
+                              <h3 className='text-[green] font-bold ml-2'>Sign Up</h3>
+                           </div>
                         </div>
-                        <br />
-                        <label
-                           className="text-sm font-bold text-gray-700 tracking-wide"
-
-                           htmlFor="password">Mot de passe</label>
-                        <br />
-                        <input
-                           className='flex  mt-7 items-center pl-[10px] w-[320px] h-[50px] rounded-[10px] bg-[grey] border-0 text-white'
-                           type="password"
-                           name="password"
-                           id="password"
-                           placeholder='enter your password'
-                           onChange={(e) => setPassword(e.target.value)}
-                           value={password}
-                        />
-                        <div className="password error"></div>
-                        <br />
-                        <div className='flex justify-between w-[320px]'>
-                           <button onClick={Clear} className=' w-[49%] h-[50px] rounded-[15px] bg-[grey] text-white font-bold'>Clean</button>
-                           <input className='w-[49%] h-[50px] rounded-[15px] bg-[green] text-white font-bold' type={"submit"} value="Login" >
-                           </input>
+                        <div >
+                           <img className="rounded " src={image2} alt="logo" />
                         </div>
-
-                     </div>
-
-                  </form>
+                     </form>
+                  </div>
                </div>
             </div>
 
