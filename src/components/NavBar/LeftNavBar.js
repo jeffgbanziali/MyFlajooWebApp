@@ -6,9 +6,7 @@ const LeftNavBar = () => {
             <div className=" flex flex-col justify-center items-center content-center self-center">
                 <div className=" flex flex-col justify-center items-center content-center self-center">
                     <div>
-                        <p className="text-2xl font-bold mt-5">
-                            Eren Jager
-                        </p>
+
                     </div>
                 </div>
             </div>
