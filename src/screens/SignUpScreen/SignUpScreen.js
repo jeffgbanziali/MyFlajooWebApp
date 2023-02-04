@@ -54,7 +54,7 @@ const SignUpScreen = () => {
 
     return (
         <div className='flex justify-center items-center min-h-screen bg-black'>
-            <div className='pop-up bg-gray-900 mt-2 ml-10 rounded-lg shadow-lg text-black '>
+            <div className='pop-up bg-gray-900  mt-20 ml-10 rounded-lg shadow-lg text-black '>
                 <div className='ml-2 flex items-center w-full h-[70px]'>
                     <Link to="/">
                         <img className='w-[50px] h-[50px] ml-2' src={image} alt="" />

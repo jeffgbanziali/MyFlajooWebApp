@@ -13,7 +13,7 @@ function StartPage(props) {
         <>
 
             <div
-                className=' bg-black min-h-screen  flex flex-col items-center content-center self-center ' >
+                className=' bg-black min-h-screen mt-10  flex flex-col items-center content-center self-center ' >
                 <div className=' flex flex-col items-center mt-10 justify-center p-20 bg-gray-900 ml-10 rounded-lg shadow-lg text-black    '>
                     <h2 className=' text-white text-2xl font-semibold '>Let's Start </h2>
                     <h2 className='text-white text-2xl font-semibold' >Welcome </h2>

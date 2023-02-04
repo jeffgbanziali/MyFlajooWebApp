@@ -49,7 +49,7 @@ const SignInScreen = () => {
 
    return (
       <>
-         <div className="flex justify-center min-h-screen bg-black">
+         <div className="flex justify-center mt-10 min-h-screen bg-black">
             <div className=" ">
                <div className="bg-gray-900 ml-10 rounded-lg shadow-lg text-black ">
                   <h1 className="text-white text-center mt-10 font-semibold text-xl">Login for a account</h1>

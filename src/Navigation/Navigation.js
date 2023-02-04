@@ -6,6 +6,7 @@ import SignUpScreen from '../screens/SignUpScreen/SignUpScreen';
 import NavBar from '../components/NavBar/NavBar';
 import Profile from '../screens/Profile/Profile';
 import StartPage from '../screens/StartPage/StartPage';
+import Thread from '../components/Thread/Thread';
 
 
 const Navigation = () => {
@@ -16,6 +17,7 @@ const Navigation = () => {
             <Routes>
                 <Route path="/start" element={<StartPage />} />
                 <Route path="/" element={<HomeScreen />} />
+                <Route path="/thread" element={<Thread />} />
                 <Route path="sign-in" element={<SignInScreen />} />
                 <Route path="sign-up" element={<SignUpScreen />} />
                 <Route path="/profile" element={<Profile />} />
