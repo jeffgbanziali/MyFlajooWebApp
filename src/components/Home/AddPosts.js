@@ -1,16 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import { getPosts } from '../../actions/post.actions';
+import { isEmpty, timestampParser } from '../Utils/Utils';
+import { BsImageFill } from 'react-icons/bs';
+import { HiVideoCamera } from 'react-icons/hi';
+import { IoPricetagsSharp } from 'react-icons/io5';
+//import { AddPosts } from '../../actions/post.actions';
 
 const AddPosts = () => {
 
-    /* const [isLoading, setIsLoading] = useState(true);
+    const [isLoading, setIsLoading] = useState(true);
     const [message, setMessage] = useState("");
     const [postPicture, setPostPicture] = useState(null);
     const [video, setVideo] = useState("");
     const [file, setFile] = useState();
     const userData = useSelector((state) => state.userReducer);
-    const error = useSelector((state) => state.errorReducer.postError);
     const dispatch = useDispatch();
 
     const handlePost = async () => {
@@ -62,56 +67,41 @@ const AddPosts = () => {
             }
         };
         handleVideo();
-    }, [userData, message, video]);*/
+    }, [userData, message, video]);
 
     return (
 
-        <div>
-            <h1>
-                AddPosts
-            </h1>
-        </div>
-        /*<div className="post-container">
+
+        <div className="  w-[70%]  bg-gray-800 mt-10 rounded-3xl ">
             {isLoading ? (
                 <i className="fas fa-spinner fa-pulse"></i>
             ) : (
                 <>
-                    <div className="flex flex-col lg:flex-row justify-between items-center mb-6">
-                        <div className="flex flex-col items-center text-center lg:text-left">
-                            <p className="font-medium text-lg mb-2">
-                                <span className="font-bold">
-                                    {userData.following ? userData.following.length : 0}
-                                </span>{" "}
-                                Abonnement
-                                {userData.following && userData.following.length > 1 ? "s" : null}
-                            </p>
-                            <p className="font-medium text-lg">
-                                <span className="font-bold">
-                                    {userData.followers ? userData.followers.length : 0}
-                                </span>{" "}
-                                Abonné
-                                {userData.followers && userData.followers.length > 1 ? "s" : null}
-                            </p>
+                    <div className=" flex lg:flex-row items-center  ">
+                        <div className="flex p-4 lg:flex-row items-center mb-2">
+                            <NavLink exact to="/profil">
+                                <img
+                                    src={userData.picture}
+                                    alt="user-img"
+                                    className="w-16 h-16 p-2 rounded-full  border-2 border-red-800 object-cover"
+                                />
+                            </NavLink>
                         </div>
-                        <NavLink exact to="/profil" className="w-12 h-12 rounded-full overflow-hidden">
-                            <img
-                                src={userData.picture}
-                                alt="user-img"
-                                className="w-full h-full object-cover"
-                            />
-                        </NavLink>
-                    </div>
-                    <div className="w-full bg-white rounded-lg p-6 mb-6">
                         <textarea
-                            className="w-full h-32 border-2 border-gray-300 rounded-lg p-2"
+                            className="w-full h-12 border-2 mr-10 justify-center items-center border-gray-300 rounded-lg p-2 focus:outline-none focus:border-red-800"
                             name="message"
                             id="message"
                             placeholder="Quoi de neuf ?"
                             onChange={(e) => setMessage(e.target.value)}
                             value={message}
                         />
+
+
+                    </div>
+                    <div className="w-full items-center rounded-lg p-6 mb-2">
+
                         {message || postPicture || video.length > 20 ? (
-                            <div className="flex flex-col lg:flex-row items-start lg:items-center mb-6">
+                            <div className="flex flex-col lg:flex-row items-start lg:items-center mb-2">
                                 <div className="w-12 h-12 rounded-full overflow-hidden mr-6 lg:mr-0">
                                     <img
                                         src={userData.picture}
@@ -120,7 +110,7 @@ const AddPosts = () => {
                                     />
                                 </div>
                                 <div className="flex-1">
-                                    <div className="flex justify-between mb-2">
+                                    <div className="flex justify-between ">
                                         <div className="font-medium">{userData.pseudo}</div>
                                         <div className="text-gray-600">{timestampParser(Date.now())}</div>
                                     </div>
@@ -140,19 +130,25 @@ const AddPosts = () => {
                                             allowFullScreen
                                             title={video}
                                             className="w-full h-64 object-cover mb-2"
-                                        ></iframe>
+                                        >
+                                        </iframe>
                                     )}
                                 </div>
                             </div>
-                        ) : null}
-                        <div className="flex justify-between items-center">
-                            <div className="flex items-center">
+                        ) : null
+                        }
+                        <div className="flex space-x-10 items-center">
+                            <div className="flex items-center space-x-3">
                                 <label htmlFor="file" className="cursor-pointer">
-                                    <img
-                                        src="./img/icons/picture.svg"
-                                        alt="picture"
-                                        className="h-8 mr-4"
-                                    />
+                                    <div className="flex w-32 h-12 justify-center rounded-xl bg-gray-700 hover:bg-slate-600 items-center" >
+                                        <BsImageFill
+                                            size={25}
+                                            className="h-8 mr-4"
+
+                                        />
+                                        <span className="text-sm text-white">Photo</span>
+
+                                    </div>
                                 </label>
                                 <input
                                     type="file"
@@ -162,19 +158,36 @@ const AddPosts = () => {
                                     onChange={(e) => setPostPicture(e.target.files[0])}
                                     style={{ display: "none" }}
                                 />
-                                <img
-                                    src="./img/icons/video.svg"
-                                    alt="video"
-                                    className="h-8 mr-4"
+                                <label htmlFor="video" className="cursor-pointer">
+                                    <div className="flex w-32 h-12 justify-center rounded-xl  bg-gray-700 hover:bg-slate-600  items-center" >
+                                        <HiVideoCamera
+                                            className="h-8 mr-4"
+                                            size={25}
+                                        />
+                                        <span className="text-sm text-white">Video</span>
+                                    </div>
+                                </label>
+                                <input
+                                    type="file"
+                                    id="video"
+                                    name="video"
+                                    accept=".mp4, .avi, .mov"
+                                    onChange={(e) => setFile(e.target.files[0])}
+                                    style={{ display: "none" }}
                                 />
-                                <img
-                                    src="./img/icons/tags.svg"
-                                    alt="tags"
-                                    className="h-8 mr-4"
-                                />
+                                <label className="cursor-pointer">
+                                    <div className="flex w-32 h-12 justify-center rounded-xl  bg-gray-700 hover:bg-slate-600  items-center" >
+                                        <IoPricetagsSharp
+                                            size={25}
+
+                                            className="h-8 mr-4"
+                                        />
+                                        <span className="text-sm text-white">Tags</span>
+                                    </div>
+                                </label>
                             </div>
                             <button
-                                className="bg-blue-400 text-white font-bold py-2 px-4 rounded-full"
+                                className="bg-blue-400 hover:bg-blue-700 text-white font-bold w-32 h-12F py-2 px-4 rounded-xl"
                                 onClick={handlePost}
                             >
                                 Publier
@@ -185,7 +198,7 @@ const AddPosts = () => {
                 </>
             )
             }
-        </div>*/
+        </div>
     );
 }
 

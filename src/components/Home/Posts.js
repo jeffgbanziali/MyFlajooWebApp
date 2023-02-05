@@ -18,13 +18,13 @@ const Posts = ({ post }) => {
     return (
         <>
 
-            <div className='grid-2 w-10/12 gap-4 border-2 border-color-2 py-4 px-6 mx-auto relative min-h-100 border-gray-600 rounded-lg bg-black ' key={post._id}>
+            <div className='w-[70%] h-[50%] border-2 border-color-2 py-4 px-6 relative min-h-100  border-gray-600 rounded-3xl bg-gray-800' key={post._id}>
                 {
                     loading ? (
                         <i className="fas fa-spinner fa-spin absolute t-[50%] left-[50%] size-12"></i>
                     ) : (
                         <>
-                            <section id='post-header'>
+                            <div id='post-header '>
                                 <div className="flex justify-between">
                                     <div className="flex flex-row">
 
@@ -42,7 +42,7 @@ const Posts = ({ post }) => {
                                             alt="user-pic"
                                         />
                                         <div className='flex  md:ml-18'>
-                                            <div className=" flex justify-between  flex-col min-h-35">
+                                            <div className=" flex  flex-col min-h-35">
                                                 <div className='flex sm:mt-4 md:translate-y-18 mb-4 '  >
                                                     <h4 className="text-white font-semibold">
                                                         {
@@ -70,28 +70,24 @@ const Posts = ({ post }) => {
                                     </div>
                                 </div>
 
-                            </section>
-                            <section id='post-body'>
-                                <div className="flex flex-col">
-                                    <div className="flex ">
-                                        <span className="text-gray-100 text-sm font-normal text-justify sm:text-base md:text-lg lg:text-xl xl:text-sm">
-                                            {post.message}
-                                        </span>
-                                    </div>
-                                    <div className=" flex justify-start mt-2 items-start "
-                                    >
-                                        {
-                                            post.picture && (
-                                                <img src={post.picture}
-                                                    alt="post-pic"
-                                                    className=" w-full h-full transition duration-150 cursor-pointer hover:scale-120 hover:translate-0 transform hover:shadow-none"
-                                                />
-                                            )
-                                        }
-                                    </div>
+                            </div>
+                            <div id='post-body'>
+                                <p className="text-gray-100 text-sm font-normal text-justify sm:text-base md:text-lg lg:text-xl xl:text-sm">
+                                    {post.message}
+                                </p>
+
+                                <div className=" flex justify-center mt-2 items-center " >
+                                    {
+                                        post.picture && (
+                                            <img src={post.picture}
+                                                alt="post-pic"
+                                                className=" w-full h-[50%] rounded-2xl transition duration-150 cursor-pointer hover:scale-120 hover:translate-0 transform hover:shadow-none"
+                                            />
+                                        )
+                                    }
                                 </div>
 
-                            </section>
+                            </div>
 
                         </>
 
