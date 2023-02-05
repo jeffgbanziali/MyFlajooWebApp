@@ -34,7 +34,7 @@ const NavBar = () => {
                                 <input
                                     type="search"
                                     placeholder='Search'
-                                    className=" cursor-pointer flex items-center relative z-10 w-10 h-10 py-3 pl-10 rounded-full border bg-transparent outline-none focus:w-full  focus:cursor-text  focus:ring-red-600 focus:pl-10 focus:pr-4" />
+                                    className=" cursor-pointer flex items-center relative z-10 w-8 h-8 py-3 pl-10 rounded-full border bg-transparent outline-none focus:w-full  focus:cursor-text  focus:ring-red-600 focus:pl-10 focus:pr-4" />
                                 <FiSearch className="absolute flex items-center justify-center inset-y-0 my-auto h-10 w-10 text-white border-r border-transparent stroke-gray-500 px-3.5" />
                             </form>
                         </div>
@@ -43,52 +43,49 @@ const NavBar = () => {
                 {
                     uid ? (
                         <>
-                            <div className='flex ml-10 justify-center  ' >
-                                <div className='  hover:text-black w-full h-full text-gray-400 text-2xl font-bold mr-20 mb-2 mt-2 '>
+                            <div className='flex ml-10 justify-center space-x-10 ' >
+                                <div className='  hover:text-black text-gray-400 text-2xl font-bold  mb-2 mt-2 '>
                                     <NavLink to="/">
-                                        <TbSmartHome size="36" />
+                                        <TbSmartHome size="20" />
                                     </NavLink>
                                 </div>
                                 <div className='hover:text-black text-gray-400 text-2xl font-bold mb-2 mt-2 '>
                                     <NavLink to="/">
-                                        <MdOutlineOndemandVideo size="36" />
+                                        <MdOutlineOndemandVideo size="20" />
                                     </NavLink>
                                 </div>
-                                <div className='hover:text-black text-gray-400 text-2xl font-bold mb-2 mt-2 ml-20 '>
+                                <div className='hover:text-black text-gray-400 text-2xl font-bold mb-2 mt-2  '>
                                     <NavLink to="/">
-                                        <HiOutlineUserGroup size="36" />
+                                        <HiOutlineUserGroup size="20" />
                                     </NavLink>
                                 </div>
-                                <div>
 
-                                    Bienvenue {userData.pseudo}
-                                </div>
                             </div>
-                            <div className='flex justify-end '>
-                                <div className="w-10 h-10 hover:bg-gray-500 bg-gray-300 rounded-full mr-3 cursor-pointer flex items-center justify-center">
+                            <div className='flex items-center justify-end space-x-4 mr-6 '>
+                                <div className="w-8 h-8 hover:bg-gray-500 bg-gray-300 rounded-full cursor-pointer flex items-center justify-center">
                                     <NavLink to="/notifications">
-                                        <IoMdNotifications size="26" color='black' />
+                                        <IoMdNotifications size="20" color='black' />
                                     </NavLink>
                                 </div>
-                                <div className="w-10 h-10 hover:bg-gray-500 bg-gray-300 rounded-full cursor-pointer mr-3 flex items-center justify-center">
+                                <div className="w-8 h-8 hover:bg-gray-500 bg-gray-300 rounded-full cursor-pointer  flex items-center justify-center">
                                     <NavLink to="/chat">
-                                        <BsMessenger size="22" color='black' />
+                                        <BsMessenger size="16" color='black' />
                                     </NavLink>
                                 </div>
-                                <div className="w-10 h-10 hover:bg-gray-500  bg-gray-300 rounded-full cursor-pointer  flex items-center justify-center">
+                                <div className="w-8 h-8 hover:bg-gray-500  bg-gray-300 rounded-full cursor-pointer flex items-center justify-center">
                                     <NavLink to="/menu">
-                                        <CgMenuGridR size="22" color='black' />
+                                        <CgMenuGridR size="20" color='black' />
                                     </NavLink>
                                 </div>
 
-                                <div className=" w-10 h-10 hover:bg-gray-500 bg-gray-300 rounded-full ml-3 cursor-pointer">
+                                <div className="  hover:bg-gray-500 bg-gray-300 rounded-full cursor-pointer">
                                     <NavLink to="/profile">
-                                        <img className="w-10 h-10 rounded-full" src="https://play-lh.googleusercontent.com/H-BL_nBtFpQY92qaBHGZ4cHAcceuBfLiXWAHGOUDPS-9Gp4TPnhEjQSCZWvpfEFOv_A" alt="Profil" />
+                                        <img className="w-8 h-8 rounded-full" src="https://play-lh.googleusercontent.com/H-BL_nBtFpQY92qaBHGZ4cHAcceuBfLiXWAHGOUDPS-9Gp4TPnhEjQSCZWvpfEFOv_A" alt="Profil" />
 
                                     </NavLink>
 
                                 </div>
-                                <div className='flex justify-between items-center mx-4'  >
+                                <div className='flex justify-between items-center mr-4'  >
                                     <Logout />
                                 </div>
 
