@@ -1,9 +1,6 @@
 import React, { } from 'react';
 import LeftNavBar from '../../components/NavBar/LeftNavBar';
-//import Thread from '../../components/Thread/Thread';
-import Stories from '../../components/Home/Stories';
-import AddPosts from '../../components/Home/AddPosts';
-import Posts from '../../components/Home/Posts';
+import Thread from '../../components/Thread/Thread';
 
 
 
@@ -11,15 +8,12 @@ const HomeScreen = () => {
 
     return (
         <>
-            <div className='relative  w-full h-screen bg-gray-500'>
-                <div className='flex justify-center items-center '>
-                    <Stories title="Home" />
-                </div>
-                <div className='flex justify-center items-center '>
-                    <AddPosts title="Home" />
-                </div>
-                <div className='flex justify-center items-center '>
-                    <Posts title="Home" />
+            <div className='flex max-w-1200 grid-cols-60px 1fr 374px overflow-hidden mx-auto my-58 relative md:grid-cols-60px 1fr md:mx-20 sm:grid-cols-1 sm:mx-8 sm:my-58 '>
+                <LeftNavBar />
+                <div>
+                    <div className='mx-auto ml-20 my-12 text-center'>
+                        <Thread title="Home" />
+                    </div>
                 </div>
 
             </div>

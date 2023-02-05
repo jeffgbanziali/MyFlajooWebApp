@@ -10,11 +10,13 @@ import { MdOutlineOndemandVideo } from "react-icons/md";
 import { HiOutlineUserGroup } from "react-icons/hi";
 import { TbSmartHome } from "react-icons/tb";
 import { FiSearch } from "react-icons/fi";
+import { useSelector } from 'react-redux';
 
 
 
 const NavBar = () => {
     const uid = useContext(UidContext);
+    const userData = useSelector((state) => state.userReducer);
     return (
         <div className='fixed top-0 w-full h-14 items-center  bg-gradient-to-b z-50 text-white bg-gray-900 '>
             <div className='flex justify-between  xl:flex-row flex-col ml-6  items-center '
@@ -57,6 +59,10 @@ const NavBar = () => {
                                         <HiOutlineUserGroup size="36" />
                                     </NavLink>
                                 </div>
+                                <div>
+
+                                    Bienvenue {userData.pseudo}
+                                </div>
                             </div>
                             <div className='flex justify-end '>
                                 <div className="w-10 h-10 hover:bg-gray-500 bg-gray-300 rounded-full mr-3 cursor-pointer flex items-center justify-center">
@@ -75,10 +81,12 @@ const NavBar = () => {
                                     </NavLink>
                                 </div>
 
-                                <div className="w-10 h-10 hover:bg-gray-500 bg-gray-300 rounded-full ml-3 cursor-pointer">
+                                <div className=" w-10 h-10 hover:bg-gray-500 bg-gray-300 rounded-full ml-3 cursor-pointer">
                                     <NavLink to="/profile">
                                         <img className="w-10 h-10 rounded-full" src="https://play-lh.googleusercontent.com/H-BL_nBtFpQY92qaBHGZ4cHAcceuBfLiXWAHGOUDPS-9Gp4TPnhEjQSCZWvpfEFOv_A" alt="Profil" />
+
                                     </NavLink>
+
                                 </div>
                                 <div className='flex justify-between items-center mx-4'  >
                                     <Logout />

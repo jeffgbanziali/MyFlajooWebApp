@@ -1,14 +1,45 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { getPosts } from '../../actions/post.actions';
+import { useDispatch, useSelector } from 'react-redux';
 import Stories from '../Home/Stories';
+import Posts from '../Home/Posts';
+import AddPosts from '../Home/AddPosts';
+import { isEmpty } from '../Utils/Utils';
 
 const Thread = () => {
+    const [loadPosts, setLoadPosts] = useState(true);
+    const dispatch = useDispatch();
+    const posts = useSelector((state) => state.postReducer);
+
+    useEffect(() => {
+        if (loadPosts) {
+            dispatch(getPosts());
+            setLoadPosts(false);
+        }
+
+    }, [loadPosts, dispatch])
     return (
         <>
             <div className='flex justify-center items-center '>
-                <h2>
-                    bonjour du  jour
-                </h2>
+                <Stories title="Home" />
             </div>
+            <div className='flex justify-center items-center '>
+                <AddPosts title="Home" />
+            </div>
+            <div>
+                <ul className=' justify-center items-center '>
+                    {!isEmpty(posts[0]) &&
+                        posts.map((post) => {
+                            return (
+                                <li>
+                                    <Posts post={post} key={post._id} />
+                                </li>)
+                        })}
+
+
+                </ul>
+            </div>
+
         </>
 
     );

@@ -3,11 +3,14 @@ import Navigation from './Navigation/Navigation';
 import { useEffect } from 'react';
 import axios from 'axios';
 import { UidContext } from './Context/AppContext';
+import { getUser } from './actions/user.action';
+import { useDispatch } from 'react-redux';
 
 
 
 function App() {
   const [uid, setUid] = useState(null);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const fetchToken = async () => {
@@ -22,7 +25,8 @@ function App() {
         .catch((err) => console.log("No token"));
     };
     fetchToken();
-  }, [uid]);
+    if (uid) dispatch(getUser(uid))
+  }, [uid, dispatch]);
   return (
     <UidContext.Provider value={uid}>
       <Navigation />

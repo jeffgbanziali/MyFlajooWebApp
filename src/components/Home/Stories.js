@@ -2,23 +2,13 @@ import React from 'react';
 
 const Stories = () => {
     return (
-        <div className="w-[40%] p-10 bg-cover rounded-xl self-center items-center justify-center mt-20 bg-[#212020]">
-            <div className="flex flex-row items-center  self-center content-center justify-between   my-auto  ">
-                <div >
-                    <img className="w-32 h-56 rounded-xl border-2  " src="https://picsum.photos/200/300" alt="" />
-                </div>
-                <div>
-                    <img className="w-32 h-56 rounded-xl" src="https://picsum.photos/200/300" alt="" />
-                </div>
-                <div>
-                    <img className="w-32 h-56 rounded-xl " src="https://picsum.photos/200/300" alt="" />
-                </div>
-                <div>
-                    <img className="w-32 h-56 rounded-xl " src="https://picsum.photos/200/300" alt="" />
-                </div>
-                <div>
-                    <img className="w-32 h-56 rounded-xl " src="https://picsum.photos/200/300" alt="" />
-                </div>
+        <div className=" flex bg-cover  border-2 border-color-2 py-4 px-20 mx-auto relative min-h-100 border-gray-600 rounded-lg self-center items-center justify-center mt-20 bg-[#212020]">
+            <div className="flex flex-row items-center justify-between my-auto  ">
+                <img className="w-16 h-28 sm:w-32 sm:h-56 rounded-xl object-cover " src="https://picsum.photos/200/300" alt="" />
+                <img className="w-16 h-28 sm:w-32 sm:h-56 rounded-xl object-cover" src="https://picsum.photos/200/300" alt="" />
+                <img className="w-16 h-28 sm:w-32 sm:h-56 rounded-xl object-cover" src="https://picsum.photos/200/300" alt="" />
+                <img className="w-16 h-28 sm:w-32 sm:h-56 rounded-xl object-cover " src="https://picsum.photos/200/300" alt="" />
+                <img className="w-16 h-28 sm:w-32 sm:h-56 rounded-xl object-cover" src="https://picsum.photos/200/300" alt="" />
             </div>
         </div>
     );
