@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import { getPosts } from '../../actions/post.actions';
-import { isEmpty, timestampParser } from '../Utils/Utils';
+import { getPosts } from '../../../actions/post.actions';
+import { isEmpty, timestampParser } from '../../Utils/Utils';
 import { BsImageFill } from 'react-icons/bs';
 import { HiVideoCamera } from 'react-icons/hi';
 import { IoPricetagsSharp } from 'react-icons/io5';
