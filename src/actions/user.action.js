@@ -6,6 +6,8 @@ export const UPDATE_BIO = "UPDATE_BIO";
 export const FOLLOW_USER = "FOLLOW_USER";
 export const UNFOLLOW_USER = "UNFOLLOW_USER";
 
+export const GET_USER_ERRORS = "GET_USER_ERRORS";
+
 
 export const getUser = (uid) => {
     return (dispatch) => {
@@ -54,7 +56,7 @@ export const followUser = (idToFollow, followerId) => {
         return axios
             .patch(`http://localhost:5000/api/user/follow/` + followerId, { idToFollow })
             .then((res) => {
-                dispatch({ type: FOLLOW_USER, payload: {idToFollow} });
+                dispatch({ type: FOLLOW_USER, payload: { idToFollow } });
             }
             )
             .catch((err) => console.log(err));
@@ -65,7 +67,7 @@ export const unfollowUser = (idToUnfollow, followerId) => {
         return axios
             .patch(`http://localhost:5000/api/user/unfollow/` + followerId, { idToUnfollow })
             .then((res) => {
-                dispatch({ type: UNFOLLOW_USER, payload: {idToUnfollow} });
+                dispatch({ type: UNFOLLOW_USER, payload: { idToUnfollow } });
             }
             )
             .catch((err) => console.log(err));

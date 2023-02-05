@@ -2,6 +2,8 @@ import { combineReducers } from 'redux';
 import userReducer from './user.reducer';
 import usersReducer from './users.reducer';
 import postReducer from './post.reducer';
+import errorReducer from './errors.reducer';
+
 
 
 
@@ -11,7 +13,10 @@ export default combineReducers({
     usersReducer,
     // posts: postsReducer,
     postReducer,
-    // conversation: conversationReducer,²
+    // conversation: conversationReducer,
+
+    // error: errorReducer
+    errorReducer
 });
 
 

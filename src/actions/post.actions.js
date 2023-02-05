@@ -9,6 +9,8 @@ export const UNLIKE_POST = "UNLIKE_POST";
 
 export const ADD_COMMENT = "ADD_COMMENT";
 
+export const GET_POST_ERRORS = "GET_POST_ERRORS";
+
 
 export const getPosts = (num) => {
     return (dispatch) => {
@@ -20,6 +22,19 @@ export const getPosts = (num) => {
             }
             )
             .catch((err) => console.log(err));
+    }
+};
+export const addPosts = (data) => {
+    return (dispatch) => {
+        return axios
+            .get(`http://192.168.0.34:5000/api/post`, data)
+            .then((res) => {
+                if (res.data.errors) {
+                    dispatch({ type: GET_POST_ERRORS, payload: res.data.errors });
+                } else {
+                    dispatch({ type: GET_POST_ERRORS, payload: "" });
+                }
+            });
     }
 };
 
