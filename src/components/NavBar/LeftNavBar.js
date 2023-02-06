@@ -21,8 +21,8 @@ const LeftNavBar = () => {
 
                         </div>
                         <div className="flex flex-col mt-2">
-                            <h2 className="text-center text-gray-800 font-semibold text-lg">{userData.pseudo}</h2>
-                            <h1 className="text-center text-gray-800 font-semibold text-lg">Surname</h1>
+                            <h2 className="text-center text-gray-800 font-semibold text-xl">{userData.pseudo}</h2>
+                            <h1 className="text-center text-gray-400 font-normal text-lg">@Surname</h1>
                         </div>
                         <div>
                             <Follow />
