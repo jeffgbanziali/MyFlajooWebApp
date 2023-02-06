@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import { getPosts } from '../../../actions/post.actions';
+import { addPosts, getPosts } from '../../../actions/post.actions';
 import { isEmpty, timestampParser } from '../../Utils/Utils';
 import { BsImageFill } from 'react-icons/bs';
 import { HiVideoCamera } from 'react-icons/hi';
 import { IoPricetagsSharp } from 'react-icons/io5';
-//import { AddPosts } from '../../actions/post.actions';
 
-const AddPosts = () => {
+const AddingPosts = () => {
 
     const [isLoading, setIsLoading] = useState(true);
     const [message, setMessage] = useState("");
@@ -26,7 +25,7 @@ const AddPosts = () => {
             if (file) data.append("file", file);
             data.append('video', video);
 
-            await dispatch(AddPosts(data));
+            await dispatch(addPosts(data));
             dispatch(getPosts());
             cancelPost();
         } else {
@@ -202,4 +201,4 @@ const AddPosts = () => {
     );
 }
 
-export default AddPosts;
+export default AddingPosts;

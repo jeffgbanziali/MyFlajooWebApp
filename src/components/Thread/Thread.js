@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { getPosts } from '../../actions/post.actions';
 import { useDispatch, useSelector } from 'react-redux';
-import Stories from '../Home/Stories/Stories';
-import Posts from '../Home/CardsPosts.js/Posts';
-import AddPosts from '../Home/CardsPosts.js/AddPosts';
+import Posts from '../Home/CardsPosts/Posts';
+import AddingPosts from '../Home/CardsPosts/AddingPosts';
 import { isEmpty } from '../Utils/Utils';
 
 const Thread = () => {
@@ -22,7 +21,7 @@ const Thread = () => {
         <>
             <div className='flex space-y-4 flex-col mt-10 mr-24 justify-start '>
                 <div className='flex justify-start '>
-                    <AddPosts title="Home" />
+                    <AddingPosts title="Home" />
                 </div>
                 <div className='space-y-4'>
                     {!isEmpty(posts[0]) &&

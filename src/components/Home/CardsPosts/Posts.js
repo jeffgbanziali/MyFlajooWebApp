@@ -17,7 +17,6 @@ const Posts = ({ post }) => {
 
     return (
         <>
-
             <div className='w-[70%] h-[50%] border-2 border-color-2 py-4 px-6 relative min-h-100  border-gray-600 rounded-3xl bg-gray-800' key={post._id}>
                 {
                     loading ? (
