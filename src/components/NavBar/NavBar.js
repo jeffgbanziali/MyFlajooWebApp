@@ -10,6 +10,8 @@ import { MdOutlineOndemandVideo } from "react-icons/md";
 import { HiOutlineUserGroup } from "react-icons/hi";
 import { TbSmartHome } from "react-icons/tb";
 import { FiSearch } from "react-icons/fi";
+import { BsCaretDownFill } from "react-icons/bs";
+
 import { useSelector } from 'react-redux';
 
 
@@ -18,13 +20,12 @@ const NavBar = () => {
     const uid = useContext(UidContext);
     const userData = useSelector((state) => state.userReducer);
     return (
-        <div className='fixed top-0 w-full h-14 items-center  bg-gradient-to-b z-50 text-white bg-gray-900 '>
-            <div className='flex justify-between  xl:flex-row flex-col ml-6  items-center '
-            >
+        <div className=' fixed p-2  w-full justify-between items-center  bg-gradient-to-b z-50 text-white '>
+            <div className='flex justify-between  xl:flex-row flex-col ml-6 items-center '>
                 <div className='flex items-center' >
                     <div className='flex items-center'>
                         <a href="/" className=' text-white text-2xl font-bold '>
-                            <img className="w-12 h-12 rounded-full" src={image} alt="" />
+                            <img className="w-16 h-16 rounded-full" src={image} alt="" />
                         </a>
                     </div>
 
@@ -43,51 +44,83 @@ const NavBar = () => {
                 {
                     uid ? (
                         <>
-                            <div className='flex ml-10 justify-center space-x-10 ' >
-                                <div className='  hover:text-black text-gray-400 text-2xl font-bold  mb-2 mt-2 '>
-                                    <NavLink to="/">
-                                        <TbSmartHome size="20" />
-                                    </NavLink>
-                                </div>
-                                <div className='hover:text-black text-gray-400 text-2xl font-bold mb-2 mt-2 '>
-                                    <NavLink to="/">
-                                        <MdOutlineOndemandVideo size="20" />
-                                    </NavLink>
-                                </div>
-                                <div className='hover:text-black text-gray-400 text-2xl font-bold mb-2 mt-2  '>
-                                    <NavLink to="/">
-                                        <HiOutlineUserGroup size="20" />
-                                    </NavLink>
-                                </div>
 
-                            </div>
-                            <div className='flex items-center justify-end space-x-4 mr-6 '>
-                                <div className="w-8 h-8 hover:bg-gray-500 bg-gray-300 rounded-full cursor-pointer flex items-center justify-center">
-                                    <NavLink to="/notifications">
-                                        <IoMdNotifications size="20" color='black' />
-                                    </NavLink>
-                                </div>
-                                <div className="w-8 h-8 hover:bg-gray-500 bg-gray-300 rounded-full cursor-pointer  flex items-center justify-center">
-                                    <NavLink to="/chat">
-                                        <BsMessenger size="16" color='black' />
-                                    </NavLink>
-                                </div>
-                                <div className="w-8 h-8 hover:bg-gray-500  bg-gray-300 rounded-full cursor-pointer flex items-center justify-center">
-                                    <NavLink to="/menu">
-                                        <CgMenuGridR size="20" color='black' />
-                                    </NavLink>
-                                </div>
-
-                                <div className="  hover:bg-gray-500 bg-gray-300 rounded-full cursor-pointer">
-                                    <NavLink to="/profile">
-                                        <img className="w-8 h-8 rounded-full" src="https://play-lh.googleusercontent.com/H-BL_nBtFpQY92qaBHGZ4cHAcceuBfLiXWAHGOUDPS-9Gp4TPnhEjQSCZWvpfEFOv_A" alt="Profil" />
-
-                                    </NavLink>
+                            <div className='flex items-center space-x-8 mr-6 '>
+                                <div className='flex ml-10 justify-end space-x-6 ' >
+                                    <div className='flex flex-row hover:text-red-700 cursor-pointer p-2 rounded-2xl  bg-red-100 text-gray-400 text-2xl font-bold  mb-2 mt-2 '>
+                                        <NavLink to="/">
+                                            <TbSmartHome size="28" />
+                                        </NavLink>
+                                        <p className="flex items-center justify-center ml-2 text-xs font-semibold">Home</p>
+                                    </div>
+                                    <div className='flex flex-row hover:text-red-700 cursor-pointer p-2 rounded-2xl  bg-red-100 text-gray-400 text-2xl font-bold mb-2 mt-2 '>
+                                        <NavLink to="/">
+                                            <MdOutlineOndemandVideo size="28" />
+                                        </NavLink>
+                                        <p className="flex items-center justify-center ml-2 text-xs font-semibold">Home</p>
+                                    </div>
+                                    <div className='flex flex-row hover:text-red-700 cursor-pointer rounded-2xl  p-2 bg-red-100 text-gray-400 text-2xl font-bold mb-2 mt-2  '>
+                                        <NavLink to="/">
+                                            <HiOutlineUserGroup size="28" />
+                                        </NavLink>
+                                        <p className="flex items-center justify-center ml-2 text-xs font-semibold">Home</p>
+                                    </div>
 
                                 </div>
-                                <div className='flex justify-between items-center mr-4'  >
-                                    <Logout />
+                                <div className='flex items-center  space-x-4'>
+                                    <div>
+                                        <div className="w-12 h-12 hover:bg-gray-500 bg-gray-300 rounded-full cursor-pointer flex items-center justify-center">
+                                            <div className="absolute flex ml-10 mb-6">
+                                                <div class="flex  bg-red-600  w-7 h-5 rounded-full items-center justify-center ">
+                                                    <p className="text-white text-[12px] font-semibold">20+</p>
+                                                </div>
+                                            </div>
+                                            <NavLink to="/notifications">
+                                                <IoMdNotifications size="28" color='black' />
+                                            </NavLink>
+                                        </div>
+                                    </div>
+
+                                    <div>
+
+                                        <div className="w-12 h-12 hover:bg-gray-500  bg-gray-300 rounded-full cursor-pointer flex items-center justify-center">
+                                            <div className="absolute flex ml-10 mb-6">
+                                                <div class="flex  bg-red-600  w-5 h-5 rounded-full items-center justify-center ">
+                                                    <p className="text-white text-[12px] font-semibold">2</p>
+                                                </div>
+                                            </div>
+                                            <NavLink to="/chat">
+                                                <BsMessenger
+                                                    size="24" color='black' />
+                                            </NavLink>
+                                        </div>
+                                    </div>
+
+                                    <div className="w-12 h-12 hover:bg-gray-500  bg-gray-300 rounded-full cursor-pointer flex items-center justify-center">
+                                        <NavLink to="/menu">
+                                            <CgMenuGridR
+                                                size="24" color='black' />
+                                        </NavLink>
+                                    </div>
+
+                                    <div className=" flex items-center justify-between  bg-slate-500 p-1 w-32 hover:bg-gray-500 rounded-full cursor-pointer">
+                                        <NavLink to="/profile">
+                                            <img className="w-8 h-8 rounded-full" src="https://play-lh.googleusercontent.com/H-BL_nBtFpQY92qaBHGZ4cHAcceuBfLiXWAHGOUDPS-9Gp4TPnhEjQSCZWvpfEFOv_A" alt="Profil" />
+                                        </NavLink>
+                                        <div>
+                                            <h2 className="text-[16px]  font-semibold text-gray-400">{userData.pseudo}</h2>
+                                        </div>
+                                        <div className="flex items-center justify-center  mr-2">
+                                            <button type="">
+                                                <BsCaretDownFill size="14" color='black' />
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div className='flex justify-between items-center mr-4'  >
+                                        <Logout />
+                                    </div>
                                 </div>
+
 
                             </div>
 
@@ -100,7 +133,7 @@ const NavBar = () => {
 
                             <div className='flex justify-between items-center'>
                                 <NavLink to="/sign-in">
-                                    <button className=' bg-red-400 hover:bg-red-700 font-bold w-24 h-8 my-4 rounded text-white  mb-2'>
+                                    <button className=' bg-red-400  hover:bg-red-700 font-bold w-24 h-8 my-4 rounded text-white  mb-2'>
                                         <h2 className='' >
                                             Sign In
                                         </h2>

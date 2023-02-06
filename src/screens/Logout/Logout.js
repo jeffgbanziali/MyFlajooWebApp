@@ -22,9 +22,9 @@ const Logout = () => {
     };
 
     return (
-        <div className=" flex  w-8 h-8 bg-gray-300 rounded-full" onClick={logout} title="Logout" >
+        <div className=" flex  w-8 h-8 items-center justify-center bg-gray-300 rounded-full" onClick={logout} title="Logout" >
             <div className="flex flex-col justify-center items-center content-center self-center cursor-pointer text-center" >
-                <img className="flex w-4 h-4 mt-1.5 ml-1.5"
+                <img className="flex w-4 h-4 "
                     src="./img/icons/logout.svg" alt="logout" />
             </div>
         </div>

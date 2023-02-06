@@ -8,14 +8,14 @@ const FollowBar = () => {
 
     return (
         <div className=" flex flex-col w-96 h-auto mt-4 ml-6 bg-gray-600  border-2 border-red-700 border-opacity-50 rounded-xl">
-            <div className="flex p-3 mt-4 rounded-b-xl bg-gray-600 ">
+            <div className="flex p-3 ml-6 mt-4 rounded-b-xl bg-gray-600 ">
                 <h1 className="text-center text-slate-400 font-semibold text-2xl">
                     Who is follow you
                 </h1>
             </div>
 
             <div className="flex flex-col -space-y-2 ">
-                <div className="flex mt-2 p-4 hover:bg-red-400 items-center justify-between   " >
+                <div className="flex mt-2 p-4 hover:bg-gray-800 cursor-pointer  items-center justify-between   " >
                     <div className="" >
                         <div className="flex flex-row items-center ">
                             <div className="flex items-center" >
@@ -28,13 +28,13 @@ const FollowBar = () => {
                         </div>
                     </div>
 
-                    <button className="bg-gray-800  hover:bg-blue-500 w-28 h-14 rounded-full">
-                        <h2 className="text-center text-gray-600 font-semibold text-xl">Follow</h2>
+                    <button className="bg-red-600  hover:bg-red-500 w-28 h-14 rounded-full">
+                        <h2 className="text-center text-slate-200 font-semibold text-xl">Follow</h2>
                     </button>
                 </div>
             </div>
             <div className="flex flex-col -space-y-2 ">
-                <div className="flex mt-2 p-4 hover:bg-red-400 items-center justify-between   " >
+                <div className="flex mt-2 p-4 hover:bg-gray-800 cursor-pointer   items-center justify-between   " >
                     <div className="" >
                         <div className="flex flex-row items-center ">
                             <div className="flex items-center" >
@@ -47,13 +47,13 @@ const FollowBar = () => {
                         </div>
                     </div>
 
-                    <button className="bg-gray-800  hover:bg-blue-500 w-28 h-14 rounded-full">
-                        <h2 className="text-center text-gray-600 font-semibold text-xl">Follow</h2>
+                    <button className="bg-red-600  hover:bg-red-500 w-28 h-14 rounded-full">
+                        <h2 className="text-center text-slate-200 font-semibold text-xl">Follow</h2>
                     </button>
                 </div>
             </div>
             <div className="flex flex-col -space-y-2 ">
-                <div className="flex mt-2 p-4 hover:bg-red-400 rounded-b-xl items-center justify-between   " >
+                <div className="flex mt-2 p-4 hover:bg-gray-800  cursor-pointer rounded-b-xl items-center justify-between   " >
                     <div className="" >
                         <div className="flex flex-row items-center ">
                             <div className="flex items-center" >
@@ -66,8 +66,8 @@ const FollowBar = () => {
                         </div>
                     </div>
 
-                    <button className="bg-gray-800  hover:bg-blue-500 w-28 h-14 rounded-full">
-                        <h2 className="text-center text-gray-600 font-semibold text-xl">Follow</h2>
+                    <button className="bg-red-600  hover:bg-red-500 w-28 h-14 rounded-full">
+                        <h2 className="text-center text-slate-200 font-semibold text-xl">Follow</h2>
                     </button>
                 </div>
             </div>

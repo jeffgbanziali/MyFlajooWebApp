@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { dateParser, isEmpty } from '../../Utils/Utils';
 import { FiMoreHorizontal } from 'react-icons/fi';
+import { FaFacebookMessenger, FaHeart, FaRegComment } from 'react-icons/fa';
 
 
 const Posts = ({ post }) => {
@@ -80,10 +81,45 @@ const Posts = ({ post }) => {
                                         post.picture && (
                                             <img src={post.picture}
                                                 alt="post-pic"
-                                                className=" w-full h-[50%] rounded-2xl transition duration-150 cursor-pointer hover:scale-120 hover:translate-0 transform hover:shadow-none"
+                                                className=" w-full h-full rounded-2xl transition duration-150 cursor-pointer hover:scale-120 hover:translate-0 transform hover:shadow-none"
                                             />
                                         )
                                     }
+                                </div>
+                                <div>
+                                    {post.video && (
+                                        <iframe
+                                            className="flex w-[100%] h-96 rounded-2xl transition duration-150 cursor-pointer hover:scale-120 hover:translate-0 transform hover:shadow-none"
+                                            src={post.video}
+                                            frameBorder="0"
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                            allowFullScreen
+                                            title={post._id}
+                                        >
+                                        </iframe>
+                                    )}
+                                </div>
+                                <div>
+                                    <div className="flex space-x-4">
+                                    
+                                        <div>
+                                            <div className="flex w-12 h-12 mt-2  bg-black hover:bg-red-800 cursor-pointer justify-center items-center rounded-full">
+                                                <FaHeart className="text-red-500 " size={20} />
+                                            </div>
+                                            <span className="text-gray-500 text-sm font-normal text-justify sm:text-base md:text-lg lg:text-xl xl:text-sm">
+                                                {post.likers.length} likes
+                                            </span>
+                                        </div>
+                                        <div>
+                                            <div className="flex w-12 h-12 mt-2  bg-black hover:bg-red-800 cursor-pointer justify-center items-center rounded-full">
+                                                <FaRegComment className="text-red-500 " size={20} />
+                                            </div>
+                                            <span className="text-gray-500 text-sm font-normal text-justify sm:text-base md:text-lg lg:text-xl xl:text-sm">
+                                                {post.comments.length} comments
+                                            </span>
+                                        </div>
+
+                                    </div>
                                 </div>
 
                             </div>
