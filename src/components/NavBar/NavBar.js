@@ -47,19 +47,19 @@ const NavBar = () => {
 
                             <div className='flex items-center space-x-8 mr-6 '>
                                 <div className='flex ml-10 justify-end space-x-6 ' >
-                                    <div className='flex flex-row hover:text-red-700 cursor-pointer p-2 rounded-2xl  bg-red-100 text-gray-400 text-2xl font-bold  mb-2 mt-2 '>
+                                    <div className='flex flex-row hover:text-red-700 cursor-pointer p-2 rounded-2xl  bg-gray-200 text-gray-400 text-2xl font-bold  mb-2 mt-2 '>
                                         <NavLink to="/">
                                             <TbSmartHome size="28" />
                                         </NavLink>
                                         <p className="flex items-center justify-center ml-2 text-xs font-semibold">Home</p>
                                     </div>
-                                    <div className='flex flex-row hover:text-red-700 cursor-pointer p-2 rounded-2xl  bg-red-100 text-gray-400 text-2xl font-bold mb-2 mt-2 '>
+                                    <div className='flex flex-row hover:text-red-700 cursor-pointer p-2 rounded-2xl  bg-gray-200 text-gray-400 text-2xl font-bold mb-2 mt-2 '>
                                         <NavLink to="/">
                                             <MdOutlineOndemandVideo size="28" />
                                         </NavLink>
                                         <p className="flex items-center justify-center ml-2 text-xs font-semibold">Home</p>
                                     </div>
-                                    <div className='flex flex-row hover:text-red-700 cursor-pointer rounded-2xl  p-2 bg-red-100 text-gray-400 text-2xl font-bold mb-2 mt-2  '>
+                                    <div className='flex flex-row hover:text-red-700 cursor-pointer rounded-2xl  p-2 bg-gray-200 text-gray-400 text-2xl font-bold mb-2 mt-2  '>
                                         <NavLink to="/">
                                             <HiOutlineUserGroup size="28" />
                                         </NavLink>
