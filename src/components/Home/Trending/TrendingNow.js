@@ -1,13 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-const FollowBar = () => {
+const TrendingNow = () => {
     const userData = useSelector((state) => state.userReducer);
     const dispatch = useDispatch();
 
+    const [followersPopop, setFollowersPopop] = useState([]);
+    const [followingPopop, setFollowingPopop] = useState([])
 
+    const handleFollowing = () => {
+
+    }
+
+    const handleFollowers = () => {
+
+    }
     return (
-        <div className=" flex flex-col w-96 h-auto mt-4 ml-6 bg-gray-600  border-2 border-red-700 border-opacity-50 rounded-xl">
+        <div className=" flex flex-col w-96 h-auto mt-20 mr-6 bg-gray-600  border-2 border-red-700 border-opacity-50 rounded-xl">
             <div className="flex p-3 ml-6 mt-4 rounded-b-xl bg-gray-600 ">
                 <h1 className="text-center text-slate-400 font-semibold text-2xl">
                     Who is follow you
@@ -189,4 +198,4 @@ const FollowBar = () => {
     );
 }
 
-export default FollowBar;
+export default TrendingNow;

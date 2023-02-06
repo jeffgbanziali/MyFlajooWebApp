@@ -19,15 +19,16 @@ const Thread = () => {
     }, [loadPosts, dispatch])
     return (
         <>
-            <div className='flex space-y-4 flex-col mt-10 mr-24 justify-start '>
-                <div className='flex justify-start '>
+            <div className='flex space-y-4 flex-col mt-10 justify-center '>
+                <div className='flex justify-center '>
                     <AddingPosts title="Home" />
                 </div>
                 <div className='space-y-4'>
                     {!isEmpty(posts[0]) &&
                         posts.map((post) => {
                             return (
-                                <div>
+                                <div className='flex justify-center'
+                                >
                                     <Posts post={post} key={post._id} />
                                 </div>)
                         })}

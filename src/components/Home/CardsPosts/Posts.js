@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { dateParser, isEmpty } from '../../Utils/Utils';
 import { FiMoreHorizontal } from 'react-icons/fi';
 import { FaFacebookMessenger, FaHeart, FaRegComment } from 'react-icons/fa';
+import LikeButton from './LikeButton';
 
 
 const Posts = ({ post }) => {
@@ -18,7 +19,7 @@ const Posts = ({ post }) => {
 
     return (
         <>
-            <div className='w-[70%] h-[50%] border-2 border-color-2 py-4 px-6 relative min-h-100  border-gray-600 rounded-3xl bg-gray-800' key={post._id}>
+            <div className='w-[90%] h-[80%] border-2 border-color-2 py-4 px-6 relative min-h-100  border-gray-600 rounded-3xl bg-gray-800' key={post._id}>
                 {
                     loading ? (
                         <i className="fas fa-spinner fa-spin absolute t-[50%] left-[50%] size-12"></i>
@@ -87,7 +88,7 @@ const Posts = ({ post }) => {
                                     }
                                 </div>
                                 <div>
-                                    {post.video && (
+                                    { /*{post.video && (
                                         <iframe
                                             className="flex w-[100%] h-96 rounded-2xl transition duration-150 cursor-pointer hover:scale-120 hover:translate-0 transform hover:shadow-none"
                                             src={post.video}
@@ -97,26 +98,37 @@ const Posts = ({ post }) => {
                                             title={post._id}
                                         >
                                         </iframe>
-                                    )}
+                                   )}*/}
                                 </div>
-                                <div>
+                                <div className="flex mt-2 justify-between ">
+                                    <div>
+                                        <span className="text-gray-500 text-sm font-normal justify-center text-justify sm:text-base md:text-lg lg:text-xl xl:text-sm">
+                                            {post.likers.length} likes
+                                        </span>
+                                    </div>
                                     <div className="flex space-x-4">
-                                    
+
+                                        <span className="text-gray-500 text-sm font-normal text-justify sm:text-base md:text-lg lg:text-xl xl:text-sm">
+                                            {post.comments.length} comments
+                                        </span>
+                                        <span className="text-gray-500 text-sm font-normal text-justify sm:text-base md:text-lg lg:text-xl xl:text-sm">
+                                            {post.comments.length} comments
+                                        </span>
+                                    </div>
+                                </div>
+                                <div className="flex mt-2 border-t-2 border-gray-600">
+                                    <div className="flex space-x-4">
                                         <div>
-                                            <div className="flex w-12 h-12 mt-2  bg-black hover:bg-red-800 cursor-pointer justify-center items-center rounded-full">
-                                                <FaHeart className="text-red-500 " size={20} />
-                                            </div>
-                                            <span className="text-gray-500 text-sm font-normal text-justify sm:text-base md:text-lg lg:text-xl xl:text-sm">
-                                                {post.likers.length} likes
-                                            </span>
+                                            <LikeButton post={post} />
+
                                         </div>
                                         <div>
-                                            <div className="flex w-12 h-12 mt-2  bg-black hover:bg-red-800 cursor-pointer justify-center items-center rounded-full">
+                                            <div className="flex w-36 h-10 mt-2  bg-black hover:bg-red-800 cursor-pointer justify-center items-center rounded-2xl">
+
                                                 <FaRegComment className="text-red-500 " size={20} />
+                                                <p className="text-white text-sm ml-2 font-normal text-justify sm:text-base md:text-lg lg:text-xl xl:text-sm">Comment</p>
                                             </div>
-                                            <span className="text-gray-500 text-sm font-normal text-justify sm:text-base md:text-lg lg:text-xl xl:text-sm">
-                                                {post.comments.length} comments
-                                            </span>
+
                                         </div>
 
                                     </div>

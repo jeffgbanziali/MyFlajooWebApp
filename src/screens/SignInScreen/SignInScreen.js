@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import image from "../../../src/assets/Logos/2.png";
 import image2 from "../../../src/assets/Images/Backgroung.png";
+import image3 from "../../../src/assets/Logos/5.png";
 
 
 
@@ -55,10 +56,10 @@ const SignInScreen = () => {
                   <h1 className="text-white text-center mt-10 font-semibold text-xl">Login for a account</h1>
                   <div className="flex ml-10 mt-10 items-center">
                      <Link to="/">
-                        <img className=" w-12 h-12 mr-4 mt-10 " src={image} alt="logo" />
+                        <img className=" w-24 h-24 mt-10 " src={image} alt="logo" />
                      </Link>
                      <Link to="/">
-                        <h1 className="text-white  mt-10 font-semibold text-3xl">Flajoo</h1>
+                        <img className="h-12 mr-4 mt-10 " src={image3} alt="logo" />
                      </Link>
 
                   </div>

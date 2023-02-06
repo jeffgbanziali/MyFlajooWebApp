@@ -1,7 +1,7 @@
 import React from 'react';
 import { FaFacebookMessenger } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
-import Follow from '../ProfilsUtils/Follow';
+import Follow from '../ProfileUtils/Follow';
 
 
 

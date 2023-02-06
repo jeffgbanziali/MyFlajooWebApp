@@ -25,7 +25,7 @@ const NavBar = () => {
                 <div className='flex items-center' >
                     <div className='flex items-center'>
                         <a href="/" className=' text-white text-2xl font-bold '>
-                            <img className="w-16 h-16 rounded-full" src={image} alt="" />
+                            <img className="w-12 h-12 rounded-full" src={image} alt="" />
                         </a>
                     </div>
 

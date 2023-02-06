@@ -6,9 +6,7 @@ export const GET_POSTS = "GET_POSTS";
 export const GET_ADD_POSTS = "GET_ADD_POSTS";
 export const LIKE_POST = "LIKE_POST";
 export const UNLIKE_POST = "UNLIKE_POST";
-
 export const ADD_COMMENT = "ADD_COMMENT";
-
 export const GET_POST_ERRORS = "GET_POST_ERRORS";
 
 
@@ -27,7 +25,7 @@ export const getPosts = (num) => {
 export const addPosts = (data) => {
     return (dispatch) => {
         return axios
-            .get(`http://192.168.0.34:5000/api/post`, data)
+            .get(`http://localhost:5000/api/post`, data)
             .then((res) => {
                 if (res.data.errors) {
                     dispatch({ type: GET_POST_ERRORS, payload: res.data.errors });
@@ -39,30 +37,30 @@ export const addPosts = (data) => {
 };
 
 
-
-export const likePost = (userId, postId) => {
+export const likePost = (postId, userId) => {
     return (dispatch) => {
-        return axios
-            .patch(`http://192.168.0.34:5000/api/post/like-post/` + postId, userId)
+        return axios({
+            method: "patch",
+            url: `http://localhost:5000/api/post/like-post/` + postId,
+            data: { id: userId },
+        })
             .then((res) => {
                 dispatch({ type: LIKE_POST, payload: { postId, userId } });
-            }
-            )
+            })
             .catch((err) => console.log(err));
-    }
+    };
 };
 
-export const unlikePost = (userId, postId) => {
+export const unlikePost = (postId, userId) => {
     return (dispatch) => {
-        return axios
-            .patch(`http://192.168.0.34:5000/api/post/unlike-post/` + postId, userId)
+        return axios({
+            method: "patch",
+            url: `http://localhost:5000/api/post/unlike-post/` + postId,
+            data: { id: userId },
+        })
             .then((res) => {
-                dispatch({
-                    type:
-                        UNLIKE_POST, payload: { postId, userId }
-                });
-            }
-            )
+                dispatch({ type: UNLIKE_POST, payload: { postId, userId } });
+            })
             .catch((err) => console.log(err));
-    }
+    };
 };

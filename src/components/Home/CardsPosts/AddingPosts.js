@@ -71,7 +71,7 @@ const AddingPosts = () => {
     return (
 
 
-        <div className="  w-[70%]  bg-gray-800 mt-10 rounded-3xl ">
+        <div className="  w-[90%]  bg-gray-800 mt-10 rounded-3xl ">
             {isLoading ? (
                 <i className="fas fa-spinner fa-pulse"></i>
             ) : (
@@ -121,17 +121,18 @@ const AddingPosts = () => {
                                             className="w-full h-64 object-cover mb-2"
                                         />
                                     )}
-                                    {video && (
-                                        <iframe
-                                            src={video}
-                                            frameBorder="0"
-                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                            allowFullScreen
-                                            title={video}
-                                            className="w-full h-64 object-cover mb-2"
-                                        >
-                                        </iframe>
-                                    )}
+                                    {
+                                        video && (
+                                            <iframe
+                                                src={video}
+                                                frameBorder="0"
+                                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                                allowFullScreen
+                                                title={video}
+                                                className="w-full h-64 object-cover mb-2"
+                                            >
+                                            </iframe>
+                                        )}
                                 </div>
                             </div>
                         ) : null
