@@ -1,15 +1,26 @@
 import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { dateParser, isEmpty } from '../../Utils/Utils';
 import { FiMoreHorizontal } from 'react-icons/fi';
-import { FaFacebookMessenger, FaHeart, FaRegComment } from 'react-icons/fa';
+import { FaPen, FaRegComment } from 'react-icons/fa';
 import LikeButton from './LikeButton';
+import CommentButoon from './CommentButoon';
 
 
 const Posts = ({ post }) => {
     const [loading, setLoading] = useState(true);
     const usersData = useSelector((state) => state.usersReducer);
     const userData = useSelector((state) => state.userReducer);
+    const [showComments, setShowComments] = useState(false);
+    const [isUpadated, setIsUpdated] = useState(true);
+    const [textUpdate, setTextUpdate] = useState(null);
+
+    const dispatch = useDispatch();
+
+    const updatePost = () => { }
+
+    const deletePost = () => { }
+
 
 
     useEffect(() => {
@@ -22,7 +33,7 @@ const Posts = ({ post }) => {
             <div className='w-[90%] h-[80%] border-2 border-color-2 py-4 px-6 relative min-h-100  border-gray-600 rounded-3xl bg-gray-800' key={post._id}>
                 {
                     loading ? (
-                        <i className="fas fa-spinner fa-spin absolute t-[50%] left-[50%] size-12"></i>
+                        <i className="fas fa-spinner fa-spin absolute t-0 left-0 size-12"></i>
                     ) : (
                         <>
                             <div id='post-header '>
@@ -76,7 +87,6 @@ const Posts = ({ post }) => {
                                 <p className="text-gray-100 text-sm font-normal text-justify sm:text-base md:text-lg lg:text-xl xl:text-sm">
                                     {post.message}
                                 </p>
-
                                 <div className=" flex justify-center mt-2 items-center " >
                                     {
                                         post.picture && (
@@ -88,7 +98,7 @@ const Posts = ({ post }) => {
                                     }
                                 </div>
                                 <div>
-                                    { /*{post.video && (
+                                    {post.video && (
                                         <iframe
                                             className="flex w-[100%] h-96 rounded-2xl transition duration-150 cursor-pointer hover:scale-120 hover:translate-0 transform hover:shadow-none"
                                             src={post.video}
@@ -98,7 +108,19 @@ const Posts = ({ post }) => {
                                             title={post._id}
                                         >
                                         </iframe>
-                                   )}*/}
+                                    )}
+                                    {
+                                        userData._id === post.posterId && (
+                                            <div className="flex ">
+                                                <button
+                                                    className=" items-center justify-center text-white font-bold py-2 px-4 rounded-full mr-2"
+                                                    onClick={() => setIsUpdated(true)} >
+                                                    <FaPen size={16} />
+
+                                                </button>
+                                            </div>
+                                        )
+                                    }
                                 </div>
                                 <div className="flex mt-2 justify-between ">
                                     <div>
@@ -116,22 +138,28 @@ const Posts = ({ post }) => {
                                         </span>
                                     </div>
                                 </div>
-                                <div className="flex mt-2 border-t-2 border-gray-600">
+                                <div className="flex  mt-2 border-t-2 border-gray-600">
                                     <div className="flex space-x-4">
                                         <div>
                                             <LikeButton post={post} />
-
                                         </div>
+
                                         <div>
-                                            <div className="flex w-36 h-10 mt-2  bg-black hover:bg-red-800 cursor-pointer justify-center items-center rounded-2xl">
+                                            <div>
+                                                <div onClick={() => setShowComments(!showComments)}
+                                                    className="flex w-36 h-10 mt-2  bg-black hover:bg-red-800 cursor-pointer justify-center items-center rounded-2xl">
+                                                    <FaRegComment className="text-red-500 " size={20} />
+                                                    <p className="text-white text-sm ml-2 font-normal text-justify sm:text-base md:text-lg lg:text-xl xl:text-sm">Comment</p>
+                                                </div>
+                                            </div >
 
-                                                <FaRegComment className="text-red-500 " size={20} />
-                                                <p className="text-white text-sm ml-2 font-normal text-justify sm:text-base md:text-lg lg:text-xl xl:text-sm">Comment</p>
-                                            </div>
 
                                         </div>
-
                                     </div>
+
+                                </div>
+                                <div className="flex flex-col w-full " >
+                                    {showComments && <CommentButoon post={post} />}
                                 </div>
 
                             </div>

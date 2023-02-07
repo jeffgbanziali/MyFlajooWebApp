@@ -10,12 +10,12 @@ const HomeScreen = () => {
 
     return (
         <>
-            <div className='flex -space-x-5 justify-between '>
+            <div className='flex -space-x-10 justify-between '>
                 <div className='flex flex-col '>
                     <div>
                         <LeftNavBar />
                     </div>
-                    <div>
+                    <div >
                         <FollowBar />
                     </div>
                 </div>
@@ -28,6 +28,7 @@ const HomeScreen = () => {
                 <div>
                     <TrendingNow />
                 </div>
+
 
             </div>
 
