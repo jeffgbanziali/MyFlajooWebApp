@@ -1,26 +1,38 @@
 import React, { useState } from 'react';
-import { FaRegComment } from 'react-icons/fa';
+import { RiSendPlaneFill } from 'react-icons/ri';
 import { useDispatch, useSelector } from 'react-redux';
 import { isEmpty, timestampParser } from '../../Utils/Utils';
+import { addComment, getPosts } from '../../../actions/post.actions';
 
 
 
-const CommentButoon = ({ post }) => {
+const CommentButton = ({ post }) => {
     const usersData = useSelector((state) => state.usersReducer);
     const userData = useSelector((state) => state.userReducer);
-
+    const [text, setText] = useState('');
 
     const dispatch = useDispatch();
 
-    const handleComment = async () => { }
+    const handleComment = async (e) => {
+        e.preventDefault();
+        if (text) {
+            dispatch(addComment(post._id, userData._id, text, userData.pseudo))
+                .then(() => dispatch(getPosts()))
+                .then(() => setText(''));
+        } else {
+            alert("Veuillez entrer un message")
+
+        }
+
+    }
 
     return (
         <>
-            <div className="   flex flex-col w-full space-y-2 mt-2 ">
+            <div className="   flex flex-col w-full space-y-2 mt-2 m-4 ">
                 {
                     post.comments.map((comment) => {
                         return (
-                            <div className={comment.posterId === userData._id ? "bg-gray-800 border-none rounded-lg border-r-6 border-b-6" : "flex flex-col w-96   border-gray-200 rounded-lg p-2 m-2"}>
+                            <div >
                                 <div className="flex -space-x-2  ">
                                     <div>
                                         < img src={
@@ -39,8 +51,7 @@ const CommentButoon = ({ post }) => {
                                     </div>
                                     <div>
 
-                                        <div className="flex flex-col text-justify border-gray-200 rounded-2xl  p-2  bg-gray-900">
-
+                                        <div className={comment.commenterId === userData._id ? "flex flex-col text-justify border-gray-200 rounded-br-2xl rounded-t-2xl  p-2  bg-slate-700" : "flex flex-col text-justify border-gray-200 rounded-bl-2xl rounded-t-2xl  p-2  bg-gray-900"}>
                                             <h4 className="text-white ml-1 text-[12px] font-semibold">
                                                 {
                                                     comment.commenterPseudo
@@ -52,7 +63,7 @@ const CommentButoon = ({ post }) => {
                                                 }
                                             </p>
                                         </div>
-                                        <div className="flex flex-row space-x-2 justify-between items-center mt-2">
+                                        <div className="flex flex-row space-x-2  items-center mt-2">
                                             <div className="cursor-pointer">
                                                 <h4 className="text-gray-400 hover:text-red-500 text-[10px] font-semibold">
                                                     Like
@@ -70,20 +81,55 @@ const CommentButoon = ({ post }) => {
                                             </h4>
                                         </div>
                                     </div>
-
                                 </div>
 
                             </div>
                         )
-                    }
-                    )
-                }
+                    })}
+                <div>
+                    {
 
+                        userData._id && (
+                            <>
+                                <div className="flex flex-row space-x-3
+                                3 items-center mt-2">
+                                    <img
+                                        src={
+                                            !isEmpty(usersData[0]) &&
+                                            usersData.map((user) => {
+                                                if (user._id === userData._id)
+                                                    return user.picture;
+                                                else return null;
+                                            }
+                                            ).join('')
+                                        }
+                                        className="w-12 h-12 hover:opacity-75 cursor-pointer flex object-cover border shadow-md  border-red-500 rounded-14 ml-18 overflow-hidden rounded-full "
+                                        alt="commenter-pic"
+                                    />
+                                    <input
+                                        value={text}
+                                        onChange={(e) => setText(e.target.value)}
+                                        type="text"
+                                        placeholder="Write a comment..."
+                                        placeholderTextColor="gray-500-400"
+                                        className="w-[80%] text-slate-400  bg-gray-700 p-2 border-gray-500 rounded-3xl border-1 " />
+                                    <div className="flex flex-row items-center justify-center" >
+                                        <button
+                                            onClick={handleComment}
+                                            type="button"
+                                            className="flex text-blue-700 justify-center  hover:opacity-75 rounded-full items-center w-12 h-12   bg-slate-400 hover:text-red-700 font-semibold">
+                                            <RiSendPlaneFill size={24} />
+                                        </button>
+                                    </div>
+
+                                </div>
+                            </>
+                        )
+                    }
+                </div>
             </div>
         </>
-
-
     );
 }
 
-export default CommentButoon;
+export default CommentButton;

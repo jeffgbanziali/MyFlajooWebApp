@@ -4,7 +4,7 @@ import { dateParser, isEmpty } from '../../Utils/Utils';
 import { FiMoreHorizontal } from 'react-icons/fi';
 import { FaPen, FaRegComment } from 'react-icons/fa';
 import LikeButton from './LikeButton';
-import CommentButoon from './CommentButoon';
+import CommentButton from './CommentButton';
 
 
 const Posts = ({ post }) => {
@@ -159,7 +159,7 @@ const Posts = ({ post }) => {
 
                                 </div>
                                 <div className="flex flex-col w-full " >
-                                    {showComments && <CommentButoon post={post} />}
+                                    {showComments && <CommentButton post={post} />}
                                 </div>
 
                             </div>
