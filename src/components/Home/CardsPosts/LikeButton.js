@@ -43,8 +43,8 @@ const LikeButton = ({ post }) => {
             }
             {
                 uid && liked === false && (
-                    <div className="flex w-32 h-10 mt-2  bg-black hover:bg-red-800 cursor-pointer justify-center items-center rounded-2xl">
-                        <AiOutlineHeart onClick={like} className="text-red-500 " size={20} />
+                    <div onClick={like} className="flex w-32 h-10 mt-2  bg-black hover:bg-red-800 cursor-pointer justify-center items-center rounded-2xl">
+                        <AiOutlineHeart className="text-red-500 " size={20} />
                         <p className="text-white text-sm ml-2 font-normal text-justify sm:text-base md:text-lg lg:text-xl xl:text-sm">Like</p>
                     </div>
                 )
