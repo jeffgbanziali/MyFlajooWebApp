@@ -24,10 +24,11 @@ const AddingPosts = () => {
             data.append('message', message);
             if (file) data.append("file", file);
             data.append('video', video);
-
+            
             await dispatch(addPosts(data));
             dispatch(getPosts());
             cancelPost();
+            console.log(data);
         } else {
             alert("Veuillez entrer un message")
         }
@@ -45,6 +46,8 @@ const AddingPosts = () => {
         setVideo("");
         setFile("");
     };
+
+
 
 
     useEffect(() => {
@@ -98,7 +101,6 @@ const AddingPosts = () => {
 
                     </div>
                     <div className="w-full items-center rounded-lg p-6 mb-2">
-
                         {message || postPicture || video.length > 20 ? (
                             <div className="flex flex-col lg:flex-row items-start lg:items-center mb-2">
                                 <div className="w-12 h-12 rounded-full overflow-hidden mr-6 lg:mr-0">
@@ -137,19 +139,76 @@ const AddingPosts = () => {
                             </div>
                         ) : null
                         }
+
                         <div className="flex space-x-10 items-center">
                             <div className="flex items-center space-x-3">
-                                <label htmlFor="file" className="cursor-pointer">
-                                    <div className="flex w-32 h-12 justify-center rounded-xl bg-gray-700 hover:bg-slate-600 items-center" >
-                                        <BsImageFill
-                                            size={25}
-                                            className="h-8 mr-4"
+                                <div className="flex justify-between">
 
-                                        />
-                                        <span className="text-sm text-white">Photo</span>
+                                    {
+                                        video && (
+                                            <button className="bg-red-400 hover:bg-red-700 text-white font-bold text-sm w-24 h-12 py-2 px-4 rounded-xl" onClick={cancelPost}>
+                                                Supprimer la video
+                                            </button>
+                                        )
+                                    }
+                                </div>
+                                <div className="flex justify-between">
 
-                                    </div>
-                                </label>
+                                    {
+                                        message || postPicture || video.length > 20 ? (
+                                            <button className="bg-red-400 hover:bg-red-700 text-white font-bold text-sm w-24 h-12 py-2 px-4 rounded-xl" onClick={cancelPost}>
+                                                Supprimer le post
+                                            </button>
+                                        ) : null
+                                    }
+
+                                </div>
+                                {
+                                    isEmpty(video) && (
+                                        <>
+                                            <input
+                                                type="file"
+                                                id="file"
+                                                name="file"
+                                                accept=".jpg, .jpeg, .png"
+                                                onChange={(e) => handlePicture(e)}
+                                                style={{ display: "none" }}
+                                            />
+                                            <label htmlFor="file" className="cursor-pointer">
+                                                <div className="flex w-32 h-12 justify-center rounded-xl bg-gray-700 hover:bg-slate-600 items-center" >
+                                                    <BsImageFill
+                                                        size={25}
+                                                        className="h-8 mr-4"
+                                                    />
+                                                    <span className="text-sm text-white">Photo</span>
+                                                </div>
+                                            </label>
+                                        </>
+                                    )
+                                }
+                                {
+                                    isEmpty(video) && (
+                                        <>
+
+                                            <input
+                                                type="file"
+                                                id="video"
+                                                name="video"
+                                                accept=".mp4, .avi, .mov"
+                                                onChange={(e) => handlePicture(e)}
+                                                style={{ display: "none" }}
+                                            />
+                                            <label htmlFor="video" className="cursor-pointer">
+                                                <div className="flex w-32 h-12 justify-center rounded-xl  bg-gray-700 hover:bg-slate-600  items-center" >
+                                                    <HiVideoCamera
+                                                        className="h-8 mr-4"
+                                                        size={25}
+                                                    />
+                                                    <span className="text-sm text-white">Video</span>
+                                                </div>
+                                            </label>
+                                        </>
+                                    )}
                                 <input
                                     type="file"
                                     id="file"
@@ -158,28 +217,10 @@ const AddingPosts = () => {
                                     onChange={(e) => setPostPicture(e.target.files[0])}
                                     style={{ display: "none" }}
                                 />
-                                <label htmlFor="video" className="cursor-pointer">
-                                    <div className="flex w-32 h-12 justify-center rounded-xl  bg-gray-700 hover:bg-slate-600  items-center" >
-                                        <HiVideoCamera
-                                            className="h-8 mr-4"
-                                            size={25}
-                                        />
-                                        <span className="text-sm text-white">Video</span>
-                                    </div>
-                                </label>
-                                <input
-                                    type="file"
-                                    id="video"
-                                    name="video"
-                                    accept=".mp4, .avi, .mov"
-                                    onChange={(e) => setFile(e.target.files[0])}
-                                    style={{ display: "none" }}
-                                />
                                 <label className="cursor-pointer">
                                     <div className="flex w-32 h-12 justify-center rounded-xl  bg-gray-700 hover:bg-slate-600  items-center" >
                                         <IoPricetagsSharp
                                             size={25}
-
                                             className="h-8 mr-4"
                                         />
                                         <span className="text-sm text-white">Tags</span>
@@ -190,16 +231,21 @@ const AddingPosts = () => {
                                 className="bg-blue-400 hover:bg-blue-700 text-white font-bold w-32 h-12F py-2 px-4 rounded-xl"
                                 onClick={handlePost}
                             >
-                                Publier
+                                Send
                             </button>
+
+
                         </div>
                     </div>
+
 
                 </>
             )
             }
-        </div>
-    );
+        </div >
+
+    )
+
 }
 
 export default AddingPosts;

@@ -1,14 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { getPosts } from '../../actions/post.actions';
 import { useDispatch, useSelector } from 'react-redux';
 import Posts from '../Home/CardsPosts/Posts';
 import AddingPosts from '../Home/CardsPosts/AddingPosts';
 import { isEmpty } from '../Utils/Utils';
+import { UidContext } from '../../Context/AppContext';
 
 const Thread = () => {
     const [loadPosts, setLoadPosts] = useState(true);
     const dispatch = useDispatch();
     const posts = useSelector((state) => state.postReducer);
+    const uid = useContext(UidContext)
 
     useEffect(() => {
         if (loadPosts) {
@@ -21,7 +23,10 @@ const Thread = () => {
         <>
             <div className='flex space-y-4 flex-col mt-10 justify-center '>
                 <div className='flex justify-center '>
-                    <AddingPosts title="Home" />
+                    {
+                        uid ? <AddingPosts title="Home" /> : null
+                    }
+
                 </div>
                 <div className='space-y-4'>
                     {!isEmpty(posts[0]) &&

@@ -29,16 +29,13 @@ export const getPosts = (num) => {
 export const addPosts = (data) => {
     return (dispatch) => {
         return axios
-            .get(`http://localhost:5000/api/post`, data)
+            .post(`http://localhost:5000/api/post/`, data)
             .then((res) => {
-                if (res.data.errors) {
-                    dispatch({ type: GET_POST_ERRORS, payload: res.data.errors });
-                } else {
-                    dispatch({ type: GET_POST_ERRORS, payload: "" });
-                }
-            });
-    }
-};
+                dispatch({ type: GET_ADD_POSTS, payload: res.data });
+            })
+            .catch((err) => console.log(err));
+    };
+}
 
 
 export const likePost = (postId, userId) => {

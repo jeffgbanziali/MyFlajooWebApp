@@ -3,6 +3,7 @@ import { RiSendPlaneFill } from 'react-icons/ri';
 import { useDispatch, useSelector } from 'react-redux';
 import { isEmpty, timestampParser } from '../../Utils/Utils';
 import { addComment, getPosts } from '../../../actions/post.actions';
+import EditDeleteComment from './EditDeleteComment';
 
 
 
@@ -49,10 +50,10 @@ const CommentButton = ({ post }) => {
                                             alt="commenter-pic"
                                         />
                                     </div>
-                                    <div>
+                                    <div >
 
-                                        <div className={comment.commenterId === userData._id ? "flex flex-col text-justify border-gray-200 rounded-br-2xl rounded-t-2xl  p-2  bg-slate-700" : "flex flex-col text-justify border-gray-200 rounded-bl-2xl rounded-t-2xl  p-2  bg-gray-900"}>
-                                            <h4 className="text-white ml-1 text-[12px] font-semibold">
+                                        <div className={comment.commenterId === userData._id ? "flex flex-col  text-justify border-gray-200 rounded-br-2xl rounded-t-2xl  p-2  bg-slate-700" : "flex  flex-col text-justify border-gray-200 rounded-bl-2xl rounded-t-2xl  p-2  bg-gray-900"}>
+                                            <h4 className="text-white ml-1 text-[16px] font-semibold">
                                                 {
                                                     comment.commenterPseudo
                                                 }
@@ -61,7 +62,10 @@ const CommentButton = ({ post }) => {
                                                 {
                                                     comment.text
                                                 }
+
+
                                             </p>
+                                            <EditDeleteComment comment={comment} postId={post._id} />
                                         </div>
                                         <div className="flex flex-row space-x-2  items-center mt-2">
                                             <div className="cursor-pointer">
