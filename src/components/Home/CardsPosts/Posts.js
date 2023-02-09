@@ -30,7 +30,7 @@ const Posts = ({ post }) => {
 
     return (
         <>
-            <div className='w-[90%] h-[80%] border-2 border-color-2 py-4 px-6 relative min-h-100  border-gray-600 rounded-3xl bg-gray-800' key={post._id}>
+            <div className='w-full h-auto border py-4 px-6 relative min-h-100 shadow-xl shadow-gray-800  border-gray-900 rounded-3xl bg-gray-800' key={post._id}>
                 {
                     loading ? (
                         <i className="fas fa-spinner fa-spin absolute t-0 left-0 size-12"></i>
@@ -84,8 +84,7 @@ const Posts = ({ post }) => {
 
                             </div>
                             <div id='post-body'>
-                                <p className="text-gray-100 text-sm font-normal text-justify sm:text-base md:text-lg lg:text-xl xl:text-sm">
-                                    {post.message}
+                                <p className="text-gray-100 text-lg font-normal text-justify sm:text-base md:text-lg lg:text-xl xl:text-[16x]">                                    {post.message}
                                 </p>
                                 <div className=" flex justify-center mt-2 items-center " >
                                     {

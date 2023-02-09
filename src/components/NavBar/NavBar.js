@@ -20,7 +20,7 @@ const NavBar = () => {
     const uid = useContext(UidContext);
     const userData = useSelector((state) => state.userReducer);
     return (
-        <div className=' fixed p-2  w-full justify-between items-center  bg-gradient-to-b z-50 text-white '>
+        <div className=' fixed shadow-xl shadow-gray-800  w-full justify-between items-center bg-slate-800 border-b border-gray-900  bg-gradient-to-b z-50 text-white '>
             <div className='flex justify-between  xl:flex-row flex-col ml-6 items-center '>
                 <div className='flex items-center' >
                     <div className='flex items-center'>

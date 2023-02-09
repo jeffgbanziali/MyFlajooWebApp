@@ -8,12 +8,12 @@ import Follow from '../ProfileUtils/Follow';
 const LeftNavBar = () => {
     const [nav, setNav] = useState(false);
     const userData = useSelector((state) => state.userReducer);
- //   const dispatch = useDispatch();
+    //   const dispatch = useDispatch();
 
 
     return (
         <>
-            <div className=" flex w-96 h-[500px]  mt-20 ml-6  border-2 border-red-700 border-opacity-50 rounded-xl">
+            <div className="  flex w-96 h-auto md:h-auto md:w-72 lg:h-[400px] lg:w-[360px]   border-2 border-red-700 border-opacity-50 rounded-xl">
                 <div className="flex flex-col w-full h-full rounded-xl">
 
                     <div className="flex flex-col mt-24 items-center rounded-b-xl bg-gray-600 w-full h-full ">

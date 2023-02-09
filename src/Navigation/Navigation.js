@@ -3,7 +3,6 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import HomeScreen from '../screens/HomeScreen/HomeScreen';
 import SignInScreen from '../screens/SignInScreen/SignInScreen';
 import SignUpScreen from '../screens/SignUpScreen/SignUpScreen';
-import NavBar from '../components/NavBar/NavBar';
 import Profile from '../screens/Profile/Profile';
 import StartPage from '../screens/StartPage/StartPage';
 import Thread from '../components/Thread/Thread';
@@ -13,7 +12,6 @@ const Navigation = () => {
     return (
 
         <BrowserRouter>
-            <NavBar />
             <Routes>
                 <Route path="/start" element={<StartPage />} />
                 <Route path="/" element={<HomeScreen />} />

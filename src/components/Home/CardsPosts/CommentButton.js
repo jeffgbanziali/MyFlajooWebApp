@@ -8,24 +8,19 @@ import EditDeleteComment from './EditDeleteComment';
 
 
 const CommentButton = ({ post }) => {
+    const [text, setText] = useState("");
     const usersData = useSelector((state) => state.usersReducer);
     const userData = useSelector((state) => state.userReducer);
-    const [text, setText] = useState('');
-
     const dispatch = useDispatch();
 
-    const handleComment = async (e) => {
+    const handleComment = (e) => {
         e.preventDefault();
         if (text) {
             dispatch(addComment(post._id, userData._id, text, userData.pseudo))
                 .then(() => dispatch(getPosts()))
                 .then(() => setText(''));
-        } else {
-            alert("Veuillez entrer un message")
-
         }
-
-    }
+    };
 
     return (
         <>
@@ -95,8 +90,7 @@ const CommentButton = ({ post }) => {
 
                         userData._id && (
                             <>
-                                <div className="flex flex-row space-x-3
-                                3 items-center mt-2">
+                                <div className="flex flex-row space-x-3 3 items-center mt-2">
                                     <img
                                         src={
                                             !isEmpty(usersData[0]) &&

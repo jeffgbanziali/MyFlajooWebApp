@@ -24,7 +24,7 @@ const AddingPosts = () => {
             data.append('message', message);
             if (file) data.append("file", file);
             data.append('video', video);
-            
+
             await dispatch(addPosts(data));
             dispatch(getPosts());
             cancelPost();
@@ -74,7 +74,7 @@ const AddingPosts = () => {
     return (
 
 
-        <div className="  w-[90%]  bg-gray-800 mt-10 rounded-3xl ">
+        <div className="  w-full  shadow-xl shadow-gray-800  border-gray-900  bg-gray-800  rounded-3xl ">
             {isLoading ? (
                 <i className="fas fa-spinner fa-pulse"></i>
             ) : (

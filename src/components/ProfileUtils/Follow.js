@@ -19,7 +19,7 @@ const Follow = () => {
 
     }
     return (
-        <div className="flex items-center justify-center w-96 p-2 pl-2 pr-2 bg-slate-900  border-gray-800 border-2 rounded-3xl px-16  mt-24 z-10 relative" style={{ top: -65 }}>
+        <div className="flex items-center justify-center md:w-96 lg:w-80 w-80 p-2 pl-2 pr-2 bg-slate-900  border-gray-800 border-2 rounded-3xl px-16  mt-24 z-10 relative" style={{ top: -65 }}>
             <div className="flex space-x-8 justify-center">
                 <div className="flex items-center">
                     <button className="">

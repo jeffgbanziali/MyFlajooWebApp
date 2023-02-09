@@ -1,23 +1,99 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { FaUserPlus } from 'react-icons/fa';
+import { MdMoreHoriz } from 'react-icons/md';
+import { useSelector } from 'react-redux';
+import FollowHandler from '../../components/ProfileUtils/FollowHandler';
+import Message from '../../components/Message/Message';
+import PostsUser from '../../components/ProfileUtils/PostsUser';
+
+
+
+
 
 const Profile = () => {
+
+    const userData = useSelector((state) => state.userReducer);
     return (
-        <div >
-            <div className="flex flex-col justify-center items-center content-center self-center cursor-pointer text-center mt-10">
-                <div className="flex  content-center self-center cursor-pointer text-center" >
-                    <div className="flex flex-col justify-center items-center content-center self-center cursor-pointer text-center" >
-                        <img className="w-28 h-28 mt-1.5 ml-1.5 rounded-full " src="https://play-lh.googleusercontent.com/H-BL_nBtFpQY92qaBHGZ4cHAcceuBfLiXWAHGOUDPS-9Gp4TPnhEjQSCZWvpfEFOv_A" alt="logout" />
+        <>
+            <div className="flex flex-col items-center justify-center bg-gray-900  ">
+                <div className="flex w-[80%] p-10 h-auto bg-gray-800 flex-col  ">
+                    <div className="flex flex-row justify-center space-x-4">
+                        <div className="flex flex-col justify-center items-center  ">
+                            <div className="relative  justify-center items-center " >
+                                <div className="flex flex-row justify-center  mr-10  items-center space-y-2">
+                                    <div className="flex items-center border-4 border-red-700 w-50 h-50 rounded-full  justify-center space-y-4">
+                                        <img src="https://1.bp.blogspot.com/-psj5GG30jC8/YIEkjqmbUGI/AAAAAAAAFJs/hOgwMvu_EtY1MSZjycVYAcY624I4px07QCLcBGAsYHQ/w600/Biodata%2Bdan%2BProfil%2BAnushka%2BSharma.jpg" alt="" className="w-48 h-48 rounded-full" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className='flex' >
+                            <div className="flex flex-col space-x-4">
+                                <div className="flex flex-row justify-center space-x-4  items-center ">
+                                    <h2 className="text-[24px]  font-semibold text-gray-400">{userData.pseudo}</h2>
+                                    <FollowHandler />
+                                    <Message />
+                                    <div className='w-8 h-8 hover:bg-gray-500  bg-blue-300 rounded-full cursor-pointer flex items-center justify-center'>
+                                        <FaUserPlus className="text-[16px] text-black" />
+                                    </div>
+                                    <div className='w-8 h-8 hover:bg-gray-500  bg-gray-300 rounded-full cursor-pointer flex items-center justify-center'>
+                                        <MdMoreHoriz className="text-[24px] text-black" />
+                                    </div>
+                                </div>
+                                {
+                                    userData.following && userData.followers && (
+                                        <div className="flex flex-row mt-4 space-x-4">
+                                            <div className="flex flex-row justify-center items-center ">
+                                                <h2 className="text-[16px] font-semibold text-gray-400">10</h2>
+                                                <h2 className="text-[16px] font-semibold text-gray-400">Posts</h2>
+                                            </div>
+                                            <div className="flex flex-row justify-center items-center ">
+                                                <h2 className="text-[16px] font-semibold text-gray-400">{userData.following.length}</h2>
+                                                <h2 className="text-[16px] font-semibold text-gray-400">Following</h2>
+                                            </div>
+                                            <div className="flex flex-row justify-center items-center ">
+                                                <h2 className="text-[16px] font-semibold text-gray-400">{userData.followers.length}</h2>
+                                                <h2 className="text-[16px] font-semibold text-gray-400">Followers</h2>
+                                            </div>
+                                        </div>
+                                    )
+                                }
+                                <div className="flex flex-col mt-2  ">
+                                    <h2 className="text-[16px] font-semibold text-gray-400">Bio</h2>
+                                </div>
+                                <div className="flex flex-row space-x-1 items-center ">
+                                    <h2 className="text-[12px] font-semibold text-gray-400">Suivi par</h2>
+                                    <h2 className="text-[16px] font-semibold text-gray-400" >
+                                        Koukouda et 2 autres personnes
+                                    </h2>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div className="flex flex-col justify-center items-center content-center self-center cursor-pointer text-center ml-10" >
-                        <p className="text-2xl font-bold">
-                         Eren Jager </p>
-                    </div>
+
+                </div>
+                <div className="flex flex-row justify-center items-center border-t-2 border-red-800  w-[80%] p-2 h-8 bg-slate-700 space-x-4">
+                    <nav>
+                        <ul className="flex flex-row justify-center items-center space-x-4">
+                            <li className="flex flex-row cursor-pointer border-b-4  hover:border-b-indigo-700 justify-center space-x-2 items-center ">
+                                <h2 className="text-[16px] font-semibold text-gray-400">
+                                    <PostsUser />
+                                </h2>
+                            </li>
+                            <li className="flex flex-row cursor-pointer border-b-4  hover:border-b-indigo-700  justify-center space-x-2 items-center ">
+                                <h2 className="text-[16px] font-semibold text-gray-400">My Bio</h2>
+                            </li>
+                            <li className="flex flex-row cursor-pointer border-b-4  hover:border-b-indigo-700  justify-center space-x-2 items-center ">
+                                <h2 className="text-[16px] font-semibold text-gray-400">My Bio</h2>
+                            </li>
+                            <li className="flex flex-row cursor-pointer border-b-4  hover:border-b-indigo-700  justify-center space-x-2 items-center ">
+                                <h2 className="text-[16px] font-semibold text-gray-400">My Bio</h2>
+                            </li>
+                        </ul>
+                    </nav>
                 </div>
             </div>
-
-        </div>
-
-    );
+        </>
+    )
 }
-
 export default Profile;

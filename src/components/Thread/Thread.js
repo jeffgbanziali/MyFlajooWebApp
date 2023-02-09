@@ -5,6 +5,7 @@ import Posts from '../Home/CardsPosts/Posts';
 import AddingPosts from '../Home/CardsPosts/AddingPosts';
 import { isEmpty } from '../Utils/Utils';
 import { UidContext } from '../../Context/AppContext';
+import Stories from '../Home/Stories/Stories';
 
 const Thread = () => {
     const [loadPosts, setLoadPosts] = useState(true);
@@ -21,7 +22,10 @@ const Thread = () => {
     }, [loadPosts, dispatch])
     return (
         <>
-            <div className='flex space-y-4 flex-col mt-10 justify-center '>
+            <div className='flex space-y-4 flex-col  justify-center '>
+                { /* <div className='flex justify-center' >
+                    <Stories />
+    </div>*/}
                 <div className='flex justify-center '>
                     {
                         uid ? <AddingPosts title="Home" /> : null
