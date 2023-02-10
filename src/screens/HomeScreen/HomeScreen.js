@@ -12,26 +12,20 @@ const HomeScreen = () => {
     return (
         <>
             <NavBar />
-            <div className='flex absolute  flex-row '>
-                <div >
+            <div className='flex '>
+                <div className='flex mt-4 space-x-2 '>
                     <div>
-                        <LeftBarPro />
+                        <FollowBar />
                     </div>
-                </div>
-                <div className='flex  mt-20  p-4 space-x-4  '>
-                    <div>
+                    <div className='flex   '>
                         <Thread title="Home" />
                     </div>
-                    <div className=''>
-                        <div className='' >
-                            <TrendingNow />
-                        </div>
-                        <div className='mt-6' >
-                            <FollowBar />
-                        </div>
+                    <div className='flex-none '>
+                        <FollowBar />
                     </div>
-
                 </div>
+
+
 
             </div>
         </>
