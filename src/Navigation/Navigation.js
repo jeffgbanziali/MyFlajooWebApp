@@ -6,12 +6,14 @@ import SignUpScreen from '../screens/SignUpScreen/SignUpScreen';
 import Profile from '../screens/Profile/Profile';
 import StartPage from '../screens/StartPage/StartPage';
 import Thread from '../components/Thread/Thread';
+import NavBar from '../components/NavBar/NavBar';
 
 
 const Navigation = () => {
     return (
 
         <BrowserRouter>
+            <NavBar />
             <Routes>
                 <Route path="/start" element={<StartPage />} />
                 <Route path="/" element={<HomeScreen />} />

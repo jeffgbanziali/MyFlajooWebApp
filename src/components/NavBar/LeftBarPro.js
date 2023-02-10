@@ -1,75 +1,104 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { FaHome, FaUserFriends } from 'react-icons/fa';
+import { useSelector } from 'react-redux';
+import { TbSmartHome } from 'react-icons/tb';
+import { RiGroup2Line } from 'react-icons/ri';
+import { SiMarketo } from 'react-icons/si';
+import { MdMovieFilter, MdOutlineOndemandVideo } from 'react-icons/md';
+import { GoClock } from 'react-icons/go';
+import { HiNewspaper } from 'react-icons/hi';
 
 const LeftBarPro = () => {
+    const userData = useSelector(state => state.userReducer);
+
     return (
-        <div className="hidden bg-gray-800 shadow-xl shadow-gray-800   md:flex md:w-80 border-r-2 border-gray-800 md:h-screen border-opacity-50">
-            <div className="mt-20 p-2 w-full space-y-1 h-12">
-                <div className="flex   bg-gray-700 cursor-pointer shadow-sm shadow-gray-400 rounded-md hover:bg-slate-700  items-center ">
-                    <div className="flex ml-2 h-16 items-center">
-                        <img src="https://1.bp.blogspot.com/-psj5GG30jC8/YIEkjqmbUGI/AAAAAAAAFJs/hOgwMvu_EtY1MSZjycVYAcY624I4px07QCLcBGAsYHQ/w600/Biodata%2Bdan%2BProfil%2BAnushka%2BSharma.jpg" alt="" className="w-12 h-12 justify-center rounded-full" />
-                        <NavLink
-                            to="/"
-                            className="text-gray-400 hover:text-white block py-2 px-4"
-                        >
-                            Profile
-                        </NavLink>
-                    </div>
+        <div className="hidden sm:flex flex-col ml-2 overflow-y-auto border-r-2 xl:w-[360px] p-2 fixed h-full ">
+            <div className="flex flex-col p-2 mt-20">
+                <div className='flex  h-16 w-[100%] items-center rounded-2xl  hover:bg-white p-2 '>
+                    <NavLink to='/profile'>
+                        <div className='flex justify-center xl:justify-start text-xl items-center space-x-2.5 hoverAnimation'>
+                            <img className='w-12 h-12 rounded-full' src='https://play-lh.googleusercontent.com/H-BL_nBtFpQY92qaBHGZ4cHAcceuBfLiXWAHGOUDPS-9Gp4TPnhEjQSCZWvpfEFOv_A' alt='profile' />
+                            <span className='hidden xl:inline'>
+                                {userData.pseudo}
+                            </span>
+                        </div>
+                    </NavLink>
                 </div>
-                <div className="flex  bg-gray-700 cursor-pointer rounded-md shadow-sm shadow-gray-400 hover:bg-slate-700  items-center ">
-                    <div className="flex ml-2 h-16 items-center">
-                        <img src="https://1.bp.blogspot.com/-psj5GG30jC8/YIEkjqmbUGI/AAAAAAAAFJs/hOgwMvu_EtY1MSZjycVYAcY624I4px07QCLcBGAsYHQ/w600/Biodata%2Bdan%2BProfil%2BAnushka%2BSharma.jpg" alt="" className="w-12 h-12  justify-center rounded-full" />
-                        <NavLink
-                            to="/"
-                            className="text-gray-400 hover:text-white block py-2 px-4"
-                        >
-                            Profile
-                        </NavLink>
-                    </div>
+                <div className=' flex flex-col mt-4'>
+                    <NavLink to='/profile'>
+                        <div className='flex justify-center h-16 w-[100%] xl:rounded-2xl sm:rounded-full sm:w-16 xl:w-[100%] hover:bg-white p-2 xl:justify-start text-xl items-center space-x-2.5 hoverAnimation'>
+                            <TbSmartHome className='text-3xl' />
+                            <span className='hidden xl:inline'>
+                                Home
+                            </span>
+                        </div>
+                    </NavLink>
+                    <NavLink to='/profile'>
+                        <div className='flex justify-center h-16 w-[100%] xl:rounded-2xl sm:rounded-full sm:w-16 xl:w-[100%] hover:bg-white p-2  xl:justify-start text-xl items-center space-x-2.5 hoverAnimation'>
+                            <FaUserFriends className='text-3xl' />
+                            <span className='hidden xl:inline'>
+                                Friends
+                            </span>
+                        </div>
+                    </NavLink>
+                    <NavLink to='/profile'>
+                        <div className='flex justify-center h-16 w-[100%] xl:rounded-2xl sm:rounded-full sm:w-16 xl:w-[100%] hover:bg-white p-2  xl:justify-start text-xl items-center space-x-2.5 hoverAnimation'>
+                            <RiGroup2Line className='text-3xl' />
+                            <span className='hidden xl:inline'>
+                                Teams
+                            </span>
+                        </div>
+                    </NavLink>
+                    <NavLink to='/profile'>
+                        <div className='flex justify-center h-16 w-[100%] xl:rounded-2xl sm:rounded-full sm:w-16 xl:w-[100%]  hover:bg-white p-2  xl:justify-start text-xl items-center space-x-2.5 hoverAnimation'>
+                            <SiMarketo className='text-3xl' />
+                            <span className='hidden xl:inline'>
+                                Market
+                            </span>
+                        </div>
+                    </NavLink>
+                    <NavLink to='/profile'>
+                        <div className='flex justify-center h-16 w-[100%] xl:rounded-2xl sm:rounded-full sm:w-16 xl:w-[100%] hover:bg-white p-2 xl:justify-start text-xl items-center space-x-2.5 hoverAnimation'>
+                            <MdOutlineOndemandVideo className='text-3xl' />
+                            <span className='hidden xl:inline'>
+                                Watch
+                            </span>
+                        </div>
+                    </NavLink>
+                    <NavLink to='/profile'>
+                        <div className='flex justify-center h-16 w-[100%] xl:rounded-2xl sm:rounded-full sm:w-16 xl:w-[100%] hover:bg-white p-2 xl:justify-start text-xl items-center space-x-2.5 hoverAnimation'>
+                            <GoClock className='text-3xl' />
+                            <span className='hidden xl:inline'>
+                                Home
+                            </span>
+                        </div>
+                    </NavLink>
+                    <NavLink to='/profile'>
+                        <div className='flex justify-center h-16 w-[100%] xl:rounded-2xl sm:rounded-full sm:w-16 xl:w-[100%]  hover:bg-white p-2 xl:justify-start text-xl items-center space-x-2.5 hoverAnimation'>
+                            <MdMovieFilter className='text-3xl' />
+                            <span className='hidden xl:inline'>
+                                Live
+                            </span>
+                        </div>
+                    </NavLink>
+                    <NavLink to='/profile'>
+                        <div className='flex justify-center h-16 w-[100%]  xl:rounded-2xl sm:rounded-full sm:w-16 xl:w-[100%]  hover:bg-white p-2  xl:justify-start text-xl items-center space-x-2.5 hoverAnimation'>
+                            <HiNewspaper className='text-2xl' />
+                            <span className='hidden xl:inline'>
+                                News
+                            </span>
+                        </div>
+                    </NavLink>
                 </div>
-                <div className="flex  bg-gray-700 cursor-pointer rounded-md shadow-sm shadow-gray-400 hover:bg-slate-700  items-center ">
-                    <div className="flex ml-2 h-16 items-center">
-                        <img src="https://1.bp.blogspot.com/-psj5GG30jC8/YIEkjqmbUGI/AAAAAAAAFJs/hOgwMvu_EtY1MSZjycVYAcY624I4px07QCLcBGAsYHQ/w600/Biodata%2Bdan%2BProfil%2BAnushka%2BSharma.jpg" alt="" className="w-12 h-12  justify-center rounded-full" />
-                        <NavLink
-                            to="/"
-                            className="text-gray-400 hover:text-white block py-2 px-4"
-                        >
-                            Profile
-                        </NavLink>
-                    </div>
-                </div>
-                <div className="flex  bg-gray-700 cursor-pointer rounded-md shadow-sm shadow-gray-400 hover:bg-slate-700  items-center ">
-                    <div className="flex ml-2 h-16 items-center">
-                        <img src="https://1.bp.blogspot.com/-psj5GG30jC8/YIEkjqmbUGI/AAAAAAAAFJs/hOgwMvu_EtY1MSZjycVYAcY624I4px07QCLcBGAsYHQ/w600/Biodata%2Bdan%2BProfil%2BAnushka%2BSharma.jpg" alt="" className="w-12 h-12  justify-center rounded-full" />
-                        <NavLink
-                            to="/"
-                            className="text-gray-400 hover:text-white block py-2 px-4"
-                        >
-                            Profile
-                        </NavLink>
-                    </div>
-                </div>
-                <div className="flex  bg-gray-700 cursor-pointer rounded-md shadow-sm shadow-gray-400 hover:bg-slate-700  items-center ">
-                    <div className="flex ml-2 h-16 items-center">
-                        <img src="https://1.bp.blogspot.com/-psj5GG30jC8/YIEkjqmbUGI/AAAAAAAAFJs/hOgwMvu_EtY1MSZjycVYAcY624I4px07QCLcBGAsYHQ/w600/Biodata%2Bdan%2BProfil%2BAnushka%2BSharma.jpg" alt="" className="w-12 h-12 justify-center rounded-full" />
-                        <NavLink
-                            to="/"
-                            className="text-gray-400 hover:text-white block py-2 px-4"
-                        >
-                            Profile
-                        </NavLink>
-                    </div>
-                </div>
-                <div className="flex  bg-gray-700 cursor-pointer rounded-md shadow-sm shadow-gray-400 hover:bg-slate-700  items-center ">
-                    <div className="flex ml-2 h-16 items-center">
-                        <img src="https://1.bp.blogspot.com/-psj5GG30jC8/YIEkjqmbUGI/AAAAAAAAFJs/hOgwMvu_EtY1MSZjycVYAcY624I4px07QCLcBGAsYHQ/w600/Biodata%2Bdan%2BProfil%2BAnushka%2BSharma.jpg" alt="" className="w-12 h-12 justify-center rounded-full" />
-                        <NavLink to="/"
-                            className="text-gray-400 hover:text-white block py-2 px-4">
-                            Profile
-                        </NavLink>
-                    </div>
-                </div>
+
             </div>
+            <div className='flex items-center justify-center'>
+                <button className='bg-blue-400 xl:inline h-10 w-56 text-sm mt-10 flex items-center hover:bg-blue-500 text-white font-bold rounded-full'>
+                    Create a New tweet
+                </button>
+            </div>
+
         </div>
     );
 }

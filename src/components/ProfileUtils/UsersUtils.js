@@ -7,10 +7,10 @@ const UsersUtils = () => {
     const userData = useSelector((state) => state.userReducer);
     return (
         <>
-            <div className=' shadow-lg shadow-slate-500'>
-                <div className=' flex relative h-96 rounded-b justify-center '>
+            <div className='  '>
+                <div className=' flex relative bg-red-500 h-96 rounded-b justify-center '>
                     <div className="object-cover w-full h-full bg-gray-900" >
-                        <div className='flex  mt-6  justify-center space-x-10' >
+                        <div className='flex  mt-20 justify-center space-x-10' >
                             <div className=''>
                                 <img src="https://1.bp.blogspot.com/-psj5GG30jC8/YIEkjqmbUGI/AAAAAAAAFJs/hOgwMvu_EtY1MSZjycVYAcY624I4px07QCLcBGAsYHQ/w600/Biodata%2Bdan%2BProfil%2BAnushka%2BSharma.jpg" alt="" className="w-40 h-40 border-4 border-white rounded-full" />
                             </div>
@@ -75,7 +75,7 @@ const UsersUtils = () => {
                     </div>
                 </div>
 
-                <div className='border border-gray-700 mt-6 border-opacity-10' />
+                <div className='border border-gray-700 border-opacity-10' />
                 <div className='flex justify-center px-8'>
                     <div className='flex items-center '>
                         <div className='px-4 py-5 font-semibold text-blue-800 border-b-4 border-b-blue-700' >

@@ -7,8 +7,8 @@ const FollowBar = () => {
 
 
     return (
-        <div className=" shadow-xl shadow-gray-800 flex flex-col w-80 h-auto md:h-auto md:w-72 lg:h-auto lg:w-[360px] bg-gray-600  border-1 border-red-700 border-opacity-0 rounded-xl">
-            <div className="flex p-3 ml-6 mt-4 rounded-b-xl bg-gray-600 ">
+        <div className=" shadow-xl shadow-gray-800 flex flex-col w-80 h-auto md:h-auto md:w-72 lg:h-auto lg:w-[360px] bg-black  border-1 border-red-700 border-opacity-0 rounded-xl">
+            <div className="flex p-3 ml-6 mt-4 rounded-b-xl ">
                 <h1 className="text-center text-slate-400 font-semibold text-2xl">
                     Who is follow you
                 </h1>

@@ -30,7 +30,7 @@ const Posts = ({ post }) => {
 
     return (
         <>
-            <div className='w-full h-auto border py-4 px-6 relative min-h-100 shadow-xl shadow-gray-800  border-gray-900 rounded-3xl bg-gray-800' key={post._id}>
+            <div className=' w-screen sm:w-full  h-auto border py-4 px-6 relative min-h-100 shadow-xl shadow-gray-800  border-gray-900 rounded-2xl bg-black' key={post._id}>
                 {
                     loading ? (
                         <i className="fas fa-spinner fa-spin absolute t-0 left-0 size-12"></i>
@@ -84,14 +84,15 @@ const Posts = ({ post }) => {
 
                             </div>
                             <div id='post-body'>
-                                <p className="text-gray-100 text-lg font-normal text-justify sm:text-base md:text-lg lg:text-xl xl:text-[16x]">                                    {post.message}
+                                <p className="text-gray-100 text-lg font-normal text-justify sm:text-base md:text-sm lg:text-[14px] xl:text-[16x]">
+                                    {post.message}
                                 </p>
-                                <div className=" flex justify-center mt-2 items-center " >
+                                <div className=" flex justify-center mt-4 items-center " >
                                     {
                                         post.picture && (
                                             <img src={post.picture}
                                                 alt="post-pic"
-                                                className=" w-full h-full rounded-2xl transition duration-150 cursor-pointer hover:scale-120 hover:translate-0 transform hover:shadow-none"
+                                                className=" w-full h-full rounded-xl transition duration-150 cursor-pointer hover:scale-120 hover:translate-0 transform hover:shadow-none"
                                             />
                                         )
                                     }

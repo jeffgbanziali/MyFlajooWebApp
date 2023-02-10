@@ -1,22 +1,103 @@
 import React from 'react';
+import { FaHeart, FaRegComment } from 'react-icons/fa';
+import { NavLink } from 'react-router-dom';
+
+
+const images = [
+    {
+        name: '',
+        image: 'https://th.bing.com/th/id/R.a8867af38f36cfc5ba754bf974ca4955?rik=95Kwfue8i9GbiA&riu=http%3a%2f%2fimages6.fanpop.com%2fimage%2fphotos%2f33900000%2fCillian-in-Peaky-Blinders-cillian-murphy-33921144-500-749.jpg&ehk=Si0pmXoXe%2f3%2bl7sMd5oyIS%2bDg3RMxs5j8mQDH9zZDXE%3d&risl=&pid=ImgRaw&r=0',
+        id: 1
+    },
+    {
+        name: '',
+        image: 'https://th.bing.com/th/id/R.a8867af38f36cfc5ba754bf974ca4955?rik=95Kwfue8i9GbiA&riu=http%3a%2f%2fimages6.fanpop.com%2fimage%2fphotos%2f33900000%2fCillian-in-Peaky-Blinders-cillian-murphy-33921144-500-749.jpg&ehk=Si0pmXoXe%2f3%2bl7sMd5oyIS%2bDg3RMxs5j8mQDH9zZDXE%3d&risl=&pid=ImgRaw&r=0',
+        id: 1
+    },
+    {
+        name: '',
+        image: 'https://th.bing.com/th/id/R.a8867af38f36cfc5ba754bf974ca4955?rik=95Kwfue8i9GbiA&riu=http%3a%2f%2fimages6.fanpop.com%2fimage%2fphotos%2f33900000%2fCillian-in-Peaky-Blinders-cillian-murphy-33921144-500-749.jpg&ehk=Si0pmXoXe%2f3%2bl7sMd5oyIS%2bDg3RMxs5j8mQDH9zZDXE%3d&risl=&pid=ImgRaw&r=0',
+        id: 1
+    },
+    {
+        name: '',
+        image: 'https://th.bing.com/th/id/R.a8867af38f36cfc5ba754bf974ca4955?rik=95Kwfue8i9GbiA&riu=http%3a%2f%2fimages6.fanpop.com%2fimage%2fphotos%2f33900000%2fCillian-in-Peaky-Blinders-cillian-murphy-33921144-500-749.jpg&ehk=Si0pmXoXe%2f3%2bl7sMd5oyIS%2bDg3RMxs5j8mQDH9zZDXE%3d&risl=&pid=ImgRaw&r=0',
+        id: 1
+    },
+    {
+        name: '',
+        image: 'https://th.bing.com/th/id/R.a8867af38f36cfc5ba754bf974ca4955?rik=95Kwfue8i9GbiA&riu=http%3a%2f%2fimages6.fanpop.com%2fimage%2fphotos%2f33900000%2fCillian-in-Peaky-Blinders-cillian-murphy-33921144-500-749.jpg&ehk=Si0pmXoXe%2f3%2bl7sMd5oyIS%2bDg3RMxs5j8mQDH9zZDXE%3d&risl=&pid=ImgRaw&r=0',
+        id: 1
+    },
+    {
+        name: '',
+        image: 'https://th.bing.com/th/id/R.a8867af38f36cfc5ba754bf974ca4955?rik=95Kwfue8i9GbiA&riu=http%3a%2f%2fimages6.fanpop.com%2fimage%2fphotos%2f33900000%2fCillian-in-Peaky-Blinders-cillian-murphy-33921144-500-749.jpg&ehk=Si0pmXoXe%2f3%2bl7sMd5oyIS%2bDg3RMxs5j8mQDH9zZDXE%3d&risl=&pid=ImgRaw&r=0',
+        id: 1
+    },
+    {
+        name: '',
+        image: 'https://th.bing.com/th/id/R.a8867af38f36cfc5ba754bf974ca4955?rik=95Kwfue8i9GbiA&riu=http%3a%2f%2fimages6.fanpop.com%2fimage%2fphotos%2f33900000%2fCillian-in-Peaky-Blinders-cillian-murphy-33921144-500-749.jpg&ehk=Si0pmXoXe%2f3%2bl7sMd5oyIS%2bDg3RMxs5j8mQDH9zZDXE%3d&risl=&pid=ImgRaw&r=0',
+        id: 1
+    },
+    {
+        name: '',
+        image: 'https://th.bing.com/th/id/R.a8867af38f36cfc5ba754bf974ca4955?rik=95Kwfue8i9GbiA&riu=http%3a%2f%2fimages6.fanpop.com%2fimage%2fphotos%2f33900000%2fCillian-in-Peaky-Blinders-cillian-murphy-33921144-500-749.jpg&ehk=Si0pmXoXe%2f3%2bl7sMd5oyIS%2bDg3RMxs5j8mQDH9zZDXE%3d&risl=&pid=ImgRaw&r=0',
+        id: 1
+    },
+    {
+        name: '',
+        image: 'https://th.bing.com/th/id/R.a8867af38f36cfc5ba754bf974ca4955?rik=95Kwfue8i9GbiA&riu=http%3a%2f%2fimages6.fanpop.com%2fimage%2fphotos%2f33900000%2fCillian-in-Peaky-Blinders-cillian-murphy-33921144-500-749.jpg&ehk=Si0pmXoXe%2f3%2bl7sMd5oyIS%2bDg3RMxs5j8mQDH9zZDXE%3d&risl=&pid=ImgRaw&r=0',
+        id: 1
+    },
+    {
+        name: '',
+        image: 'https://th.bing.com/th/id/R.a8867af38f36cfc5ba754bf974ca4955?rik=95Kwfue8i9GbiA&riu=http%3a%2f%2fimages6.fanpop.com%2fimage%2fphotos%2f33900000%2fCillian-in-Peaky-Blinders-cillian-murphy-33921144-500-749.jpg&ehk=Si0pmXoXe%2f3%2bl7sMd5oyIS%2bDg3RMxs5j8mQDH9zZDXE%3d&risl=&pid=ImgRaw&r=0',
+        id: 1
+    },
+    {
+        name: '',
+        image: 'https://th.bing.com/th/id/R.a8867af38f36cfc5ba754bf974ca4955?rik=95Kwfue8i9GbiA&riu=http%3a%2f%2fimages6.fanpop.com%2fimage%2fphotos%2f33900000%2fCillian-in-Peaky-Blinders-cillian-murphy-33921144-500-749.jpg&ehk=Si0pmXoXe%2f3%2bl7sMd5oyIS%2bDg3RMxs5j8mQDH9zZDXE%3d&risl=&pid=ImgRaw&r=0',
+        id: 1
+    },
+    {
+        name: '',
+        image: 'https://th.bing.com/th/id/R.a8867af38f36cfc5ba754bf974ca4955?rik=95Kwfue8i9GbiA&riu=http%3a%2f%2fimages6.fanpop.com%2fimage%2fphotos%2f33900000%2fCillian-in-Peaky-Blinders-cillian-murphy-33921144-500-749.jpg&ehk=Si0pmXoXe%2f3%2bl7sMd5oyIS%2bDg3RMxs5j8mQDH9zZDXE%3d&risl=&pid=ImgRaw&r=0',
+        id: 1
+    },
+]
+
+
 
 const PostImage = () => {
     return (
-        <div className="shadow shadow-slate-400 rounded w-full  p-4">
-            <div className='px-52 grid grid-cols-4 bg-gray-900 mt-4 h-full gap-4 '>
-                <img src="https://play-lh.googleusercontent.com/H-BL_nBtFpQY92qaBHGZ4cHAcceuBfLiXWAHGOUDPS-9Gp4TPnhEjQSCZWvpfEFOv_A" alt="Profil" />
-                <img src="https://play-lh.googleusercontent.com/H-BL_nBtFpQY92qaBHGZ4cHAcceuBfLiXWAHGOUDPS-9Gp4TPnhEjQSCZWvpfEFOv_A" alt="Profil" />
-                <img src="https://play-lh.googleusercontent.com/H-BL_nBtFpQY92qaBHGZ4cHAcceuBfLiXWAHGOUDPS-9Gp4TPnhEjQSCZWvpfEFOv_A" alt="Profil" />
-                <img src="https://play-lh.googleusercontent.com/H-BL_nBtFpQY92qaBHGZ4cHAcceuBfLiXWAHGOUDPS-9Gp4TPnhEjQSCZWvpfEFOv_A" alt="Profil" />
-                <img src="https://play-lh.googleusercontent.com/H-BL_nBtFpQY92qaBHGZ4cHAcceuBfLiXWAHGOUDPS-9Gp4TPnhEjQSCZWvpfEFOv_A" alt="Profil" />
-                <img src="https://play-lh.googleusercontent.com/H-BL_nBtFpQY92qaBHGZ4cHAcceuBfLiXWAHGOUDPS-9Gp4TPnhEjQSCZWvpfEFOv_A" alt="Profil" />
-                <img src="https://play-lh.googleusercontent.com/H-BL_nBtFpQY92qaBHGZ4cHAcceuBfLiXWAHGOUDPS-9Gp4TPnhEjQSCZWvpfEFOv_A" alt="Profil" />
-                <img src="https://play-lh.googleusercontent.com/H-BL_nBtFpQY92qaBHGZ4cHAcceuBfLiXWAHGOUDPS-9Gp4TPnhEjQSCZWvpfEFOv_A" alt="Profil" />
-                <img src="https://play-lh.googleusercontent.com/H-BL_nBtFpQY92qaBHGZ4cHAcceuBfLiXWAHGOUDPS-9Gp4TPnhEjQSCZWvpfEFOv_A" alt="Profil" />
-                <img src="https://play-lh.googleusercontent.com/H-BL_nBtFpQY92qaBHGZ4cHAcceuBfLiXWAHGOUDPS-9Gp4TPnhEjQSCZWvpfEFOv_A" alt="Profil" />
-                <img src="https://play-lh.googleusercontent.com/H-BL_nBtFpQY92qaBHGZ4cHAcceuBfLiXWAHGOUDPS-9Gp4TPnhEjQSCZWvpfEFOv_A" alt="Profil" />
-                <img src="https://play-lh.googleusercontent.com/H-BL_nBtFpQY92qaBHGZ4cHAcceuBfLiXWAHGOUDPS-9Gp4TPnhEjQSCZWvpfEFOv_A" alt="Profil" />
-            </div>
+        <div className="grid grid-cols-4 gap-4 ">
+            {
+
+                images.map((image) => (
+                    <>
+                        <div className="flex justify-center hover:opacity-10 shadow shadow-slate-600 items-center w-56 h-80 bg-yellow-600">
+                            <img
+                                className="w-full cursor-pointer border-2 border-green-800 h-full  object-cover"
+                                src={image.image}
+                                alt="" />
+                            <div className="flex absolute flex-row ">
+                                <div className="flex justify-center cursor-pointer w-8 h-8 rounded-full  hover:bg-slate-300  items-center">
+                                    <button type="like">
+                                        <FaHeart className="text-red-500" />
+                                    </button>
+                                </div>
+                                <div className="flex justify-center cursor-pointer w-8 h-8 rounded-full  hover:bg-slate-300  items-center">
+                                    <button type="like">
+                                        <FaRegComment className="text-red-500" />
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </>
+
+                ))
+            }
         </div>
     );
 }

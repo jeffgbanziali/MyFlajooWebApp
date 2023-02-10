@@ -44,41 +44,26 @@ const stories = [
 const Stories = () => {
     return (
         <>
-            <div className="flex w-full  bg-gray-800  rounded-3xl p-2 items-center justify-center flex-row   ">
-                {
-                    stories.map((story) => (
+            <div className="w-screen sm:w-full  ">
+                <div className="w-full bg-red-300 h-48 items-center justify-center flex space-x-3 rounded-[1rem] ">
 
+                    {stories.map((story) => (
                         <>
-                            <div className="flex flex-col items-center  hover:scale-110 transition duration-200 transform ease-in-out justify-center " >
-                                <div className="flex flex-col items-center justify-center p-2">
-                                    <div className="flex flex-col items-center justify-center ">
-                                        <img className="relative h-20 w-14 md:h-20 md:w-20 lg:h-56 lg:w-32 cursor-pointer overflow-x  rounded-full md:rounded-3xl lg:rounded-3xl border-2 border-red-600 "
-                                            src={story.src}
-                                            layout="fill"
-                                            objectFit="cover"
-                                            alt='story'
-                                        />
-                                    </div>
-                                    <div className="flex flex-col items-center justify-center " >
-                                        <div className=" absolute flex -mt-32 flex-col items-center justify-center">
-                                            <img
-                                                src={story.profile}
-                                                className="z-10 h-10 w-10 md:h-10 md:w-10 lg:h-16 lg:w-16 cursor-pointer rounded-full md:rounded-full lg:rounded-full border-2 border-red-600 "
-                                                alt='story'
-                                            />
-                                            <div className="absolute z-10 mt-6 ml-12 h-2 w-2 md:h-6 md:w-3 lg:h-3 lg:w-3 bg-green-400 rounded-full border-2 border-white"></div>
-                                            <div className="flex mt flex-col items-center justify-center" >
-                                                <p className="whitespace-nowrap text-sm font-bold">{story.name}</p>
-                                            </div>
-                                        </div>
-                                    </div>
+                            <div className=' flex h-32 w-[4.5rem] sm:w-24 sm:h-40  rounded-[1rem]'>
+                                <div className="flex">
+                                    <img
+                                        key={story.src}
+                                        //className="h-14 w-14 rounded-full p-[1.5px] border-red-500 "
+                                        className="flex object-cover rounded-[1rem] border-2 cursor-pointer transition duration-200 transform hover:scale-110 hover:animate-pulse"
+                                        src={story.src}
+                                        alt={story.name}
+                                    />
                                 </div>
                             </div>
-
                         </>
-                    ))
 
-                }
+                    ))}
+                </div>
 
 
             </div>

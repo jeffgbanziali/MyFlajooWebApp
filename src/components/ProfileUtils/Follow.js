@@ -1,23 +1,17 @@
 import React from 'react';
 import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import {  useSelector } from 'react-redux';
 import FollowHandler from './FollowHandler';
 
 const Follow = () => {
 
     const userData = useSelector((state) => state.userReducer);
     const usersData = useSelector((state) => state.usersReducer);
-    const dispatch = useDispatch();
+
     const [followingPopup, setFollowingPopup] = useState(false);
     const [followersPopup, setFollowersPopup] = useState(false);
 
-    const handleFollowing = () => {
 
-    }
-
-    const handleFollowers = () => {
-
-    }
     return (
         <div className="flex items-center justify-center md:w-96 lg:w-80 w-80 p-2 pl-2 pr-2 bg-slate-900  border-gray-800 border-2 rounded-3xl px-16  mt-24 z-10 relative" style={{ top: -65 }}>
             <div className="flex space-x-8 justify-center">
