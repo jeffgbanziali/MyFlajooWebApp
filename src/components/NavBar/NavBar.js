@@ -34,7 +34,6 @@ const NavBar = () => {
                 {
                     uid ? (
                         <>
-
                             <div className='xl:flex hidden items-center'>
                                 <div className='flex ml-10 justify-end space-x-6 ' >
                                     <NavLink to="/home">
@@ -112,9 +111,7 @@ const NavBar = () => {
                                     <Logout />
                                 </div>
                             </div>
-
                         </>
-
                     ) : (
                         <ul className='flex justify-between items-center mb-2 mx-10 '>
 
