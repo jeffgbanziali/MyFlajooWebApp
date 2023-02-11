@@ -16,7 +16,7 @@ const Navigation = () => {
             <NavBar />
             <Routes>
                 <Route path="/start" element={<StartPage />} />
-                <Route path="/" element={<HomeScreen />} />
+                <Route path="/home" element={<HomeScreen />} />
                 <Route path="/thread" element={<Thread />} />
                 <Route path="sign-in" element={<SignInScreen />} />
                 <Route path="sign-up" element={<SignUpScreen />} />

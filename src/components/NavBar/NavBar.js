@@ -21,45 +21,45 @@ const NavBar = () => {
     const userData = useSelector((state) => state.userReducer);
     return (
         <div >
-            <div className=' fixed z-10 h-14 w-full bg-gray-800 flex justify-between shadow-lg p-2  '>
-                <div className='flex'>
-                    <img src={image} alt="logo" className="h-10  w-10" />
-                    <div className='h-10 w-64 bg-gray-200 rounded-full flex items-center ml-4'>
+            <div className=' fixed z-10 h-auto w-full items-center bg-gray-800 flex xl:justify-between shadow-lg  '>
+                <div className='flex items-center p-2'>
+                    <NavLink to={uid ? "/home" : "/"} >
+                        <img src={image} alt="logo" className="h-14 w-14" />
+                    </NavLink>
+                    <div className='h-8 w-72  bg-gray-200 rounded-full justify-center hidden xl:flex xl:items-center ml-4'>
                         <FiSearch className='h-4 w-4 ml-2 text-gray-500' />
-                        <input type="text" placeholder='Search Flajoo' className='h-10 w-52 bg-gray-200 rounded-full focus:outline-none ml-2' />
+                        <input type="text" placeholder='Search Flajoo' className='h-8 w-52  bg-gray-200 rounded-full focus:outline-none ml-2' />
                     </div>
                 </div>
                 {
                     uid ? (
                         <>
 
-                            <div className='flex items-center'>
+                            <div className='xl:flex hidden items-center'>
                                 <div className='flex ml-10 justify-end space-x-6 ' >
-                                    <div className='flex flex-row hover:text-red-700 cursor-pointer p-2 rounded-2xl  hover:bg-gray-200 text-gray-400 text-2xl font-bold  mb-2 mt-2 '>
-                                        <NavLink to="/">
-                                            <TbSmartHome size="28" />
-                                        </NavLink>
-                                        <p className="flex items-center justify-center ml-2 text-xs font-semibold">Home</p>
+                                    <NavLink to="/home">
+                                        <div className='flex flex-row hover:text-red-700 cursor-pointer p-2 rounded-2xl  hover:bg-gray-200 text-gray-400 text-2xl font-bold  mb-2 mt-2 '>
+                                            <TbSmartHome size="40" />
+                                            <p className="flex items-center justify-center ml-2 text-xs font-semibold">Home</p>
+                                        </div>
+                                    </NavLink>
+                                    <NavLink to="/">
+                                        <div className='flex flex-row hover:text-red-700 cursor-pointer p-2 rounded-2xl  hover:bg-gray-200 text-gray-400 text-2xl font-bold mb-2 mt-2 '>
 
-                                    </div>
-                                    <div className='flex flex-row hover:text-red-700 cursor-pointer p-2 rounded-2xl  hover:bg-gray-200 text-gray-400 text-2xl font-bold mb-2 mt-2 '>
-                                        <NavLink to="/">
-                                            <MdOutlineOndemandVideo size="28" />
-                                        </NavLink>
-                                        <p className="flex items-center justify-center ml-2 text-xs font-semibold">Home</p>
-                                    </div>
-                                    <div className='flex flex-row hover:text-red-700 cursor-pointer rounded-2xl  p-2 hover:bg-gray-200 text-gray-400 text-2xl font-bold mb-2 mt-2  '>
-                                        <NavLink to="/">
-                                            <HiOutlineUserGroup size="28" />
-                                        </NavLink>
-                                        <p className="flex items-center justify-center ml-2 text-xs font-semibold">Home</p>
-                                    </div>
+                                            <MdOutlineOndemandVideo size="38" />
 
+                                            <p className="flex items-center justify-center ml-2 text-xs font-semibold">Home</p>
+                                        </div>
+                                    </NavLink>
+                                    <NavLink to="/">
+                                        <div className='flex flex-row hover:text-red-700 cursor-pointer rounded-2xl  p-2 hover:bg-gray-200 text-gray-400 text-2xl font-bold mb-2 mt-2  '>
+                                            <HiOutlineUserGroup size="40" />
+                                            <p className="flex items-center justify-center ml-2 text-xs font-semibold">Home</p>
+                                        </div>
+                                    </NavLink>
                                 </div>
-
                             </div>
-
-                            <div className='flex space-x-2 '>
+                            <div className='xl:flex hidden p-4  space-x-2 '>
                                 <div>
                                     <div className="w-10 h-10 hover:bg-gray-500 bg-gray-300 rounded-full cursor-pointer flex items-center justify-center">
                                         <div className="absolute flex ml-10 mb-7">
