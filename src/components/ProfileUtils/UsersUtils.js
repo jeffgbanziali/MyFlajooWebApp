@@ -2,6 +2,7 @@ import React from 'react';
 import { FaPhone, FaUserFriends } from 'react-icons/fa';
 import { MdMore } from 'react-icons/md';
 import { useSelector } from 'react-redux';
+import FollowHandler from './FollowHandler';
 
 const UsersUtils = () => {
     const userData = useSelector((state) => state.userReducer);
@@ -22,9 +23,9 @@ const UsersUtils = () => {
                                         </h2>
                                     </div>
                                     <div className='flex items-center  ml-2 space-x-2'>
-                                        <button className='w-24 h-9 bg-gray-700 flex items-center justify-center focus:outline-none rounded'>
-                                            <FaPhone className='text-white' />
-                                        </button>
+                                        <div>
+                                            <FollowHandler idToFollow={userData._id} type={'card'} />
+                                        </div>
                                         <button className='w-24 h-9 bg-gray-700 flex items-center justify-center focus:outline-none rounded'>
                                             <FaUserFriends className='text-white' />
 
