@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import {useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { dateParser, isEmpty } from '../../Utils/Utils';
 import { FiMoreHorizontal } from 'react-icons/fi';
 import { FaPen, FaRegComment } from 'react-icons/fa';
 import LikeButton from './LikeButton';
 import CommentButton from './CommentButton';
 import FollowHandler from '../../ProfileUtils/FollowHandler';
+import { NavLink } from 'react-router-dom';
 
 
 const Posts = ({ post }) => {
@@ -13,7 +14,7 @@ const Posts = ({ post }) => {
     const usersData = useSelector((state) => state.usersReducer);
     const userData = useSelector((state) => state.userReducer);
     const [showComments, setShowComments] = useState(false);
-   
+
 
 
 
@@ -33,20 +34,21 @@ const Posts = ({ post }) => {
                             <div id='post-header '>
                                 <div className="flex justify-between">
                                     <div className="flex flex-row">
+                                        <NavLink to={`/profile`}>
+                                            <img src={
+                                                !isEmpty(usersData[0]) &&
+                                                usersData
+                                                    .map((user) => {
+                                                        if (user._id === post.posterId) return user.picture;
+                                                        else return null;
+                                                    })
+                                                    .join('')
+                                            }
+                                                className="w-16 hover:opacity-75 cursor-pointer hidden md:block object-cover border shadow-md  border-red-500 rounded-14 ml-18 overflow-hidden h-16 rounded-full mr-4"
 
-                                        <img src={
-                                            !isEmpty(usersData[0]) &&
-                                            usersData
-                                                .map((user) => {
-                                                    if (user._id === post.posterId) return user.picture;
-                                                    else return null;
-                                                })
-                                                .join('')
-                                        }
-                                            className="w-16 hover:opacity-75 cursor-pointer hidden md:block object-cover border shadow-md  border-red-500 rounded-14 ml-18 overflow-hidden h-16 rounded-full mr-4"
-
-                                            alt="user-pic"
-                                        />
+                                                alt="user-pic"
+                                            />
+                                        </NavLink>
                                         <div className='flex  md:ml-18'>
                                             <div className=" flex  flex-col min-h-35">
                                                 <div className='flex sm:mt-4 md:translate-y-18 mb-4 '  >

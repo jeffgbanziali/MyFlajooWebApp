@@ -7,6 +7,7 @@ import Profile from '../screens/Profile/Profile';
 import StartPage from '../screens/StartPage/StartPage';
 import Thread from '../components/Thread/Thread';
 import NavBar from '../components/NavBar/NavBar';
+import ProfilsFriends from '../components/Friends/ProfilsFriends';
 
 
 const Navigation = () => {
@@ -16,11 +17,12 @@ const Navigation = () => {
             <NavBar />
             <Routes>
                 <Route path="/start" element={<StartPage />} />
-                <Route path="/home" element={<HomeScreen />} />
+                <Route exact path="/home" element={<HomeScreen />} />
                 <Route path="/thread" element={<Thread />} />
                 <Route path="sign-in" element={<SignInScreen />} />
                 <Route path="sign-up" element={<SignUpScreen />} />
                 <Route path="/profile" element={<Profile />} />
+                <Route path="/profile/:pseudo" element={<ProfilsFriends />} />
                 <Route path="*" element={<h1>404 Not Found</h1>} />
 
             </Routes>
