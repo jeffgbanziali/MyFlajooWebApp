@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import {useSelector } from 'react-redux';
 import { dateParser, isEmpty } from '../../Utils/Utils';
 import { FiMoreHorizontal } from 'react-icons/fi';
 import { FaPen, FaRegComment } from 'react-icons/fa';
 import LikeButton from './LikeButton';
 import CommentButton from './CommentButton';
+import FollowHandler from '../../ProfileUtils/FollowHandler';
 
 
 const Posts = ({ post }) => {
@@ -12,14 +13,7 @@ const Posts = ({ post }) => {
     const usersData = useSelector((state) => state.usersReducer);
     const userData = useSelector((state) => state.userReducer);
     const [showComments, setShowComments] = useState(false);
-    const [isUpadated, setIsUpdated] = useState(true);
-    const [textUpdate, setTextUpdate] = useState(null);
-
-    const dispatch = useDispatch();
-
-    const updatePost = () => { }
-
-    const deletePost = () => { }
+   
 
 
 
@@ -66,8 +60,13 @@ const Posts = ({ post }) => {
                                                                 })
                                                         }
                                                     </h4>
+                                                    <div className="flex items-center ml-2">
+                                                        {post.posterId !== userData._id &&
+                                                            <FollowHandler idToFollow={post.posterId} type={'friends'} />}
+
+                                                    </div>
                                                 </div>
-                                                <span className="flex text-gray-500 translate-y-5 sm:-mt-10 sm:pt-0 sm:pb-10 text-sm mb-10 font-normal">
+                                                <span className="flex text-gray-500 translate-y-5 sm:-mt-8 sm:pt-0 sm:pb-10 text-sm mb-10 font-normal">
                                                     {dateParser(post.createdAt)}
                                                 </span>
                                             </div>
@@ -114,7 +113,7 @@ const Posts = ({ post }) => {
                                             <div className="flex ">
                                                 <button
                                                     className=" items-center justify-center text-white font-bold py-2 px-4 rounded-full mr-2"
-                                                    onClick={() => setIsUpdated(true)} >
+                                                    onClick={() => (true)} >
                                                     <FaPen size={16} />
 
                                                 </button>
