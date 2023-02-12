@@ -10,7 +10,6 @@ const UsersFriends = () => {
 
     const uid = useContext(UidContext);
 
-
     useEffect(() => {
         const getFriends = async () => {
             try {
@@ -35,16 +34,19 @@ const UsersFriends = () => {
                 <div>
                     {
                         friends.map((friend) => (
-                            <NavLink to={'/profile/' + friend.pseudo} key={friend._id}>
+                            <NavLink to={{
+                                pathname: "/profile/" + friend.pseudo,
+                                state: { friend: friend }
+                            }} key={friend._id}>
                                 <div className='flex flex-col -space-y-2 '>
                                     <div className='flex mt-2 p-4 hover:bg-gray-800 cursor-pointer rounded-b-xl  items-center justify-between   '>
                                         <div className=''>
                                             <div className='flex flex-row items-center '>
                                                 <div className='flex items-center'>
-                                                    <img src={friend.picture} alt='' className='w-16 h-16   rounded-full' />
+                                                    <img src={friend.picture} alt='' className='w-12 h-12   rounded-full' />
                                                     <div className='flex flex-col ml-4 text-justify '>
-                                                        <h2 className='text-center text-gray-900 font-semibold text-xl'>{friend.username}</h2>
-                                                        <h2 className='text-center text-gray-400 font-normal text-lg'>@{friend.pseudo}</h2>
+                                                        <h2 className='text-center text-gray-900 font-semibold text-sm'>{friend.username}</h2>
+                                                        <h2 className='text-center text-gray-400 font-normal text-[16px]'>@{friend.pseudo}</h2>
                                                     </div>
                                                 </div>
                                             </div>

@@ -1,11 +1,7 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+
 
 const FollowBar = () => {
-    const userData = useSelector((state) => state.userReducer);
-    const dispatch = useDispatch();
-
-
     return (
         <div className=" shadow-xl shadow-gray-800 flex flex-col w-80 h-auto md:h-auto md:w-72 lg:h-auto lg:w-[360px] bg-black  border-1 border-red-700 border-opacity-0 rounded-xl">
             <div className="flex p-3 ml-6 mt-4 rounded-b-xl ">

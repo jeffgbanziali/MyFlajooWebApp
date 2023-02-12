@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { FaHome, FaUserFriends } from 'react-icons/fa';
+import {  FaUserFriends } from 'react-icons/fa';
 import { useSelector } from 'react-redux';
 import { TbSmartHome } from 'react-icons/tb';
 import { RiGroup2Line } from 'react-icons/ri';

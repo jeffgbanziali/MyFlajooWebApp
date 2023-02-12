@@ -42,9 +42,9 @@ const FollowHandler = ({ idToFollow, type }) => {
                                 Following
                             </p>
                         </button>}
-                        {type === "card" && <button className="flex space-x-2 items-center justify-center hover:text-blue-700 bg-blue-100 hover:bg-white w-32 h-10 rounded-2xl" >
-                            <FaUserCheck className='text-blue-400  text-[24px] font-semibold text-center' />
-                            <p className="text-blue-400  text-[18px] font-semibold text-center" >
+                        {type === "card" && <button className="flex space-x-2 items-center justify-center hover:text-blue-700 bg-blue-100 hover:bg-white  w-28 h-9  rounded-xl" >
+                            <FaUserCheck className='text-blue-400  text-[22px] font-semibold text-center' />
+                            <p className="text-blue-400  text-[16px] font-semibold text-center" >
                                 Friends
                             </p>
                         </button>
@@ -68,9 +68,9 @@ const FollowHandler = ({ idToFollow, type }) => {
                             </p>
                         </button>}
                         {
-                            type === "card" && <button className="flex space-x-2 items-center justify-center bg-red-600 hover:bg-red-500 w-32 h-10  rounded-2xl" >
-                                <FaUserPlus className='text-white text-[24px] font-semibold text-center' />
-                                <p className="text-white text-[18px] font-semibold text-center">
+                            type === "card" && <button className="flex space-x-2 items-center justify-center bg-red-600 hover:bg-red-500 w-28 h-9  rounded-xl" >
+                                <FaUserPlus className='text-white text-[22px] font-semibold text-center' />
+                                <p className="text-white text-[16px] font-semibold text-center">
                                     Follow
                                 </p>
                             </button>

@@ -1,28 +1,33 @@
-import React, { useState } from 'react';
-import NavBar from '../../components/NavBar/NavBar';
+import React from 'react';
 import UsersUtils from '../../components/ProfileUtils/UsersUtils';
-import UserInfo from '../../components/ProfileUtils/UserInfo';
 import PostImage from '../../components/ProfileUtils/PostImage';
-import AddingPostsProfile from '../../components/ProfileUtils/AddingPostsProfile';
-import LeftBarPro from '../../components/NavBar/LeftBarPro';
-
-
+import UserInfo from '../../components/ProfileUtils/UserInfo';
+import ProfilFriends from '../../components/ProfileUtils/ProfilFriends';
+import PhotoUser from '../../components/ProfileUtils/PhotoUser';
 
 
 
 
 
 const Profile = () => {
+
+
+
     return (
         <>
-            <div className="grid  grid-rows-3 grid-flow-col gap-4">
-                <div className="col-span-1 items-center justify-center">
+            <div className="">
+                <div className="">
                     <div>
                         <div className="">
                             <UsersUtils />
                         </div>
-                        <div>
-                            <div className="flex mt-10 justify-center">
+                        <div className="grid grid-rows-3 justify-center  mt-4 p-10 grid-flow-col gap-4">
+                            <div className="row-span-3  space-y-4 w-[520px]  p-2">
+                                <UserInfo />
+                                <PhotoUser />
+                                <ProfilFriends />
+                            </div>
+                            <div className=" p-2 flex items-center justify-center">
                                 <PostImage />
                             </div>
                         </div>
