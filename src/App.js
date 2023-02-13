@@ -28,7 +28,7 @@ function App() {
     if (uid) dispatch(getUser(uid))
   }, [uid, dispatch]);
   return (
-    <UidContext.Provider  value={uid}>
+    <UidContext.Provider value={uid}>
       <Navigation />
     </UidContext.Provider>
   );
