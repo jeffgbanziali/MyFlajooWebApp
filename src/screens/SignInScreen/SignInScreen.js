@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import image from "../../../src/assets/Logos/2.png";
 import image2 from "../../../src/assets/Images/Backgroung.png";
 import image3 from "../../../src/assets/Logos/5.png";
@@ -50,30 +50,32 @@ const SignInScreen = () => {
 
    return (
       <>
-         <div className="flex justify-center mt-10 min-h-screen bg-black">
-            <div className=" ">
-               <div className="bg-gray-900 ml-10 rounded-lg shadow-lg text-black ">
-                  <h1 className="text-white text-center mt-10 font-semibold text-xl">Login for a account</h1>
-                  <div className="flex ml-10 mt-10 items-center">
-                     <Link to="/">
-                        <img className=" w-24 h-24 mt-10 " src={image} alt="logo" />
-                     </Link>
-                     <Link to="/">
-                        <img className="h-12 mr-4 mt-10 " src={image3} alt="logo" />
-                     </Link>
-
+         <div className="fixed top-0 left-0 w-full h-full bg-gray-900 bg-opacity-75 flex items-center justify-center">
+            <div className="w-[800px]  bg-black p-6 rounded-lg shadow-lg transform transition-all ease-in-out duration-300 scale-100">
+               <div className="flex justify-between" >
+                  <div className='flex w-full ml-10'>
+                     <h3 className='text-white text-xl'>LET'S SEE WHAT'S NEW</h3>
                   </div>
-
-                  <div className="flex items-center content-center self-center justify-center ">
+               </div>
+               <div className="flex f ml-10 mt-10 items-center">
+                  <Link to="/">
+                     <div className="flex items-center justify-center ">
+                        <img className=" w-24 h-24 mt-10 " src={image} alt="logo" />
+                        <img className="h-12 mr-4 mt-10 " src={image3} alt="logo" />
+                     </div>
+                  </Link>
+               </div>
+               <div className=" p-2 ">
+                  <div className="flex items-center justify-center ">
                      <form
-                        className=' w-full px-8 pt-6 pb-8 -mt-10 flex  text-black '
+                        className=' w-full flex  items-center pt-6 pb-8 -mt-10   text-black '
                         action=""
                         onSubmit={handleSignIn}
                         id="sign-up-form" >
                         <div className="w-full py-7 ">
                            <br />
                            <input
-                              className='flex  mt-7 items-center pl-[10px] w-[320px] h-[50px] rounded-[10px] bg-[grey] border-0 text-white'
+                              className='flex mt-7 items-center pl-[10px] w-[320px] h-[50px] rounded-[10px] bg-white border-0 text-gray-800'
                               type="text"
                               name="email"
                               id="email"
@@ -86,7 +88,7 @@ const SignInScreen = () => {
                            </div>
                            <br />
                            <input
-                              className='flex  mt-7 items-center pl-[10px] w-[320px] h-[50px] rounded-[10px] bg-[grey] border-0 text-white'
+                              className='flex  mt-7 items-center pl-[10px] w-[320px] h-[50px] rounded-[10px] bg-white border-0 text-gray-800'
                               type="password"
                               name="password"
                               id="password"
@@ -102,20 +104,22 @@ const SignInScreen = () => {
                               </input>
                            </div>
                            <div className=' flex mt-10 ml-10'>
-                              <h3 className='text-white'>Don't have an account ?</h3>
-                              <h3 className='text-[green] font-bold ml-2'>Sign Up</h3>
+                              <h3 className='text-gray-700 '>Don't have an account ?</h3>
+                              <NavLink to="/sign-up">
+                                 <h3 className='text-[green] fixed hover:border-b-2 hover:border-[green] cursor-pointer font-semibold ml-2'>Sign Up</h3>
+                              </NavLink>
                            </div>
                         </div>
-                        <div >
-                           <img className="rounded " src={image2} alt="logo" />
-                        </div>
+
                      </form>
+                     <div className=" hidden xl:inline">
+                        <img className="rounded-xl " src={image2} alt="logo" />
+                     </div>
                   </div>
+
                </div>
             </div>
-
          </div>
-
 
       </>
 
