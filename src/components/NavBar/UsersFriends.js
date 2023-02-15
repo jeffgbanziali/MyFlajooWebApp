@@ -13,7 +13,12 @@ const UsersFriends = () => {
     useEffect(() => {
         const getFriends = async () => {
             try {
-                const FriendList = await axios.get("http://localhost:5000/api/user/friends/" + uid);
+                const FriendList = await axios({
+                    method: "get",
+                    url: `http://localhost:5000/api/user/friends/` + uid,
+                    withCredentials: true,
+                });
+                console.log(FriendList.data);
                 setFriends(FriendList.data);
             }
             catch (err) {
@@ -34,10 +39,7 @@ const UsersFriends = () => {
                 <div>
                     {
                         friends.map((friend) => (
-                            <NavLink to={{
-                                pathname: "/profile/" + friend.pseudo,
-                                state: { friend: friend }
-                            }} key={friend._id}>
+                            <NavLink to={"/profile/" + friend.pseudo} key={friend._id}>
                                 <div className='flex flex-col -space-y-2 '>
                                     <div className='flex mt-2 p-4 hover:bg-gray-800 cursor-pointer rounded-b-xl  items-center justify-between   '>
                                         <div className=''>

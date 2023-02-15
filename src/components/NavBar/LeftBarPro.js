@@ -13,7 +13,7 @@ const LeftBarPro = () => {
     const userData = useSelector(state => state.userReducer);
 
     return (
-        <div className="hidden sm:flex flex-col ml-2 overflow-y-auto border-r-2 xl:w-[360px] p-2 fixed h-full ">
+        <div className="hidden sm:flex flex-col ml-2 overflow-y-auto bg-green-800 border-r-2 xl:w-[360px] p-2 fixed h-full ">
             <div className="flex flex-col p-2 mt-20">
                 <div className='flex  h-16 w-[100%] items-center rounded-2xl  hover:bg-white p-2 '>
                     <NavLink to='/profile'>

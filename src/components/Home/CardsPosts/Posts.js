@@ -99,7 +99,7 @@ const Posts = ({ post }) => {
                                     }
                                 </div>
                                 <div>
-                                    {post.video && (
+                                    {/*  {post.video && (
                                         <iframe
                                             className="flex w-[100%] h-96 rounded-2xl transition duration-150 cursor-pointer hover:scale-120 hover:translate-0 transform hover:shadow-none"
                                             src={post.video}
@@ -109,7 +109,7 @@ const Posts = ({ post }) => {
                                             title={post._id}
                                         >
                                         </iframe>
-                                    )}
+                                  )}*/}
                                     {
                                         userData._id === post.posterId && (
                                             <div className="flex ">

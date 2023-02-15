@@ -1,4 +1,4 @@
-import { GET_USER, UPLOAD_PICTURE, UPDATE_BIO, FOLLOW_USER, UNFOLLOW_USER, GET_FRIENDS } from '../actions/user.action';
+import { GET_USER, UPLOAD_PICTURE, UPDATE_BIO, FOLLOW_USER, UNFOLLOW_USER } from '../actions/user.action';
 
 
 const initialState = {}; // initial state
@@ -17,12 +17,6 @@ export default function userReducer(state = initialState, action) {
             return {
                 ...state,
                 bio: action.payload
-            }
-            case GET_FRIENDS:
-            return {
-                ...state,
-                friends: action.payload
-                
             }
         case FOLLOW_USER:
             return {

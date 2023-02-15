@@ -1,21 +1,26 @@
 import React from 'react';
 import './Messaging.css'
+import { dateParser } from '../../Utils/Utils';
 
-const Messaging = ({ own }) => {
+const Messaging = ({ own,
+    message: { picture, sender, text, createdAt },
+}) => {
     return (
-        <div className={own ? "messenge own": "message" }>
+        <div className={own ? "message own" : "message"}>
             <div className="messageTop">
                 <img
-                    src='https://global-img.gamergen.com/assassin-s-creed-valhalla-eivor-statuette-pure-arts-13-24-07-2020_0900958493.jpg'
+                    src={
+                        own ? picture : sender.picture
+                    }
                     alt=""
                     className="messageImg"
                 />
                 <p className="messageText">
-                    Helli This Message is for you
+                    {text}
                 </p>
             </div>
             <div className="messageBottom">
-                1 hour ago
+                {dateParser(createdAt)}
             </div>
         </div>
     );

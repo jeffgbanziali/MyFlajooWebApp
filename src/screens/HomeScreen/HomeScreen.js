@@ -11,7 +11,6 @@ const HomeScreen = () => {
 
     return (
         <>
-            <NavBar />
             <LeftBarPro />
             <div className="sm:ml-[25%] absolute ">
                 <div className="flex sm:ml-10 mt-20   ">

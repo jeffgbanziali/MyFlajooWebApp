@@ -9,6 +9,7 @@ import logger from 'redux-logger';
 import thunk from 'redux-thunk';
 import rootReducer from './reducers';
 import { getUsers } from './actions/users.action';
+import { getPosts } from './actions/post.actions';
 
 
 
@@ -17,13 +18,15 @@ const store = createStore(
 )
 
 store.dispatch(getUsers());
+store.dispatch(getPosts());
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Provider store={store} >
-      <App />
-    </Provider>
+  <Provider store={store} >
+        <App />
+      </Provider>
+
   </React.StrictMode>
 );
 

@@ -10,16 +10,19 @@ const ProfilFriends = () => {
     useEffect(() => {
         const getFriends = async () => {
             try {
-                const FriendList = await axios.get("http://localhost:5000/api/user/friends/" + uid);
-                setFriends(FriendList.data);
-            }
-            catch (err) {
+                if (uid) {
+                    const FriendList = await axios.get(`http://localhost:5000/api/user/friends/${uid}`);
+                    setFriends(FriendList.data);
+                }
+            } catch (err) {
                 console.log(err);
             }
         }
         getFriends();
     }, [uid]);
+
     return (
+
         <div className="shadow bg-gray-900   shadow-slate-600 rounded-xl w-full">
             <div className="flex p-3 ml-6 mt-4 rounded-b-xl">
                 <h1 className="text-3xl font-italic text-gray-400">Friends</h1>

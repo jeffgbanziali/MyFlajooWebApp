@@ -86,11 +86,9 @@ function StartPage() {
                         }
                         {signUpPopup &&
                             <div className="fixed top-0 left-0 w-full h-full bg-gray-900 bg-opacity-75 flex items-center justify-center">
-                                <div className="w-[800px]  bg-black p-6 rounded-lg shadow-lg transform transition-all ease-in-out duration-300 scale-100">
-                                    <div className="flex justify-between" >
-                                        <div className='flex w-full ml-10'>
-                                            <h3 className='text-white text-xl'>LET'S SEE WHAT'S NEW</h3>
-                                        </div>
+                                <div className="w-[800px]s bg-black p-10 rounded-lg shadow-lg transform transition-all ease-in-out duration-300 scale-100">
+                                    <div className="flex  justify-between" >
+                                        <h3 className='text-white text-xl'>LET'S SEE WHAT'S NEW</h3>
                                         <span className="text-gray-200  text-2xl cursor-pointer" onClick={() => setSignUpPopup(false)}>
                                             &#10005;
                                         </span>

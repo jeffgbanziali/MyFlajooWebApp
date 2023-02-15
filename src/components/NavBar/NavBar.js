@@ -17,24 +17,26 @@ import { useSelector } from 'react-redux';
 
 
 const NavBar = () => {
-    const uid = useContext(UidContext);
+    const user = useContext(UidContext);
+    console.log(user);
     const userData = useSelector((state) => state.userReducer);
     return (
         <>
-            {
-                uid && (
-                    <div className='absolute  '>
-                        <div className=' fixed z-10 h-auto w-full items-center bg-gray-800 flex xl:justify-between shadow-lg  '>
-                            <div className='flex items-center p-2'>
-                                <NavLink to={uid ? "/home" : "/"} >
-                                    <img src={image} alt="logo" className="h-14 w-14" />
-                                </NavLink>
-                                <div className='h-8 w-72  bg-gray-200 rounded-full justify-center hidden xl:flex xl:items-center ml-4'>
-                                    <FiSearch className='h-4 w-4 ml-2 text-gray-500' />
-                                    <input type="text" placeholder='Search Flajoo' className='h-8 w-52  bg-gray-200 rounded-full focus:outline-none ml-2' />
-                                </div>
-                            </div>
 
+
+            <div className='absolute bg-green-400  '>
+                <div className=' fixed z-10 h-auto w-full items-center bg-gray-800 flex xl:justify-between shadow-lg  '>
+                    <div className='flex items-center p-2'>
+                        <NavLink to={user ? "/home" : "/"} >
+                            <img src={image} alt="logo" className="h-14 w-14" />
+                        </NavLink>
+                        <div className='h-8 w-72  bg-gray-200 rounded-full justify-center hidden xl:flex xl:items-center ml-4'>
+                            <FiSearch className='h-4 w-4 ml-2 text-gray-500' />
+                            <input type="text" placeholder='Search Flajoo' className='h-8 w-52  bg-gray-200 rounded-full focus:outline-none ml-2' />
+                        </div>
+                    </div>
+                    {user ? (
+                        <>
 
                             <div className='xl:flex hidden items-center'>
                                 <div className='flex ml-10 justify-end space-x-6 ' >
@@ -71,7 +73,7 @@ const NavBar = () => {
                                         </NavLink>
                                     </div>
                                 </div>
-                                {uid && <div>
+                                <div>
                                     <div className="w-10 h-10 hover:bg-gray-500   bg-gray-300 rounded-full cursor-pointer flex items-center justify-center">
                                         <div className="absolute flex ml-10 mb-7">
                                             <div class="flex  bg-red-600  w-5 h-5 rounded-full items-center justify-center ">
@@ -83,7 +85,7 @@ const NavBar = () => {
                                                 size="20" color='black' />
                                         </NavLink>
                                     </div>
-                                </div>}
+                                </div>
 
                                 <div className="w-10 h-10 hover:bg-gray-500  bg-gray-300 rounded-full cursor-pointer flex items-center justify-center">
                                     <NavLink to="/menu">
@@ -111,10 +113,24 @@ const NavBar = () => {
                                     <Logout />
                                 </div>
                             </div>
-                        </div >
-                    </div >
-                )
-            }
+
+                        </>
+                    ) : (
+                        <div className='flex items-center justify-center space-x-4'>
+                            <NavLink to="/sign-in">
+                                <button className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full'>
+                                    Login
+                                </button>
+                            </NavLink>
+                            <NavLink to="/sign-up">
+                                <button className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full'>
+                                    Sign Up
+                                </button>
+                            </NavLink>
+                        </div>
+                    )}
+                </div >
+            </div >
         </>
     );
 }

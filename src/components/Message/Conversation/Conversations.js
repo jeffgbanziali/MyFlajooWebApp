@@ -4,18 +4,14 @@ import "./Conversations.css"
 
 
 
-const Conversations = () => {
-    
+
+const Conversations = ({ conversation }) => {
 
     return (
-        <div className="conversation">
-            <img
-                src="https://global-img.gamergen.com/assassin-s-creed-valhalla-eivor-statuette-pure-arts-13-24-07-2020_0900958493.jpg"
-                alt=""
-                className="conversationImg" />
-            <span className="conversationName">
-               name
-            </span>
+        <div
+            className="conversation">
+            <img src={conversation.picture} alt="user" className="conversationImg" />
+            <span className="conversationName">{conversation.pseudo}</span>
         </div>
     );
 }
