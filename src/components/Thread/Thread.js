@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { getPosts } from '../../actions/post.actions';
 import { useDispatch, useSelector } from 'react-redux';
-import Posts from '../Home/CardsPosts/Posts';
+import Posts from '../Home/CardsPosts/PostComponents/Posts';
 import AddingPosts from '../Home/CardsPosts/AddingPosts';
 import { isEmpty } from '../Utils/Utils';
 import { UidContext } from '../../Context/AppContext';

@@ -1,4 +1,4 @@
-import { GET_POSTS, LIKE_POST, UNLIKE_POST, ADD_COMMENT, EDIT_COMMENT, DELETE_POST, DELETE_COMMENT, UPDATE_POST } from "../actions/post.actions";
+import { GET_POSTS, LIKE_POST, UNLIKE_POST, ADD_COMMENT, EDIT_COMMENT, DELETE_POST, DELETE_COMMENT, UPDATE_POST, ALL_COMMENTS } from "../actions/post.actions";
 
 const initialState = {};
 
@@ -27,6 +27,16 @@ export default function postReducer(state = initialState, action) {
                 }
                 return post;
             });
+        case ALL_COMMENTS:
+            return state.map((post) => {
+                if (post._id === action.payload.postId) {
+                    return {
+                        ...post,
+                        comments: action.payload.comments
+                    };
+                } else return post;
+            });
+
         case ADD_COMMENT:
             return state.map((post) => {
                 if (post._id === action.payload.postId) {
@@ -36,7 +46,7 @@ export default function postReducer(state = initialState, action) {
                     };
                 } else return post;
             });
-            
+
         case UPDATE_POST:
             return state.map((post) => {
                 if (post._id === action.payload.postId) {

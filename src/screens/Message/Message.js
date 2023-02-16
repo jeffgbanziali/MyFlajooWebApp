@@ -42,9 +42,17 @@ const Message = () => {
                 <div className="chatMenu mt-20">
                     <div className="chatMenuWrapper">
                         <input placeholder="Search for friends" className="chatMenuInput" />
-                        {conversations.map(conversation => (
-                            <Conversations key={conversation.id} conversation={conversation} />
-                        ))}
+                        {conversations.map(conversation => {
+                            console.log(conversation);
+                            return (
+                                <Conversations key={conversation.uid}
+                                    uid={conversation.uid}
+                                    pseudo={conversation.pseudo}
+                                    picture={conversation.picture}
+                                    conversation={conversation} />
+                            )
+                        }
+                        )}
                     </div>
 
                 </div>

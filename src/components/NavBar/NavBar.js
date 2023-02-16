@@ -17,8 +17,8 @@ import { useSelector } from 'react-redux';
 
 
 const NavBar = () => {
-    const user = useContext(UidContext);
-    console.log(user);
+    const uid = useContext(UidContext);
+    console.log(uid);
     const userData = useSelector((state) => state.userReducer);
     return (
         <>
@@ -27,7 +27,7 @@ const NavBar = () => {
             <div className='absolute bg-green-400  '>
                 <div className=' fixed z-10 h-auto w-full items-center bg-gray-800 flex xl:justify-between shadow-lg  '>
                     <div className='flex items-center p-2'>
-                        <NavLink to={user ? "/home" : "/"} >
+                        <NavLink to={uid ? "/home" : "/"} >
                             <img src={image} alt="logo" className="h-14 w-14" />
                         </NavLink>
                         <div className='h-8 w-72  bg-gray-200 rounded-full justify-center hidden xl:flex xl:items-center ml-4'>
@@ -35,7 +35,7 @@ const NavBar = () => {
                             <input type="text" placeholder='Search Flajoo' className='h-8 w-52  bg-gray-200 rounded-full focus:outline-none ml-2' />
                         </div>
                     </div>
-                    {user ? (
+                    {uid ? (
                         <>
 
                             <div className='xl:flex hidden items-center'>
@@ -74,17 +74,19 @@ const NavBar = () => {
                                     </div>
                                 </div>
                                 <div>
-                                    <div className="w-10 h-10 hover:bg-gray-500   bg-gray-300 rounded-full cursor-pointer flex items-center justify-center">
-                                        <div className="absolute flex ml-10 mb-7">
-                                            <div class="flex  bg-red-600  w-5 h-5 rounded-full items-center justify-center ">
-                                                <p className="text-white text-[12px] font-semibold">2</p>
+                                    <NavLink to="/chat">
+                                        <div className="w-10 h-10 hover:bg-gray-500   bg-gray-300 rounded-full cursor-pointer flex items-center justify-center">
+                                            <div className="absolute flex ml-10 mb-7">
+                                                <div class="flex  bg-red-600  w-5 h-5 rounded-full items-center justify-center ">
+                                                    <p className="text-white text-[12px] font-semibold">2</p>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <NavLink to="/chat">
+
                                             <BsMessenger
                                                 size="20" color='black' />
-                                        </NavLink>
-                                    </div>
+
+                                        </div>
+                                    </NavLink>
                                 </div>
 
                                 <div className="w-10 h-10 hover:bg-gray-500  bg-gray-300 rounded-full cursor-pointer flex items-center justify-center">

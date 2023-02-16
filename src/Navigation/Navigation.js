@@ -17,12 +17,12 @@ const Navigation = () => {
             <BrowserRouter>
                 <NavBar />
                 <Routes>
-                    <Route path="/home" element={<HomeScreen />} />
+                    <Route exact path="/home" element={<HomeScreen />} />
                     <Route path="/thread" element={<Thread />} />
                     <Route path="/profile" element={<Profile />} />
                     <Route path="/profile/:pseudo" element={<ProfilsFriends />} />
                     <Route path="/chat" element={<Message />} />
-                    <Route exact path="/" element={<StartPage />} />
+                    <Route path="/" element={<StartPage />} />
                     <Route path="sign-in" element={<SignInScreen />} />
                     <Route path="sign-up" element={<SignUpScreen />} />
                     <Route path="*" element={<h1>404 Not Found</h1>} />

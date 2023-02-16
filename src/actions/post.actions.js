@@ -6,6 +6,7 @@ export const GET_POSTS = "GET_POSTS";
 export const GET_ADD_POSTS = "GET_ADD_POSTS";
 export const LIKE_POST = "LIKE_POST";
 export const UNLIKE_POST = "UNLIKE_POST";
+export const ALL_COMMENTS = "ALL_COMMENTS";
 export const ADD_COMMENT = "ADD_COMMENT";
 export const EDIT_COMMENT = "EDIT_COMMENT";
 export const DELETE_COMMENT = "DELETE_COMMENT";
@@ -106,6 +107,19 @@ export const addComment = (postId, commenterId, text, commenterPseudo) => {
             .catch((err) => console.log(err));
     };
 };
+
+export const allComments = (postId) => {
+    return (dispatch) => {
+        return axios({
+            method: "get",
+            url: `http://localhost:5000/api/post/all-comments-post/${postId}`,
+        })
+            .then((res) => {
+                dispatch({ type: ALL_COMMENTS, payload: { postId, comments: res.data } });
+            })
+            .catch((err) => console.log(err));
+    };
+ };
 
 export const editComment = (postId, commentId, text) => {
     return (dispatch) => {
