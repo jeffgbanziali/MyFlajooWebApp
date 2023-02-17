@@ -19,7 +19,7 @@ const Navigation = () => {
                 <Routes>
                     <Route exact path="/" element={<HomeScreen />} />
                     <Route path="/thread" element={<Thread />} />
-                    <Route path="/profile" element={<Profile />} />
+                    <Route path="/profile/:id" element={<Profile />} />
                     <Route path="/friends/:friendId" element={<ProfilsFriends />} />
                     <Route path="/chat" element={<Message />} />
                     <Route path="/start" element={<StartPage />} />

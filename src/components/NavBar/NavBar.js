@@ -24,8 +24,8 @@ const NavBar = () => {
         <>
 
 
-            <div className='absolute bg-green-400  '>
-                <div className=' fixed z-10 h-auto w-full items-center bg-gray-800 flex xl:justify-between shadow-lg  '>
+            <div className=' bg-green-400 fixed z-10  w-full '>
+                <div className='  absolute  h-auto w-full items-center bg-gray-800 flex xl:justify-between shadow-lg  '>
                     <div className='flex items-center p-2'>
                         <NavLink to={uid ? "/" : "/start"} >
                             <img src={image} alt="logo" className="h-14 w-14" />

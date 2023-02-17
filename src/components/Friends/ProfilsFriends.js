@@ -22,7 +22,7 @@ const FriendProfiles = () => {
 
 
     return (
-        <div className="friend-profile mt-48 justify-center flex bg-rose-800">
+        <div className="friend-profile  justify-center flex ">
             <UserInfos friend={friend} />
         </div>
     );

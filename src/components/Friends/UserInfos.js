@@ -16,8 +16,8 @@ const UserInfos = ({ friend }) => {
 
     return (
         <>
-            <div className=' '>
-                <div className=' flex relative  h-96 rounded-b justify-center '>
+            <div className='w-[60%] mt-10 '>
+                <div className=' flex relative w-[100%] h-96 rounded-b justify-center '>
                     <div className="object-cover  w-full h-full bg-[#0e0e0e]" >
                         <div className='flex mt-20 justify-center space-x-20' >
                             <div className='flex items-center '>

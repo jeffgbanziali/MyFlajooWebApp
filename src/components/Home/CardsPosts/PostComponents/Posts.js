@@ -10,7 +10,7 @@ import { NavLink } from 'react-router-dom';
 import PostsPopup from './PostsPopup';
 
 
-const Posts = ({ post }) => {
+const Posts = ({ post,uid }) => {
     const [loading, setLoading] = useState(true);
     const usersData = useSelector((state) => state.usersReducer);
     const userData = useSelector((state) => state.userReducer);
@@ -37,7 +37,7 @@ const Posts = ({ post }) => {
                             <div id='post-header '>
                                 <div className="flex justify-between">
                                     <div className="flex flex-row">
-                                        <NavLink to={`/friends/`}>
+                                        <NavLink to={`/profile/${uid}`}>
                                             <img src={
                                                 !isEmpty(usersData[0]) &&
                                                 usersData
