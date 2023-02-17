@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import UserInfos from './UserInfos';
 
 
 const FriendProfiles = () => {
@@ -21,10 +22,8 @@ const FriendProfiles = () => {
 
 
     return (
-        <div className="friend-profile mt-48 justify-center flex w-56 h-56 bg-rose-800">
-            <p>@{friend.pseudo}</p>
-            <img src={friend.picture} alt="profile" />
-            <p>{friend.bio}</p>
+        <div className="friend-profile mt-48 justify-center flex bg-rose-800">
+            <UserInfos friend={friend} />
         </div>
     );
 }

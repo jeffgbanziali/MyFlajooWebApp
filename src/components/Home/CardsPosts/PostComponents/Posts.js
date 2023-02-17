@@ -10,12 +10,13 @@ import { NavLink } from 'react-router-dom';
 import PostsPopup from './PostsPopup';
 
 
-const Posts = ({ post, postId }) => {
+const Posts = ({ post }) => {
     const [loading, setLoading] = useState(true);
     const usersData = useSelector((state) => state.usersReducer);
     const userData = useSelector((state) => state.userReducer);
     const [showComments, setShowComments] = useState(false);
     const [commentPopup, setCommentPopup] = useState(false);
+
 
 
 
@@ -36,7 +37,7 @@ const Posts = ({ post, postId }) => {
                             <div id='post-header '>
                                 <div className="flex justify-between">
                                     <div className="flex flex-row">
-                                        <NavLink to={`/profile`}>
+                                        <NavLink to={`/friends/`}>
                                             <img src={
                                                 !isEmpty(usersData[0]) &&
                                                 usersData
