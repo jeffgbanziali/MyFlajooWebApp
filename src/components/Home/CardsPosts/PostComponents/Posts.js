@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { dateParser, isEmpty } from '../../../Utils/Utils';
 import { FiMoreHorizontal } from 'react-icons/fi';
 import { FaPen, FaRegComment } from 'react-icons/fa';
@@ -7,7 +7,6 @@ import LikeButton from '../LikeButton';
 import CommentButton from '../CommentButton';
 import FollowHandler from '../../../ProfileUtils/FollowHandler';
 import { NavLink } from 'react-router-dom';
-import { allComments } from '../../../../actions/post.actions';
 import PostsPopup from './PostsPopup';
 
 
@@ -15,7 +14,6 @@ const Posts = ({ post, postId }) => {
     const [loading, setLoading] = useState(true);
     const usersData = useSelector((state) => state.usersReducer);
     const userData = useSelector((state) => state.userReducer);
-    const dispatch = useDispatch();
     const [showComments, setShowComments] = useState(false);
     const [commentPopup, setCommentPopup] = useState(false);
 
@@ -168,28 +166,36 @@ const Posts = ({ post, postId }) => {
                             </div>
                             {
                                 commentPopup && (
-                                    <div className="fixed top-0 left-0 w-full z-50 h-full bg-gray-900 bg-opacity-75 flex items-center justify-center">
-                                        <span className="text-gray-200 text-2xl cursor-pointer" onClick={() => setCommentPopup(false)}>
-                                            &#10005;
-                                        </span>
-                                        <div className="w-[70%] h-[95%] bg-black p-2 rounded-lg shadow-lg transform transition-all ease-in-out duration-300 scale-100">
-                                            <div className="flex w-[100%] h-[100%]  ">
-                                                <div className="flex flex-col border-l-2 border-r-2  w-[60%] h-[100%]  text-justify" >
-                                                    {
-                                                        post.picture && (
-                                                            <img src={post.picture}
-                                                                alt="post-pic"
-                                                                className=" w-full h-full z-10  transition duration-150 cursor-pointer hover:scale-120 hover:translate-0 transform hover:shadow-none"
-                                                            />
-                                                        )
-                                                    }
-                                                </div>
-                                                <div className="flex flex-col   w-[40%] ">
-                                                    <PostsPopup post={post} />
+                                    <>
+
+                                        <div className="fixed top-0 left-0 w-full z-50 h-full bg-black bg-opacity-75 flex items-center justify-center">
+                                            <div className="w-[70%] h-[95%] bg-black p-2 rounded-lg shadow-lg transform transition-all ease-in-out duration-300 scale-100">
+                                                <div className="flex w-[100%] h-[100%]  ">
+                                                    <div className="flex flex-col border-l-2 border-r-2  w-[60%] h-[100%]  text-justify" >
+                                                        {
+                                                            post.picture && (
+                                                                <img src={post.picture}
+                                                                    alt="post-pic"
+                                                                    className=" w-full h-full z-10  transition duration-150 cursor-pointer hover:scale-120 hover:translate-0 transform hover:shadow-none"
+                                                                />
+                                                            )
+                                                        }
+                                                    </div>
+                                                    <div className="flex flex-col   w-[40%] ">
+                                                        <PostsPopup post={post} />
+                                                    </div>
                                                 </div>
                                             </div>
+                                            <div className="absolute top-0 right-0 mt-2 mr-2">
+                                                <span className="text-gray-200 text-2xl cursor-pointer" onClick={() => setCommentPopup(false)}>
+                                                    &#10005;
+                                                </span>
+                                            </div>
                                         </div>
-                                    </div>
+
+                                    </>
+
+
                                 )
                             }
                         </>

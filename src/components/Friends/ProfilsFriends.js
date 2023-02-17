@@ -1,24 +1,32 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 
-import { useLocation } from 'react-router-dom';
 
-const ProfilsFriends = () => {
-    const location = useLocation();
-    const friend = location.state ? location.state.friend : null;
+const FriendProfiles = () => {
+    const [friend, setFriend] = useState(null);
+    const { friendId } = useParams();   // I want to get the id of the friend and display his profile
+    console.log(friendId);
+
+    useEffect(() => {
+        axios.get(`http://localhost:5000/api/user/${friendId}`).then((response) => {
+            setFriend(response.data);
+        });
+    }, [friendId]);
+
+    if (!friend) {
+        return <div>Loading...</div>;
+    }
+
+
 
     return (
-        <div className="justify-center items-center space-x-2 mt-32 text-white flex">
-            <p>@
-                <span className="font-bold">{friend ? friend.pseudo : 'Pseudo'}</span>
-            </p>
-            <img
-                className="w-10 h-10 border-2 border-red-800 rounded-full"
-                src={friend ? friend.picture : "https://wave.fr/images/1916/05/dragon-ball-figtherz-goku-ultra-instinct.jpg"}
-                alt="" />
-            {/* Afficher d'autres informations du profil ici */}
+        <div className="friend-profile mt-48 justify-center flex w-56 h-56 bg-rose-800">
+            <p>@{friend.pseudo}</p>
+            <img src={friend.picture} alt="profile" />
+            <p>{friend.bio}</p>
         </div>
     );
-};
-export default ProfilsFriends;
+}
 
-
+export default FriendProfiles;

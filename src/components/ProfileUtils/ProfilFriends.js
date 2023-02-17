@@ -31,7 +31,7 @@ const ProfilFriends = () => {
                 {
                     friends.map((friend) => (
                         <div className="flex flex-col  items-center">
-                            <div className="flex w-36 h-36 ">
+                            <div className="flex w-32 h-32 ">
                                 <img src={friend.picture} alt="" className=" w-full h-full rounded-xl " />
                             </div>
                             <div className="flex flex-col justify-start mt-2 text-justify">

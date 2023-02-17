@@ -4,6 +4,7 @@ import { MdMoreHoriz } from 'react-icons/md';
 import { useSelector } from 'react-redux';
 import FollowHandler from './FollowHandler';
 import Message from '../Message/Message';
+import { isEmpty } from '../Utils/Utils';
 
 const UsersUtils = () => {
     const userData = useSelector((state) => state.userReducer);
@@ -15,18 +16,25 @@ const UsersUtils = () => {
 
     return (
         <>
-            <div className='  '>
-                <div className=' flex relative bg-red-500 h-96 rounded-b justify-center '>
-                    <div className="object-cover w-full h-full bg-black" >
+            <div className=' '>
+                <div className=' flex relative  h-96 rounded-b justify-center '>
+                    <div className="object-cover  w-full h-full bg-[#0e0e0e]" >
                         <div className='flex mt-20 justify-center space-x-20' >
                             <div className='flex items-center '>
-                                <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="" className="w-40 h-40 border-4 border-red-900 p-1  rounded-full" />
+                                <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="" className="w-48 h-48 border-4 border-red-900 p-1  rounded-full" />
                             </div>
-                            <div className='flex flex-col mt-6 '>
+                            <div className='flex flex-col mt-6'>
                                 <div className='flex '>
                                     <div className="text-center text-3xl text-black">
                                         <h2 className="text-[26px]  font-normal text-gray-200">
-                                            {userData.pseudo}
+                                            {
+                                                !isEmpty(usersData[0]) &&
+                                                usersData.map((user) => {
+                                                    if (user._id === userData._id) {
+                                                        return user.pseudo;
+                                                    } else return null;
+                                                })
+                                            }
                                         </h2>
                                     </div>
                                     <div className='flex items-center ml-10 space-x-2'>

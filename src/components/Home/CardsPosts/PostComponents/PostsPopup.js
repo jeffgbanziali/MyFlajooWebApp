@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { dateParser, isEmpty, timestampParser } from '../../../Utils/Utils';
 import LikeButton from './LikeButtonPopup';
-import { FaHeart, FaRegComment } from 'react-icons/fa';
+import {  FaRegComment } from 'react-icons/fa';
 import { addComment, getPosts } from '../../../../actions/post.actions';
 import { AiOutlineHeart } from 'react-icons/ai';
 

@@ -27,7 +27,7 @@ const NavBar = () => {
             <div className='absolute bg-green-400  '>
                 <div className=' fixed z-10 h-auto w-full items-center bg-gray-800 flex xl:justify-between shadow-lg  '>
                     <div className='flex items-center p-2'>
-                        <NavLink to={uid ? "/home" : "/"} >
+                        <NavLink to={uid ? "/" : "/start"} >
                             <img src={image} alt="logo" className="h-14 w-14" />
                         </NavLink>
                         <div className='h-8 w-72  bg-gray-200 rounded-full justify-center hidden xl:flex xl:items-center ml-4'>
@@ -40,7 +40,7 @@ const NavBar = () => {
 
                             <div className='xl:flex hidden items-center'>
                                 <div className='flex ml-10 justify-end space-x-6 ' >
-                                    <NavLink to="/home">
+                                    <NavLink to="/">
                                         <div className='flex flex-row hover:text-red-700 cursor-pointer p-2 rounded-2xl  hover:bg-gray-200 text-gray-400 text-2xl font-bold  mb-2 mt-2 '>
                                             <TbSmartHome size="40" />
                                             <p className="flex items-center justify-center ml-2 text-xs font-semibold">Home</p>

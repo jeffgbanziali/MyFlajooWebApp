@@ -34,12 +34,11 @@ const UsersFriends = () => {
                     My Friends
                 </h1>
             </div>
-
             <div className='grid grid-col-3'>
                 <div>
                     {
                         friends.map((friend) => (
-                            <NavLink to={"/profile/" + friend.pseudo} key={friend._id}>
+                            <NavLink to={`/friends/${friend._id}`} key={friend._id}>
                                 <div className='flex flex-col -space-y-2 '>
                                     <div className='flex mt-2 p-4 hover:bg-gray-800 cursor-pointer rounded-b-xl  items-center justify-between   '>
                                         <div className=''>

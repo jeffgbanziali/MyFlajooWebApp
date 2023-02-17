@@ -69,14 +69,14 @@ const images = [
 
 const PostImage = () => {
     return (
-        <div className="grid bg-green-600 grid-cols-4 gap-4 ">
+        <div className="grid grid-cols-4 gap-3 ">
             {
 
                 images.map((image) => (
                     <>
                         <div className="flex justify-center hover:opacity-10 shadow shadow-slate-600 items-center w-64 h-80 bg-yellow-600">
                             <img
-                                className="w-full cursor-pointer border-2 border-green-800 h-full  object-cover"
+                                className="w-full cursor-pointer border-2  h-full  object-cover"
                                 src={image.image}
                                 alt="" />
                             <div className="flex absolute flex-row ">

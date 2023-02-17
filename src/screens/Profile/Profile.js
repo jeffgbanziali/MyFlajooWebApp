@@ -15,14 +15,14 @@ const Profile = () => {
 
     return (
         <>
-            <div className="">
-                <div className="">
+            <div className="flex justify-center items-center ">
+                <div className=" w-[80%]">
                     <div>
                         <div className="">
                             <UsersUtils />
                         </div>
                         <div className="grid grid-rows-3 justify-center  mt-4 p-10 grid-flow-col gap-4">
-                            <div className="row-span-3  space-y-4 w-[520px]  p-2">
+                            <div className="row-span-3 space-y-4 w-[500px]  p-2">
                                 <UserInfo />
                                 <PhotoUser />
                                 <ProfilFriends />
@@ -32,9 +32,7 @@ const Profile = () => {
                             </div>
                         </div>
                     </div>
-
                 </div>
-
             </div>
         </>
     )
