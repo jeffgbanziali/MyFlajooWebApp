@@ -8,6 +8,7 @@ import CommentButton from '../CommentButton';
 import FollowHandler from '../../../ProfileUtils/FollowHandler';
 import { NavLink } from 'react-router-dom';
 import PostsPopup from './PostsPopup';
+import ProfileMouse from '../../../ProfileUtils/ProfileMouse';
 
 
 const Posts = ({ post }) => {
@@ -17,7 +18,15 @@ const Posts = ({ post }) => {
     const [showComments, setShowComments] = useState(false);
     const [commentPopup, setCommentPopup] = useState(false);
 
+    const [showNotiJeff, setShowNotiJeff] = useState(false);
 
+    function handleMouseEnter() {
+        setShowNotiJeff(true);
+    }
+
+    function handleMouseLeave() {
+        setShowNotiJeff(false);
+    }
 
 
     useEffect(() => {
@@ -33,18 +42,22 @@ const Posts = ({ post }) => {
                     ) : (
                         <>
                             <div id='post-header '>
-                                <div className="flex justify-between">
-                                    <div className="flex flex-row">
+                                <div
+                                    className="flex justify-between">
+                                    <div
+                                        className="flex bg-red-800flex-row">
                                         <NavLink to={`/profile/${post.posterId}`}>
-                                            <img src={
-                                                !isEmpty(usersData[0]) &&
-                                                usersData
-                                                    .map((user) => {
-                                                        if (user._id === post.posterId) return user.picture;
-                                                        else return null;
-                                                    })
-                                                    .join('')
-                                            }
+                                            <img
+                                                onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}
+                                                src={
+                                                    !isEmpty(usersData[0]) &&
+                                                    usersData
+                                                        .map((user) => {
+                                                            if (user._id === post.posterId) return user.picture;
+                                                            else return null;
+                                                        })
+                                                        .join('')
+                                                }
                                                 className="w-16 hover:opacity-75 cursor-pointer hidden md:block object-cover border shadow-md  border-red-500 rounded-14 ml-18 overflow-hidden h-16 rounded-full mr-4"
 
                                                 alt="user-pic"
@@ -71,10 +84,16 @@ const Posts = ({ post }) => {
                                                 <span className="flex text-gray-500 translate-y-5 sm:-mt-8 sm:pt-0 sm:pb-10 text-sm mb-10 font-normal">
                                                     {dateParser(post.createdAt)}
                                                 </span>
+                                                {
+                                                    showNotiJeff && (
+                                                        <>
+                                                            <ProfileMouse post={post} />
+                                                        </>
+                                                    )
+                                                }
                                             </div>
                                         </div>
                                     </div>
-
 
                                     <div className="bg-gray-800 w-10 h-10 flex items-center justify-center cursor-pointer hover:bg-slate-400 rounded-full ">
                                         <FiMoreHorizontal name="more"
@@ -87,13 +106,21 @@ const Posts = ({ post }) => {
                                 <p className="text-gray-100 text-lg font-normal text-justify sm:text-base md:text-sm lg:text-[14px] xl:text-[16x]">
                                     {post.message}
                                 </p>
-                                <div className=" flex justify-center mt-4 items-center " >
+                                <div
+                                    className=" flex justify-center mt-4 items-center " >
                                     {
                                         post.picture && (
-                                            <img src={post.picture}
-                                                alt="post-pic"
-                                                className=" w-full h-full rounded-xl transition duration-150 cursor-pointer hover:scale-120 hover:translate-0 transform hover:shadow-none"
-                                            />
+                                            <>
+                                                <button
+                                                    className="flex w-[100%] bg-red-800 h-96 rounded-2xl transition duration-150 cursor-pointer hover:scale-120 hover:translate-0 transform hover:shadow-none"
+                                                    type="">
+                                                    <img
+                                                        src={post.picture}
+                                                        alt="post-pic"
+                                                        className=" w-full h-full rounded-xl transition duration-150 cursor-pointer hover:scale-120 hover:translate-0 transform hover:shadow-none"
+                                                    />
+                                                </button>
+                                            </>
                                         )
                                     }
                                 </div>

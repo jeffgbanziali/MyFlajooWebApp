@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { isEmpty } from '../Utils/Utils';
 import { followUser, unfollowUser } from '../../actions/user.action';
-import { BsFillCheckCircleFill,  BsPlusCircleFill } from 'react-icons/bs';
-import {FaUserCheck, FaUserPlus } from 'react-icons/fa';
+import { BsFillCheckCircleFill, BsPlusCircleFill } from 'react-icons/bs';
+import { FaUserCheck, FaUserPlus } from 'react-icons/fa';
 
 
 const FollowHandler = ({ idToFollow, type }) => {
@@ -42,6 +42,11 @@ const FollowHandler = ({ idToFollow, type }) => {
                                 Following
                             </p>
                         </button>}
+                        {type === "profile" && <button className=" bg-gray-200 hover:bg-white w-40 h-9 rounded-xl" >
+                            <p className="text-black hover:text-red-700 text-[14px] font-normal text-center" >
+                                Following
+                            </p>
+                        </button>}
                         {type === "card" && <button className="flex space-x-2 items-center justify-center hover:text-blue-700 bg-blue-100 hover:bg-white  w-28 h-9  rounded-xl" >
                             <FaUserCheck className='text-blue-400  text-[22px] font-semibold text-center' />
                             <p className="text-blue-400  text-[16px] font-semibold text-center" >
@@ -64,6 +69,11 @@ const FollowHandler = ({ idToFollow, type }) => {
                     <span onClick={handleFollow}>
                         {type === "suggestion" && <button className=" bg-red-600 hover:bg-red-500 w-32 h-10  rounded-2xl" >
                             <p className="text-white hover:text-black text-[18px] font-semibold text-center">
+                                Follow
+                            </p>
+                        </button>}
+                        {type === "profile" && <button className=" bg-red-600 hover:bg-red-500 w-40 h-9  rounded-xl" >
+                            <p className="text-white hover:text-black text-[18px] font-normal text-center">
                                 Follow
                             </p>
                         </button>}

@@ -12,9 +12,9 @@ const HomeScreen = () => {
     return (
         <>
             <LeftBarPro />
-            <div className="sm:ml-[25%] absolute ">
+            <div className="sm:ml-[25%] absolute">
                 <div className="flex sm:ml-10 mt-20   ">
-                    <div className="flex w-[100%]  ">
+                    <div className="flex w-[100%]   ">
                         <Thread />
                     </div>
                     <div className=" hidden xl:inline space-y-2 ml-4 flex-col w-[100%] ">

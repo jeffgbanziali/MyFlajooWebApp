@@ -44,7 +44,7 @@ const UsersUtils = ({ user: { _id, pseudo, picture, followers, following, bio, c
                                                         <FollowHandler idToFollow={_id} type={'card'} />
                                                     </div>
                                                     <div>
-                                                        <Message idToFollow={_id} type={'card'} />
+                                                        <Message idToFollow={_id} type={'friends'} />
                                                     </div>
                                                 </>
                                             )
