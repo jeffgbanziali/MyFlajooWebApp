@@ -22,7 +22,6 @@ const ProfilFriends = () => {
     }, [uid]);
 
     return (
-
         <div className="shadow bg-gray-900   shadow-slate-600 rounded-xl w-full">
             <div className="flex p-3 ml-6 mt-4 rounded-b-xl">
                 <h1 className="text-3xl font-italic text-gray-400">Friends</h1>
