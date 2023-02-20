@@ -32,7 +32,7 @@ const LikeButton = ({ post }) => {
             {
                 uid === null &&
                 <Popup trigger={<div className="flex w-32 h-10 mt-2  bg-black hover:bg-red-800 cursor-pointer justify-center items-center rounded-2xl">
-                    <AiOutlineHeart className="text-red-500 " size={20} />
+                    <AiOutlineHeart className="text-white " size={20} />
                     <p className="text-white text-sm ml-2 font-normal text-justify sm:text-base md:text-lg lg:text-xl xl:text-sm">Like</p>
                 </div>}
                     position={["right center", "bottom right", "bottom left"]} closeOnDocumentClick>
@@ -43,8 +43,8 @@ const LikeButton = ({ post }) => {
             }
             {
                 uid && liked === false && (
-                    <div onClick={like} className="flex w-32 h-10 mt-2  bg-black hover:bg-red-800 cursor-pointer justify-center items-center rounded-2xl">
-                        <AiOutlineHeart className="text-red-500 " size={20} />
+                    <div onClick={like} className="flex w-32 h-10 mt-2  bg-black hover:bg-gray-600 cursor-pointer justify-center items-center rounded-2xl">
+                        <AiOutlineHeart className="text-white " size={20} />
                         <p className="text-white text-sm ml-2 font-normal text-justify sm:text-base md:text-lg lg:text-xl xl:text-sm">Like</p>
                     </div>
                 )
@@ -53,7 +53,7 @@ const LikeButton = ({ post }) => {
                 uid && liked && (
                     <div onClick={unlike} className="flex w-32 h-10 mt-2   bg-black hover:bg-red-800 cursor-pointer justify-center items-center rounded-2xl">
                         <FaHeart className="text-red-500 " size={20} />
-                        <p className="text-white text-sm ml-2 font-normal text-justify sm:text-base md:text-lg lg:text-xl xl:text-sm">Like</p>
+                        <p className="text-red-500 text-sm ml-2 font-normal text-justify sm:text-base md:text-lg lg:text-xl xl:text-sm">Like</p>
                     </div>
                 )
             }

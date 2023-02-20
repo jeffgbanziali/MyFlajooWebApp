@@ -15,7 +15,6 @@ const Navigation = () => {
         <>
 
             <BrowserRouter>
-                <NavBar />
                 <Routes>
                     <Route exact path="/" element={<HomeScreen />} />
                     <Route path="/thread" element={<Thread />} />

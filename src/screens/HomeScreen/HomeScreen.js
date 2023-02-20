@@ -3,6 +3,8 @@ import Thread from '../../components/Thread/Thread';
 import FollowBar from '../../components/NavBar/FollowBar';
 import LeftBarPro from '../../components/NavBar/LeftBarPro';
 import UsersFriends from '../../components/NavBar/UsersFriends';
+import NavBar from '../../components/NavBar/NavBar';
+import LeftNavBar from '../../components/NavBar/LeftNavBar';
 
 
 
@@ -10,16 +12,22 @@ const HomeScreen = () => {
 
     return (
         <>
-            <div className="absolute flex flex-row  ">
-                <div className="hidden  h-auto xl:inline  flex-col w-[80%] ">
+            <div className="flex flex-row ">
+                <div className=" h-auto xl:inline  flex-col w-[20%] ">
                     <LeftBarPro />
                 </div>
-                <div className="flex  mt-24  flex-col  w-[100%]   ">
-                    <Thread />
-                </div>
-                <div className=" flex  ml-20 mt-24 h-auto xl:inline space-y-2  w-[70%] ">
-                    <FollowBar />
-                    <UsersFriends />
+                <div className="flex flex-col  w-screen  sm:w-[70%] ">
+                    <NavBar />
+                    <div className="flex mt-20  flex-row justify-center space-x-8 w-[100%] h-screen">
+                        <div className="flex  flex-col xl:w-[60%] h-auto">
+                            <Thread />
+                        </div>
+                        <div className=" hidden xl:inline flex-col space-y-2 w-[30%] h-screen">
+                            <FollowBar />
+                            <UsersFriends />
+                            <LeftNavBar />
+                        </div>
+                    </div>
                 </div>
             </div>
         </>

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { dateParser, isEmpty, timestampParser } from '../../../Utils/Utils';
 import LikeButton from './LikeButtonPopup';
-import {  FaRegComment } from 'react-icons/fa';
+import { FaRegComment } from 'react-icons/fa';
 import { addComment, getPosts } from '../../../../actions/post.actions';
 import { AiOutlineHeart } from 'react-icons/ai';
 
@@ -128,8 +128,8 @@ const PostsPopup = ({ post }) => {
                     })
                 }
             </div>
-            <div className="flex flex-col p-2  w-full   h-[14%] border-b-2  " >
-                <div className="flex flex-row w-full  h-full items-center ">
+            <div className="flex flex-col p-2  w-full   h-[16%] border-b-2  " >
+                <div className="flex flex-row w-full h-full items-center ">
                     <div>
                         <LikeButton post={post} />
                     </div>
@@ -141,7 +141,7 @@ const PostsPopup = ({ post }) => {
                 <div className="flex flex-col w-full p-2 h-full ">
                     <div className="">
                         {
-                            post.likers.length > 0 && <h2 className="text-gray-200 text-[16px] items-center flex font-semibold">
+                            post.likers.length > 0 && <h2 className="text-gray-200 text-[12px] items-center flex font-semibold">
                                 {post.likers.length} likes
                             </h2>
                         }
@@ -150,7 +150,6 @@ const PostsPopup = ({ post }) => {
                         {dateParser(post.createdAt)}
                     </h2>
                 </div>
-
             </div>
             <div className="flex flex-row p-2 w-full items-center  border-b-2 h-20" >
                 <input

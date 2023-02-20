@@ -13,7 +13,7 @@ const LeftNavBar = () => {
 
     return (
         <>
-            <div className="  flex w-96 h-auto md:h-auto md:w-72 lg:h-[400px] lg:w-[360px]   border-2 border-red-700 border-opacity-50 rounded-xl">
+            <div className="  flex w-96 h-auto md:h-auto md:w-72 lg:h-[400px] lg:w-full   border-2 border-red-700 border-opacity-50 rounded-xl">
                 <div className="flex flex-col w-full h-full rounded-xl">
 
                     <div className="flex flex-col mt-24 items-center rounded-b-xl bg-gray-600 w-full h-full ">

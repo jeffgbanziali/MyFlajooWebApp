@@ -45,7 +45,7 @@ const Posts = ({ post }) => {
                                 <div
                                     className="flex justify-between">
                                     <div
-                                        className="flex bg-red-800flex-row">
+                                        className="flex flex-row">
                                         <NavLink to={`/profile/${post.posterId}`}>
                                             <img
                                                 onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}
@@ -58,15 +58,15 @@ const Posts = ({ post }) => {
                                                         })
                                                         .join('')
                                                 }
-                                                className="w-16 hover:opacity-75 cursor-pointer hidden md:block object-cover border shadow-md  border-red-500 rounded-14 ml-18 overflow-hidden h-16 rounded-full mr-4"
+                                                className="w-12 p-[2px] hover:opacity-75 cursor-pointer hidden md:block object-cover border-2 shadow-md  border-red-500 rounded-14 ml-18 overflow-hidden h-12 rounded-full mr-4"
 
                                                 alt="user-pic"
                                             />
                                         </NavLink>
                                         <div className='flex  md:ml-18'>
-                                            <div className=" flex  flex-col min-h-35">
-                                                <div className='flex sm:mt-4 md:translate-y-18 mb-4 '  >
-                                                    <h4 className="text-white font-semibold">
+                                            <div className=" flex flex-col min-h-35">
+                                                <div className='flex md:translate-y-18 mb-4 '  >
+                                                    <h4 className="text-white font-normal">
                                                         {
                                                             !isEmpty(usersData[0]) &&
                                                             usersData
@@ -174,26 +174,21 @@ const Posts = ({ post }) => {
                                         <div>
                                             <div>
                                                 <div onClick={() => setShowComments(!showComments)}
-                                                    className="flex w-36 h-10 mt-2  bg-black hover:bg-red-800 cursor-pointer justify-center items-center rounded-2xl">
-                                                    <FaRegComment className="text-red-500 " size={20} />
+                                                    className="flex w-36 h-10 mt-2  bg-black hover:bg-gray-60 cursor-pointer justify-center items-center rounded-2xl">
+                                                    <FaRegComment className="text-white " size={20} />
                                                     <p className="text-white text-sm ml-2 font-normal text-justify sm:text-base md:text-lg lg:text-xl xl:text-sm">Comment</p>
                                                 </div>
                                             </div >
-
-
                                         </div>
                                     </div>
-
                                 </div>
                                 <div className="flex flex-col w-full " >
                                     {showComments && <CommentButton post={post} />}
                                 </div>
-
                             </div>
                             {
                                 commentPopup && (
                                     <>
-
                                         <div className="fixed top-0 left-0 w-full z-50 h-full bg-black bg-opacity-75 flex items-center justify-center">
                                             <div className="w-[70%] h-[95%] bg-black p-2 rounded-lg shadow-lg transform transition-all ease-in-out duration-300 scale-100">
                                                 <div className="flex w-[100%] h-[100%]  ">
