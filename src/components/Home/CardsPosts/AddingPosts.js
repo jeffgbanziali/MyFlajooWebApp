@@ -74,23 +74,23 @@ const AddingPosts = () => {
     return (
 
 
-        <div className="  w-screen sm:w-full  shadow-xl shadow-gray-800  border-gray-900  bg-black  rounded-2xl ">
+        <div className="  w-screen sm:w-full sm:h-auto  shadow-xl shadow-gray-800  border-gray-900  bg-black  rounded-2xl ">
             {isLoading ? (
                 <i className="fas fa-spinner fa-pulse"></i>
             ) : (
                 <>
-                    <div className=" flex lg:flex-row items-center  ">
-                        <div className="flex p-4 lg:flex-row items-center mb-2">
+                    <div className=" flex p-2 lg:flex-row items-center ">
+                        <div className="flex  lg:flex-row items-center ">
                             <NavLink exact to="/profil">
                                 <img
                                     src={userData.picture}
                                     alt="user-img"
-                                    className="w-16 h-16 p-2 rounded-full  border-2 border-red-800 object-cover"
+                                    className="w-12 h-12  rounded-full  border-2 border-red-800 object-cover"
                                 />
                             </NavLink>
                         </div>
-                        <textarea
-                            className="w-full h-12 border-2 mr-10 justify-center items-center border-gray-300 rounded-lg p-2 focus:outline-none focus:border-red-800"
+                        <input
+                            className="w-full h-10 rounded-full border-2  ml-1 justify-center items-center border-gray-300 p-2 focus:outline-none focus:border-red-800"
                             name="message"
                             id="message"
                             placeholder="Quoi de neuf ?"
@@ -100,7 +100,7 @@ const AddingPosts = () => {
 
 
                     </div>
-                    <div className="w-full items-center rounded-lg p-6 mb-2">
+                    <div className="w-full p-4 items-center  rounded-lg ">
                         {message || postPicture || video.length > 20 ? (
                             <div className="flex flex-col lg:flex-row items-start lg:items-center mb-2">
                                 <div className="w-12 h-12 rounded-full overflow-hidden mr-6 lg:mr-0">
@@ -175,9 +175,9 @@ const AddingPosts = () => {
                                                 style={{ display: "none" }}
                                             />
                                             <label htmlFor="file" className="cursor-pointer">
-                                                <div className="flex w-12 h-12 justify-center sm:w-32 sm:h-12 sm:rounded-xl rounded-xl bg-gray-700 hover:bg-slate-600  items-center" >
+                                                <div className="flex w-12 h-12 justify-center sm:w-24 sm:h-10 sm:rounded-xl rounded-xl bg-gray-700 hover:bg-slate-600  items-center" >
                                                     <BsImageFill
-                                                        size={25}
+                                                        size={20}
                                                         className="h-8 mr-4  "
                                                     />
                                                     <span className="text-sm hidden xl:inline text-white">Photo</span>
@@ -199,10 +199,10 @@ const AddingPosts = () => {
                                                 style={{ display: "none" }}
                                             />
                                             <label htmlFor="video" className="cursor-pointer">
-                                                <div className="flex w-12 h-12 justify-center sm:w-32 sm:h-12 sm:rounded-xl rounded-xl bg-gray-700 hover:bg-slate-600  items-center" >
+                                                <div className="flex w-12 h-12 justify-center sm:w-24 sm:h-10 sm:rounded-xl rounded-xl bg-gray-700 hover:bg-slate-600  items-center" >
                                                     <HiVideoCamera
                                                         className="h-8 mr-4"
-                                                        size={25}
+                                                        size={20}
                                                     />
                                                     <span className="text-sm hidden xl:inline text-white">Video</span>
                                                 </div>
@@ -218,9 +218,9 @@ const AddingPosts = () => {
                                     style={{ display: "none" }}
                                 />
                                 <label className="cursor-pointer">
-                                    <div className="flex w-12 h-12 justify-center sm:w-32 sm:h-12 sm:rounded-xl rounded-xl bg-gray-700 hover:bg-slate-600  items-center" >
+                                    <div className="flex w-12 h-12 justify-center sm:w-24 sm:h-10 sm:rounded-xl rounded-xl bg-gray-700 hover:bg-slate-600  items-center" >
                                         <IoPricetagsSharp
-                                            size={25}
+                                            size={20}
                                             className="h-8 mr-4"
                                         />
                                         <span className="text-sm hidden xl:inline text-white">Tags</span>

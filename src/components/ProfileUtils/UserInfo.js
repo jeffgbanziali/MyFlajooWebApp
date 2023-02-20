@@ -1,13 +1,15 @@
 import React from 'react';
 import { FaSuitcase } from 'react-icons/fa';
 
-const UserInfo = () => {
+const UserInfo = ({ user }) => {
     return (
         <>
 
             <div className="shadow bg-gray-900  shadow-slate-600 rounded-xl w-full  p-4">
                 <div className="text-3xl font-bold text-gray-400">
-                    User Info
+                    {
+                        user.pseudo
+                    }
                 </div>
                 <div className="mt-4 items-center flex ">
                     <FaSuitcase className="text-[24px] text-gray-400" />

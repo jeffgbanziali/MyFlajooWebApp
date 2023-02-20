@@ -14,7 +14,7 @@ const Message = ({ type }) => {
 
             }
             {
-                type === "profile" && <button className=" bg-blue-400 hover:bg-blue-200 items-center  space-x-1 flex justify-center  w-40 h-9  rounded-xl" >
+                type === "profile" && <button className=" bg-blue-400 hover:bg-blue-200 items-center  space-x-1 flex justify-center  w-40 h-8  rounded-xl" >
                     <FaFacebookMessenger className='text-white  text-[18px] font-semibold text-center' />
                     <p className="text-white  text-[14px] font-semibold text-center" >
                         Chating

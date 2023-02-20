@@ -22,21 +22,21 @@ const Thread = () => {
     }, [loadPosts, dispatch])
     return (
         <>
-            <div className='flex space-y-4 flex-col  justify-center '>
-                {/* <div className='flex justify-center' >
+            <div className='flex space-y-4 w-full flex-col  justify-center '>
+                {/*    <div className='flex justify-center' >
                     <Stories />
     </div>*/}
-                {/*  <div className='flex mt-10 justify-center '>
+                <div className='flex justify-center '>
                     {
                         uid ? <AddingPosts title="Home" /> : null
                     }
 
-                </div>*/}
+                </div>
                 <div className='space-y-4'>
                     {!isEmpty(posts[0]) &&
                         posts.map((post) => {
                             return (
-                                <div className='flex items-center justify-center'
+                                <div className='flex  items-center justify-center'
                                 >
                                     <Posts post={post} key={post._id} />
                                 </div>)

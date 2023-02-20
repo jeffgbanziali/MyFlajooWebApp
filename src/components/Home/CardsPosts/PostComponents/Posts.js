@@ -20,11 +20,11 @@ const Posts = ({ post }) => {
 
     const [showNotiJeff, setShowNotiJeff] = useState(false);
 
-    function handleMouseEnter() {
+    const handleMouseEnter = () => {
         setShowNotiJeff(true);
     }
 
-    function handleMouseLeave() {
+    const handleMouseLeave = () => {
         setShowNotiJeff(false);
     }
 

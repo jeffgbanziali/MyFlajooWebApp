@@ -42,7 +42,7 @@ const FollowHandler = ({ idToFollow, type }) => {
                                 Following
                             </p>
                         </button>}
-                        {type === "profile" && <button className=" bg-gray-200 hover:bg-white w-40 h-9 rounded-xl" >
+                        {type === "profile" && <button className=" bg-gray-200 hover:bg-white w-40 h-8 rounded-xl" >
                             <p className="text-black hover:text-red-700 text-[14px] font-normal text-center" >
                                 Following
                             </p>
@@ -72,7 +72,7 @@ const FollowHandler = ({ idToFollow, type }) => {
                                 Follow
                             </p>
                         </button>}
-                        {type === "profile" && <button className=" bg-red-600 hover:bg-red-500 w-40 h-9  rounded-xl" >
+                        {type === "profile" && <button className=" bg-red-600 hover:bg-red-500 w-40 h-8  rounded-xl" >
                             <p className="text-white hover:text-black text-[18px] font-normal text-center">
                                 Follow
                             </p>

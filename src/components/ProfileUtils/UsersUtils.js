@@ -8,9 +8,7 @@ import Message from '../Message/Message';
 
 
 
-const UsersUtils = ({ user: { _id, pseudo, picture, followers, following, bio, city, from, relationship, isAdmin, isPro, isOnline, isVerified, createdAt, updatedAt, __v,
-}
-}) => {
+const UsersUtils = ({ user: { _id, pseudo, picture, followers, following, bio } }) => {
     const userData = useSelector((state) => state.userReducer);
     const usersData = useSelector((state) => state.usersReducer);
     const [isFollowingPopup, setIsFollowingPopup] = useState(false);
