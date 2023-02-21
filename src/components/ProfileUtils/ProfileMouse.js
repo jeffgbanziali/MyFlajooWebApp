@@ -8,7 +8,7 @@ const ProfileMouse = ({ post }) => {
     const usersData = useSelector((state) => state.usersReducer);
 
     return (
-        <div className='w-[50%] absolute flex flex-col top-24 left-6 border rounded-xl z-50 border-gray-600 bg-black h-[50%]'>
+        <div className='w-[55%] absolute flex flex-col top-24 left-6 border rounded-xl z-50 border-gray-600 bg-black h-[50%]'>
             <div className="flex w-full h-24 border-b-2 border-gray-600 rounded-tl-xl rounded-tr-xl  " >
                 <div className='flex w-[20%] rounded-tl-xl p-2  items-center justify-center '>
                     <img

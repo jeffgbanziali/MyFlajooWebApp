@@ -59,17 +59,17 @@ const SignInPopup = () => {
                     </div>
                 </Link>
             </div>
-            <div className=" p-2 ">
+            <div className="  p-2 ">
                 <div className="flex items-center justify-center ">
                     <form
-                        className=' w-full flex  items-center pt-6 pb-8 -mt-10   text-black '
+                        className=' w-full flex   items-center pt-6 pb-8 xl:-mt-40   text-black '
                         action=""
                         onSubmit={handleSignIn}
                         id="sign-up-form" >
                         <div className="w-full py-7 ">
                             <br />
                             <input
-                                className='flex mt-7 items-center pl-[10px] w-[320px] h-[50px] rounded-[10px] bg-white border-0 text-gray-800'
+                                className='flex mt-7 items-center xl:pl-[8px] xl:w-[300px] xl:h-[40px] rounded-[10px] bg-white border-0 text-gray-800'
                                 type="text"
                                 name="email"
                                 id="email"
@@ -82,7 +82,7 @@ const SignInPopup = () => {
                             </div>
                             <br />
                             <input
-                                className='flex  mt-7 items-center pl-[10px] w-[320px] h-[50px] rounded-[10px] bg-white border-0 text-gray-800'
+                                className='flex  xl:mt-2 items-center xl:pl-[8px] xl:w-[300px] xl:h-[40px] rounded-[10px] bg-white border-0 text-gray-800'
                                 type="password"
                                 name="password"
                                 id="password"
@@ -92,22 +92,21 @@ const SignInPopup = () => {
                             />
                             <div className="password error"></div>
                             <br />
-                            <div className='flex justify-between w-[320px]'>
-                                <button onClick={Clear} className=' w-[49%] h-[50px] rounded-[15px] bg-[lightblue] hover:bg-blue-500 text-white font-bold'>Clean</button>
-                                <input className='w-[49%] h-[50px] rounded-[15px] bg-red-400 hover:bg-red-700 cursor-pointer text-white font-bold' type={"submit"} value="Login" >
+                            <div className='flex justify-around xl:w-[300px]'>
+                                <button onClick={Clear} className=' xl:w-[40%] xl:h-[40px] rounded-[15px] bg-[lightblue] hover:bg-blue-500 text-white font-bold'>Clean</button>
+                                <input className='xl:w-[40%] xl:h-[40px] rounded-[15px] bg-red-400 hover:bg-red-700 cursor-pointer text-white font-bold' type={"submit"} value="Login" >
                                 </input>
                             </div>
-                            <div className=' flex mt-10 ml-10'>
+                            <div className=' flex xl:mt-4 xl:ml-4'>
                                 <h3 className='text-gray-700 '>Don't have an account ?</h3>
                                 <NavLink to="/sign-up">
                                     <h3 className='text-[green] fixed hover:border-b-2 hover:border-[green] cursor-pointer font-semibold ml-2'>Sign Up</h3>
                                 </NavLink>
                             </div>
                         </div>
-
                     </form>
-                    <div className=" hidden xl:inline">
-                        <img className="rounded-xl " src={image2} alt="logo" />
+                    <div className=" hidden  ml-4 xl:inline">
+                        <img className="rounded-xl  " src={image2} alt="logo" />
                     </div>
                 </div>
             </div>
