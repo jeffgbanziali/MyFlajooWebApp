@@ -98,7 +98,6 @@ function StartPage() {
                         }
                     </div>
                 </div>
-
             </div>
         </>
     );

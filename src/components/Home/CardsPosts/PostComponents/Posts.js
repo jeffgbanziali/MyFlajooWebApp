@@ -18,15 +18,26 @@ const Posts = ({ post }) => {
     const [showComments, setShowComments] = useState(false);
     const [commentPopup, setCommentPopup] = useState(false);
 
-    const [showNotiJeff, setShowNotiJeff] = useState(false);
 
-    const handleMouseEnter = () => {
-        setShowNotiJeff(true);
-    }
+    const [showInitialContent, setShowInitialContent] = useState(false);
+    const [showHoverContent, setShowHoverContent] = useState(false);
 
-    const handleMouseLeave = () => {
-        setShowNotiJeff(false);
-    }
+
+    const handleInitialMouseEnter = () => {
+        setShowInitialContent(true);
+    };
+
+    const handleInitialMouseLeave = () => {
+        setShowInitialContent(false);
+    };
+
+    const handleHoverMouseEnter = () => {
+        setShowHoverContent(true);
+    };
+
+    const handleHoverMouseLeave = () => {
+        setShowHoverContent(false);
+    };
 
 
     useEffect(() => {
@@ -35,7 +46,9 @@ const Posts = ({ post }) => {
 
     return (
         <>
-            <div className=' w-screen sm:w-full  h-auto border py-4 px-6 relative min-h-100 shadow-xl shadow-gray-800  border-gray-900 rounded-2xl bg-black' key={post._id}>
+            <div
+                className=' w-screen sm:w-full  h-auto border py-4 px-6 relative min-h-100 shadow-xl shadow-gray-800  border-gray-900 rounded-2xl bg-black'
+                key={post._id}>
                 {
                     loading ? (
                         <i className="fas fa-spinner fa-spin absolute t-0 left-0 size-12"></i>
@@ -48,7 +61,9 @@ const Posts = ({ post }) => {
                                         className="flex flex-row">
                                         <NavLink to={`/profile/${post.posterId}`}>
                                             <img
-                                                onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}
+                                                onMouseEnter={handleInitialMouseEnter}
+                                                onMouseLeave={handleInitialMouseLeave}
+
                                                 src={
                                                     !isEmpty(usersData[0]) &&
                                                     usersData
@@ -85,9 +100,20 @@ const Posts = ({ post }) => {
                                                     {dateParser(post.createdAt)}
                                                 </span>
                                                 {
-                                                    showNotiJeff && (
+                                                    showInitialContent && (
                                                         <>
-                                                            <ProfileMouse post={post} />
+                                                            <ProfileMouse
+                                                                onMouseEnter={handleHoverMouseEnter}
+                                                                onMouseLeave={handleHoverMouseLeave}
+                                                                post={post} />
+                                                        </>
+                                                    )
+                                                }
+                                                {
+                                                    showHoverContent && (
+                                                        <>
+                                                            <PostsPopup
+                                                                post={post} />
                                                         </>
                                                     )
                                                 }

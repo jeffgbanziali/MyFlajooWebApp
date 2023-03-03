@@ -8,12 +8,12 @@ import Message from '../Message/Message';
 
 
 
-const UsersUtils = ({ user: { _id, pseudo, picture, followers, following, bio } }) => {
+const UsersUtils = ({ user: { pseudo, picture, _id, bio, following, followers } }
+) => {
     const userData = useSelector((state) => state.userReducer);
     const usersData = useSelector((state) => state.usersReducer);
     const [isFollowingPopup, setIsFollowingPopup] = useState(false);
     const [isFollowersPopup, setIsFollowersPopup] = useState(false);
-
 
 
     return (
@@ -81,23 +81,23 @@ const UsersUtils = ({ user: { _id, pseudo, picture, followers, following, bio } 
                                     }
                                     {isFollowingPopup && (
                                         <div className="fixed z-50 top-0 left-0 w-full h-full bg-gray-900 bg-opacity-75 flex items-center justify-center">
-                                            <div className="w-96 h-[60%] bg-gray-800 overflow-auto p-6 rounded-lg shadow-lg transform transition-all ease-in-out duration-300 scale-100">
-                                                <div className="flex justify-between">
+                                            <div className="w-[28%] h-[62%] bg-gray-800 overflow-auto rounded-lg shadow-lg transform transition-all ease-in-out duration-300 scale-100">
+                                                <div className=" p-2 border-b-2 flex justify-between">
                                                     <h3 className="text-gray-200 text-lg font-medium">My Followings</h3>
                                                     <span className="text-gray-200 text-2xl cursor-pointer" onClick={() => setIsFollowingPopup(false)}>
                                                         &#10005;
                                                     </span>
                                                 </div>
 
-                                                <ul className="mt-6 justify-between">
+                                                <ul className="overflow-auto p-4 space-y-3 w-[100%]  h-[89%]">
                                                     {usersData.map((user) => {
                                                         for (let i = 0; i < following.length; i++) {
                                                             if (user._id === following[i]) {
                                                                 return (
-                                                                    <li key={user._id} className="flex items-center mt-4">
-                                                                        <img className="w-12 h-12 border border-red-500  rounded-full" src={user.picture} alt="" />
+                                                                    <li key={user._id} className="flex mt-2 items-center ">
+                                                                        <img className="w-12 h-12 border border-red-500 rounded-full" src={user.picture} alt="" />
                                                                         <h4 className="text-gray-200  ml-2 font-medium">{user.pseudo}</h4>
-                                                                        <div className="ml-auto">
+                                                                        <div className="ml-auto ">
                                                                             <FollowHandler idToFollow={user._id} type={'suggestion'} />
                                                                         </div>
                                                                     </li>
@@ -113,22 +113,22 @@ const UsersUtils = ({ user: { _id, pseudo, picture, followers, following, bio } 
 
                                     {isFollowersPopup && (
                                         <div className="fixed z-10 top-0 left-0 w-full h-full bg-gray-900 bg-opacity-75 flex items-center justify-center">
-                                            <div className="w-96 bg-gray-800 overflow-auto p-6 rounded-lg shadow-lg transform transition-all ease-in-out duration-300 scale-100">
-                                                <div className="flex justify-between" >
+                                            <div className="w-[28%] h-[62%] bg-gray-800  rounded-lg shadow-lg transform transition-all ease-in-out duration-300 scale-100">
+                                                <div className=" p-2 border-b-2  flex justify-between" >
                                                     <h3 className="text-gray-200 text-lg font-medium">my Followers</h3>
                                                     <span className="text-gray-200 text-2xl cursor-pointer" onClick={() => setIsFollowersPopup(false)}>
                                                         &#10005;
                                                     </span>
                                                 </div>
-                                                <ul className="mt-6">
+                                                <ul className="overflow-auto p-4 space-y-3 w-[100%]  h-[89%] ">
                                                     {usersData.map((user) => {
                                                         for (let i = 0; i < followers.length; i++) {
                                                             if (user._id === followers[i]) {
                                                                 return (
-                                                                    <li key={user._id} className="flex items-center mt-4">
-                                                                        <img className="w-10 h-10 border border-red-500  rounded-full" src={user.picture} alt="user-pic" />
+                                                                    <li key={user._id} className="flex  items-center ">
+                                                                        <img className="w-12 h-12 border border-red-500  rounded-full" src={user.picture} alt="user-pic" />
                                                                         <h4 className="text-gray-200 ml-2 font-medium">{user.pseudo}</h4>
-                                                                        <div className="ml-auto">
+                                                                        <div className="ml-auto ">
                                                                             <FollowHandler idToFollow={user._id} type={'suggestion'} />
                                                                         </div>
                                                                     </li>

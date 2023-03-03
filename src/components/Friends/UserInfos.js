@@ -13,7 +13,6 @@ const UserInfos = ({ friend: {
     const [isFollowersPopup, setIsFollowersPopup] = useState(false);
 
 
-
     return (
         <>
             <div className='w-[60%] mt-10 '>
@@ -39,7 +38,7 @@ const UserInfos = ({ friend: {
                                             <FollowHandler idToFollow={_id} type={'card'} />
                                         </div>
                                         <div>
-                                            <Message idToFollow={userData._id} type={'card'} />
+                                            <Message idToFollow={userData._id} type={'friends'} />
                                         </div>
                                         <div className='w-8 h-8 hover:bg-gray-500 bg-blue-300 rounded-full cursor-pointer flex items-center justify-center'>
                                             <FaUserPlus className="text-[16px] text-black" />

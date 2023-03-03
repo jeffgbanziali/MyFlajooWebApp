@@ -37,8 +37,8 @@ const FollowHandler = ({ idToFollow, type }) => {
                 isFollowed && !isEmpty(userData) && (
                     <span onClick={handleUnfollow}
                     >
-                        {type === "suggestion" && <button className=" bg-gray-700 hover:bg-white w-32 h-8 rounded-xl" >
-                            <p className="text-white hover:text-red-700 text-[16px] font-normal text-center" >
+                        {type === "suggestion" && <button className=" bg-gray-700 hover:bg-white w-24 h-8 rounded-xl" >
+                            <p className="text-white hover:text-red-700 text-[14px] font-normal text-center" >
                                 Following
                             </p>
                         </button>}
@@ -67,8 +67,8 @@ const FollowHandler = ({ idToFollow, type }) => {
             {
                 isFollowed === false && !isEmpty(userData) && (
                     <span onClick={handleFollow}>
-                        {type === "suggestion" && <button className=" bg-red-600 hover:bg-red-500 w-32 h-8  rounded-xl" >
-                            <p className="text-white hover:text-black text-[16px] font-normal text-center">
+                        {type === "suggestion" && <button className=" bg-red-600 hover:bg-red-500 w-24 h-8  rounded-xl" >
+                            <p className="text-white hover:text-black text-[14px] font-normal text-center">
                                 Follow
                             </p>
                         </button>}
