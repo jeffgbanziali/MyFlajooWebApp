@@ -32,20 +32,11 @@ const FollowHandler = ({ idToFollow, type }) => {
 
     return (
         <>
-<<<<<<< HEAD
             {isFollowed && !isEmpty(userData) && (
                 <span onClick={handleUnfollow}>
                     {type === 'suggestion' && (
                         <button className=' bg-gray-700 hover:bg-white w-24 h-8 rounded-xl'>
                             <p className='text-white hover:text-red-700 text-[14px] font-normal text-center'>
-=======
-            {
-                isFollowed && !isEmpty(userData) && (
-                    <span onClick={handleUnfollow}
-                    >
-                        {type === "suggestion" && <button className=" bg-gray-700 hover:bg-white w-24 h-8 rounded-xl" >
-                            <p className="text-white hover:text-red-700 text-[14px] font-normal text-center" >
->>>>>>> 507417e3376e197190bcdc02bca9bc7736e31303
                                 Following
                             </p>
                         </button>
@@ -73,36 +64,6 @@ const FollowHandler = ({ idToFollow, type }) => {
                                     className='text-white  hover:text-gray-800'
                                 />
 
-<<<<<<< HEAD
-=======
-                    </span>
-                )
-            }
-            {
-                isFollowed === false && !isEmpty(userData) && (
-                    <span onClick={handleFollow}>
-                        {type === "suggestion" && <button className=" bg-red-600 hover:bg-red-500 w-24 h-8  rounded-xl" >
-                            <p className="text-white hover:text-black text-[14px] font-normal text-center">
-                                Follow
-                            </p>
-                        </button>}
-                        {type === "profile" && <button className=" bg-red-600 hover:bg-red-500 w-40 h-8  rounded-xl" >
-                            <p className="text-white hover:text-black text-[16px] font-normal text-center">
-                                Follow
-                            </p>
-                        </button>}
-                        {
-                            type === "card" && <button className="flex space-x-2 items-center justify-center bg-red-600 hover:bg-red-500 w-28 h-9  rounded-xl" >
-                                <FaUserPlus className='text-white text-[22px] font-semibold text-center' />
-                                <p className="text-white text-[16px] font-semibold text-center">
-                                    Follow
-                                </p>
-                            </button>
-                        }
-                        {type === "friends" &&
-                            <div className='rounded-full cursor-pointer flex items-center justify-center'>
-                                <BsPlusCircleFill size={16} className='text-gray-100 hover:text-gray-800   ' />
->>>>>>> 507417e3376e197190bcdc02bca9bc7736e31303
                             </div>
                         </>
                     )}

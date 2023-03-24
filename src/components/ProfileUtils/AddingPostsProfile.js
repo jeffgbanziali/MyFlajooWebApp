@@ -1,7 +1,5 @@
 import React from 'react'
-import { AiOutlinePlus } from 'react-icons/ai'
-import { FaFeather, FaPlus } from 'react-icons/fa'
-import { FiPlus } from 'react-icons/fi'
+import { FaPlus } from 'react-icons/fa'
 
 const AddingPostsProfile = () => {
     return (
