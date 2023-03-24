@@ -18,10 +18,18 @@ const Posts = ({ post }) => {
     const [showComments, setShowComments] = useState(false);
     const [commentPopup, setCommentPopup] = useState(false);
 
+<<<<<<< HEAD
     const [showInitialContent, setShowInitialContent] = useState(false);
     const [showHoverContent, setShowHoverContent] = useState(false);
 
 
+=======
+
+    const [showInitialContent, setShowInitialContent] = useState(false);
+    const [showHoverContent, setShowHoverContent] = useState(false);
+
+
+>>>>>>> 507417e3376e197190bcdc02bca9bc7736e31303
     const handleInitialMouseEnter = () => {
         setShowInitialContent(true);
     };
