@@ -69,23 +69,23 @@ const images = [
 
 const PostImage = () => {
     return (
-        <div className="grid grid-cols-4 gap-3 ">
+        <div className="grid grid-cols-3 gap-2 sm:grid-cols-4 sm:gap-3 ">
             {
 
                 images.map((image) => (
                     <>
-                        <div className="flex justify-center hover:opacity-10 shadow shadow-slate-600 items-center w-64 h-80 bg-yellow-600">
+                        <div className="flex justify-center hover:opacity-10 shadow rounded-xl shadow-slate-600 items-center h-42 w-32 sm:w-64 sm:h-80 bg-yellow-600">
                             <img
-                                className="w-full cursor-pointer border-2  h-full  object-cover"
+                                className="w-full cursor-pointer rounded-xl sm:rounded-xl border-2  h-full  object-cover"
                                 src={image.image}
                                 alt="" />
-                            <div className="flex absolute flex-row ">
-                                <div className="flex justify-center cursor-pointer w-8 h-8 rounded-full  hover:bg-slate-300  items-center">
+                            <div className="flex absolute space-x-2 flex-row ">
+                                <div className="flex justify-center cursor-pointer h-4 w-4 sm:w-8 sm:h-8 rounded-full  hover:bg-slate-300  items-center">
                                     <button type="like">
                                         <FaHeart className="text-red-500" />
                                     </button>
                                 </div>
-                                <div className="flex justify-center cursor-pointer w-8 h-8 rounded-full  hover:bg-slate-300  items-center">
+                                <div className="flex justify-center cursor-pointer h-4 w-4 sm:w-8 sm:h-8 rounded-full  hover:bg-slate-300  items-center">
                                     <button type="like">
                                         <FaRegComment className="text-red-500" />
                                     </button>

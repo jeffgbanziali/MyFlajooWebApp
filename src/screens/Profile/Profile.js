@@ -24,15 +24,15 @@ const Profile = () => {
 
     return (
         <>
-            <div className="flex justify-center items-center ">
-                <div className=" w-[80%]">
+            <div className="flex w-screen sm:justify-center sm:items-center ">
+                <div className=" w-screen sm:w-[80%]">
                     <div>
                         <div className="">
                             <UsersUtils user={user} />
                         </div>
                         <div className=" flex justify-center  mt-4  ">
 
-                            <div className=" p-2 flex items-center justify-center">
+                            <div className="  p-2 flex items-center justify-center">
                                 <PostImage user={user} />
                             </div>
                         </div>

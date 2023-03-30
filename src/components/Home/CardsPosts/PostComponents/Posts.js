@@ -66,7 +66,7 @@ const Posts = ({ post }) => {
                           })
                           .join('')
                       }
-                      className='w-12 p-[2px] hover:opacity-75 cursor-pointer hidden md:block object-cover border-2 shadow-md  border-red-500 rounded-14 ml-18 overflow-hidden h-12 rounded-full mr-4'
+                      className='w-12 p-[2px] hover:opacity-75 cursor-pointer  md:block object-cover border-2 shadow-md  border-red-500 rounded-14 ml-18 overflow-hidden h-12 rounded-full mr-4'
                       alt='user-pic'
                     />
                   </NavLink>
@@ -89,7 +89,7 @@ const Posts = ({ post }) => {
                           )}
                         </div>
                       </div>
-                      <span className='flex text-gray-500 translate-y-5 sm:-mt-8 sm:pt-0 sm:pb-10 text-sm mb-10 font-normal'>
+                      <span className='flex text-gray-500 translate-y-5 -mt-9 sm:-mt-8 sm:pt-0 sm:pb-10 text-[10px] mb-10 font-normal'>
                         {dateParser(post.createdAt)}
                       </span>
                       {showInitialContent && (
@@ -120,8 +120,8 @@ const Posts = ({ post }) => {
                 </div>
               </div>
             </div>
-            <div id='post-body'>
-              <p className='text-gray-100 text-lg font-normal text-justify sm:text-base md:text-sm lg:text-[14px] xl:text-[16x]'>
+            <div id='post-body' className='sm:-mt-10'>
+              <p className='text-gray-100 sm:text-lg font-normal text-justify text-[13px] md:text-sm lg:text-[14px] xl:text-[16x]'>
                 {post.message}
               </p>
               <div className=' flex justify-center mt-4 items-center '>

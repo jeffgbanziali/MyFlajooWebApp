@@ -13,8 +13,8 @@ const LeftBarPro = () => {
 
     return (
         <>
-            <div className="hidden sm:flex flex-col  overflow-y-auto bg-gray-800  border-r-2 xl:w-[20%] p-2 fixed h-[100%] ">
-                <div className="flex border-b-4 flex-col p-2 ">
+            <div className="hidden sm:flex flex-col  overflow-y-auto bg-gray-900  xl:w-[20%] p-2 fixed h-[100%] ">
+                <div className="flex  flex-col p-2 ">
                     <div className='flex  h-16 w-[100%] items-center rounded-2xl  hover:bg-white p-2 '>
                         <NavLink to={`/profile/${userData._id}`}>
                             <div className='flex justify-center xl:justify-start text-xl items-center space-x-2.5 hoverAnimation'>
@@ -29,7 +29,7 @@ const LeftBarPro = () => {
                     <div className=' flex space-y-2 flex-col mt-4'>
                         <NavLink to={`/profile`}>
                             <div className='flex justify-center h-10 w-[100%] xl:rounded-xl sm:rounded-full sm:w-16 xl:w-[100%] hover:bg-white p-2 xl:justify-start text-xl items-center space-x-2.5 hoverAnimation'>
-                                <TbSmartHome className='text-2xl' />
+                                <TbSmartHome className='text-4xl text-gray-300' />
                                 <h4 className=' text-[16px] text-white hidden xl:inline'>
                                     Home
                                 </h4>
@@ -37,7 +37,7 @@ const LeftBarPro = () => {
                         </NavLink>
                         <NavLink to='/profile'>
                             <div className='flex justify-center h-10 w-[100%] xl:rounded-xl sm:rounded-full sm:w-16 xl:w-[100%] hover:bg-white p-2  xl:justify-start text-xl items-center space-x-2.5 hoverAnimation'>
-                                <FaUserFriends className='text-2xl' />
+                                <FaUserFriends className='text-4xl text-gray-300' />
                                 <h4 className=' text-[16px] text-white hidden xl:inline'>
                                     Friends
                                 </h4>
@@ -45,7 +45,7 @@ const LeftBarPro = () => {
                         </NavLink>
                         <NavLink to='/profile'>
                             <div className='flex justify-center h-10 w-[100%] xl:rounded-xl sm:rounded-full sm:w-16 xl:w-[100%] hover:bg-white p-2  xl:justify-start text-xl items-center space-x-2.5 hoverAnimation'>
-                                <RiGroup2Line className='text-2xl' />
+                                <RiGroup2Line className='text-4xl text-gray-300' />
                                 <span className='text-[16px] text-white hidden xl:inline'>
                                     Teams
                                 </span>
@@ -53,7 +53,7 @@ const LeftBarPro = () => {
                         </NavLink>
                         <NavLink to='/profile'>
                             <div className='flex justify-center h-10 w-[100%] xl:rounded-xl sm:rounded-full sm:w-16 xl:w-[100%] hover:bg-white p-2 xl:justify-start text-xl items-center space-x-2.5 hoverAnimation'>
-                                <MdOutlineOndemandVideo className='text-2xl' />
+                                <MdOutlineOndemandVideo className='text-4xl text-gray-300' />
                                 <span className='text-[16px] hidden text-white xl:inline'>
                                     Watch
                                 </span>
@@ -61,7 +61,7 @@ const LeftBarPro = () => {
                         </NavLink>
                         <NavLink to='/profile'>
                             <div className='flex justify-center h-10 w-[100%] xl:rounded-xl sm:rounded-full sm:w-16 xl:w-[100%]  hover:bg-white p-2 xl:justify-start text-xl items-center space-x-2.5 hoverAnimation'>
-                                <MdMovieFilter className='text-2xl' />
+                                <MdMovieFilter className='text-4xl text-gray-300' />
                                 <span className='text-[16px] hidden text-white xl:inline'>
                                     Live
                                 </span>
@@ -69,7 +69,7 @@ const LeftBarPro = () => {
                         </NavLink>
                         <NavLink to='/profile'>
                             <div className='flex justify-center h-10 w-[100%]  xl:rounded-xl sm:rounded-full sm:w-16 xl:w-[100%]  hover:bg-white p-2  xl:justify-start text-xl items-center space-x-2.5 hoverAnimation'>
-                                <HiNewspaper className='text-2xl' />
+                                <HiNewspaper className='text-4xl text-gray-300' />
                                 <span className='text-[16px] text-white hidden xl:inline'>
                                     News
                                 </span>
@@ -84,7 +84,7 @@ const LeftBarPro = () => {
                 </button>
     </div>*/}
             </div>
-           
+
         </>
     );
 }
