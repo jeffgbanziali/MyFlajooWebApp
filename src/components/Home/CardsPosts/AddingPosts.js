@@ -1,54 +1,87 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import { addPosts, getPosts } from '../../../actions/post.actions';
+import { addPosts } from '../../../actions/post.actions';
 import { isEmpty, timestampParser } from '../../Utils/Utils';
 import { BsImageFill } from 'react-icons/bs';
 import { HiVideoCamera } from 'react-icons/hi';
 import { IoPricetagsSharp } from 'react-icons/io5';
+import { uploadImageToFirebase } from '../../../data/firestore';
+import { collection, addDoc, getDoc } from 'firebase/firestore';
+import { firestore } from '../../../data/firestore';
 
 const AddingPosts = () => {
-
     const [isLoading, setIsLoading] = useState(true);
     const [message, setMessage] = useState("");
     const [postPicture, setPostPicture] = useState(null);
     const [video, setVideo] = useState("");
-    const [file, setFile] = useState();
-    const userData = useSelector((state) => state.userReducer);
+    const [postText, setPostText] = useState('');
+    const [selectedImage, setSelectedImage] = useState(null);
     const dispatch = useDispatch();
+    const userData = useSelector((state) => state.userReducer);
+
 
     const handlePost = async () => {
-        if (message || postPicture || video) {
-            const data = new FormData();
-            data.append('posterId', userData._id);
-            data.append('message', message);
-            if (file) data.append("file", file);
-            data.append('video', video);
+        if (postText.trim() === '') {
+            alert('Erreur', 'Veuillez entrer du texte pour votre post.');
+            return;
+        }
 
-            await dispatch(addPosts(data));
-            dispatch(getPosts());
-            cancelPost();
-            console.log(data);
-        } else {
-            alert("Veuillez entrer un message")
+        const postData = {
+            posterId: userData._id,
+            message: postText,
+            imageFileName: null,
+        };
+
+        try {
+            if (selectedImage) {
+                const imageName = `image-${Date.now()}.${selectedImage.name.split('.').pop()}`;
+                const imageUrl = await uploadImageToFirebase(selectedImage, imageName);
+
+                postData.imageFileName = imageUrl;
+            }
+
+            // Utilise le dispatch pour ajouter le post au store Redux
+            dispatch(addPosts(postData));
+
+            // Ajoute le document à la collection "posts" dans Firestore
+            const docRef = await addDoc(collection(firestore, 'posts'), postData);
+            const docSnapshot = await getDoc(docRef);
+
+            console.log('Post créé avec succès! Document ID:', docRef.id);
+            console.log('Document data:', docSnapshot.data());
+            alert('Succès', 'Votre post a été publié avec succès !');
+            setPostText('');
+            setSelectedImage(null);
+        } catch (error) {
+            console.error('Erreur lors de la création du post :', error);
+
+            let errorMessage = 'Une erreur s\'est produite lors de la création du post.';
+
+            if (error.response && error.response.data && error.response.data.errors) {
+                errorMessage = Object.values(error.response.data.errors).join('\n');
+            }
+
+            alert('Erreur', errorMessage);
         }
     };
 
     const handlePicture = (e) => {
-        setPostPicture(URL.createObjectURL(e.target.files[0]));
-        setFile(e.target.files[0]);
-        setVideo('');
+        const selectedFile = e.target.files[0];
+
+        if (selectedFile) {
+            setPostPicture(URL.createObjectURL(selectedFile));
+            setSelectedImage(selectedFile);
+            setVideo('');
+        }
     };
 
     const cancelPost = () => {
         setMessage("");
         setPostPicture("");
         setVideo("");
-        setFile("");
+        setSelectedImage("");
     };
-
-
-
 
     useEffect(() => {
         if (!isEmpty(userData)) setIsLoading(false);
@@ -72,20 +105,18 @@ const AddingPosts = () => {
     }, [userData, message, video]);
 
     return (
-
-
-        <div className=" w-screen sm:w-full sm:h-auto  shadow-xl shadow-gray-200  border-gray-900  bg-white  rounded-2xl ">
+        <div className="w-screen sm:w-full sm:h-auto shadow-xl shadow-gray-200 border-gray-900 bg-white rounded-2xl">
             {isLoading ? (
                 <i className="fas fa-spinner fa-pulse"></i>
             ) : (
                 <>
-                    <div className=" flex p-2 lg:flex-row items-center ">
-                        <div className="flex  lg:flex-row items-center ">
+                    <div className="flex p-2 lg:flex-row items-center">
+                        <div className="flex lg:flex-row items-center">
                             <NavLink exact to="/profil">
                                 <img
                                     src={userData.picture}
                                     alt="user-img"
-                                    className="w-12 h-12  rounded-full  border-2 border-red-800 object-cover"
+                                    className="w-12 h-12 rounded-full border-2 border-red-800 object-cover"
                                 />
                             </NavLink>
                         </div>
@@ -94,14 +125,12 @@ const AddingPosts = () => {
                             name="message"
                             id="message"
                             placeholder="Quoi de neuf ?"
-                            onChange={(e) => setMessage(e.target.value)}
-                            value={message}
+                            onChange={(e) => setPostText(e.target.value)}
+                            value={postText}
                         />
-
-
                     </div>
-                    <div className="w-full p-4 items-center  rounded-lg ">
-                        {message || postPicture || video.length > 20 ? (
+                    <div className="w-full p-4 items-center rounded-lg">
+                        {postText || postPicture || video.length > 20 ? (
                             <div className="flex flex-col lg:flex-row items-start lg:items-center mb-2">
                                 <div className="w-12 h-12 rounded-full overflow-hidden mr-6 lg:mr-0">
                                     <img
@@ -111,11 +140,11 @@ const AddingPosts = () => {
                                     />
                                 </div>
                                 <div className="flex-1">
-                                    <div className="flex justify-between ">
+                                    <div className="flex justify-between">
                                         <div className="font-medium">{userData.pseudo}</div>
                                         <div className="text-gray-600">{timestampParser(Date.now())}</div>
                                     </div>
-                                    <p className="mb-2">{message}</p>
+                                    <p className="mb-2">{postText}</p>
                                     {postPicture && (
                                         <img
                                             src={postPicture}
@@ -123,100 +152,86 @@ const AddingPosts = () => {
                                             className="w-full h-64 object-cover mb-2"
                                         />
                                     )}
-                                    {
-                                        video && (
-                                            <iframe
-                                                src={video}
-                                                frameBorder="0"
-                                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                                allowFullScreen
-                                                title={video}
-                                                className="w-full h-64 object-cover mb-2"
-                                            >
-                                            </iframe>
-                                        )}
+                                    {video && (
+                                        <iframe
+                                            src={video}
+                                            frameBorder="0"
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                            allowFullScreen
+                                            title={video}
+                                            className="w-full h-64 object-cover mb-2"
+                                        >
+                                        </iframe>
+                                    )}
                                 </div>
                             </div>
-                        ) : null
-                        }
-
+                        ) : null}
                         <div className="xl:flex xl:space-x-10 hidden xl:items-center">
                             <div className="flex items-center space-x-3">
                                 <div className="flex justify-between">
-
-                                    {
-                                        video && (
-                                            <button className="bg-red-400 hover:bg-red-700 text-white font-bold text-sm w-24 h-12 py-2 px-4 rounded-xl" onClick={cancelPost}>
-                                                Supprimer la video
-                                            </button>
-                                        )
-                                    }
+                                    {video && (
+                                        <button className="bg-red-400 hover:bg-red-700 text-white font-bold text-sm w-24 h-12 py-2 px-4 rounded-xl" onClick={cancelPost}>
+                                            Supprimer la video
+                                        </button>
+                                    )}
                                 </div>
                                 <div className="flex justify-between">
-
-                                    {
-                                        message || postPicture || video.length > 20 ? (
-                                            <button className="bg-red-400 hover:bg-red-700 text-white font-bold text-sm w-24 h-12 py-2 px-4 rounded-xl" onClick={cancelPost}>
-                                                Supprimer le post
-                                            </button>
-                                        ) : null
-                                    }
-
+                                    {postText || postPicture || video.length > 20 ? (
+                                        <button className="bg-red-400 hover:bg-red-700 text-white font-bold text-sm w-24 h-12 py-2 px-4 rounded-xl" onClick={cancelPost}>
+                                            Supprimer le post
+                                        </button>
+                                    ) : null}
                                 </div>
-                                {
-                                    isEmpty(video) && (
-                                        <>
-                                            <input
-                                                type="file"
-                                                id="file"
-                                                name="file"
-                                                accept=".jpg, .jpeg, .png"
-                                                onChange={(e) => handlePicture(e)}
-                                                style={{ 
-                                                    display: "none",
-                                             }}
-                                            />
-                                            <label htmlFor="file" className="cursor-pointer">
-                                                <div className="flex w-12 h-12 justify-center sm:w-24 sm:h-10 sm:rounded-xl rounded-xl bg-white hover:bg-slate-600  items-center" >
-                                                    <BsImageFill
-                                                        size={25}
-                                                        className="h-8 mr-2 text-red-500  "
-                                                    />
-                                                    <span className="text-sm hidden xl:inline text-gray-500">Photo</span>
-                                                </div>
-                                            </label>
-                                        </>
-                                    )
-                                }
-                                {
-                                    isEmpty(video) && (
-                                        <>
-
-                                            <input
-                                                type="file"
-                                                id="video"
-                                                name="video"
-                                                accept=".mp4, .avi, .mov"
-                                                onChange={(e) => handlePicture(e)}
-                                                style={{ display: "none" }}
-                                            />
-                                            <label htmlFor="video" className="cursor-pointer">
-                                                <div className="flex w-12 h-12 justify-center sm:w-24 sm:h-10 sm:rounded-xl rounded-xl bg-white hover:bg-slate-600  items-center" >
-                                                    <HiVideoCamera
-                                                        className="h-8 mr-2 text-green-500"
-                                                        size={25}
-                                                    />
-                                                    <span className="text-sm hidden xl:inline text-gray-500">Video</span>
-                                                </div>
-                                            </label>
-                                        </>
-                                    )}
+                                {!video && (
+                                    <>
+                                        <input
+                                            type="file"
+                                            id="file"
+                                            name="file"
+                                            accept=".jpg, .jpeg, .png"
+                                            onChange={(e) => handlePicture(e)}
+                                            style={{
+                                                display: "none",
+                                            }}
+                                        />
+                                        <label htmlFor="file" className="cursor-pointer">
+                                            <div className="flex w-12 h-12 justify-center sm:w-24 sm:h-10 sm:rounded-xl rounded-xl bg-white hover:bg-slate-600  items-center" >
+                                                <BsImageFill
+                                                    size={25}
+                                                    className="h-8 mr-2 text-red-500  "
+                                                />
+                                                <span className="text-sm hidden xl:inline text-gray-500">Photo</span>
+                                            </div>
+                                        </label>
+                                    </>
+                                )}
+                                {!video && (
+                                    <>
+                                        <input
+                                            type="file"
+                                            id="video"
+                                            name="video"
+                                            accept=".mp4, .avi, .mov"
+                                            onChange={(e) => handlePicture(e)}
+                                            style={{ display: "none" }}
+                                        />
+                                        <label htmlFor="video" className="cursor-pointer">
+                                            <div className="flex w-12 h-12 justify-center sm:w-24 sm:h-10 sm:rounded-xl rounded-xl bg-white hover:bg-slate-600  items-center" >
+                                                <HiVideoCamera
+                                                    className="h-8 mr-2 text-green-500"
+                                                    size={25}
+                                                />
+                                                <span className="text-sm hidden xl:inline text-gray-500">Video</span>
+                                            </div>
+                                        </label>
+                                    </>
+                                )}
                                 <input
                                     type="file"
                                     id="file"
                                     name="file"
                                     accept=".jpg, .jpeg, .png"
-                                    onChange={(e) => setPostPicture(e.target.files[0])}
+                                    onChange={(e) => setSelectedImage(e.target.files[0])}
                                     style={{ display: "none" }}
                                 />
                                 <label className="cursor-pointer">
@@ -237,14 +252,10 @@ const AddingPosts = () => {
                             </button>
                         </div>
                     </div>
-
                 </>
-            )
-            }
-        </div >
-
-    )
-
+            )}
+        </div>
+    );
 }
 
 export default AddingPosts;
