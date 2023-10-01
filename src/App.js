@@ -8,27 +8,39 @@ import { useDispatch } from 'react-redux';
 
 
 
-function App() {
+const App = () => {
   const [uid, setUid] = useState(null);
   const dispatch = useDispatch();
 
   useEffect(() => {
     const fetchToken = async () => {
-      await axios({
-        method: "get",
-        url: `${process.env.REACT_APP_API_URL}jwtid`,
-        withCredentials: true,
-      })
-        .then((res) => {
-          console.log(res);
-          setUid(res.data);
-          localStorage.setItem('uid', res.data); // Stockage de l'ID utilisateur dans le localStorage
-        })
-        .catch((err) => console.log("No token"));
+      try {
+        const res = await axios({
+          method: "get",
+          url: "http://192.168.0.14:4000/jwtid",
+          withCredentials: true,
+        });
+        const newUid = res.data;
+        setUid(newUid);
+        console.log(newUid);
+        AsyncStorage.setItem('uid', newUid);
+      } catch (error) {
+        console.log("Error fetching token:", error);
+      }
     };
-    fetchToken();
-    if (uid) dispatch(getUser(uid))
+
+    // Ne fetch le token que si uid est null
+    if (!uid) {
+      fetchToken();
+    }
+    // Dispatch seulement si uid est présent
+    if (uid) {
+      dispatch(getUser(uid));
+    }
+    console.log("uid", uid);
   }, [uid, dispatch]);
+
+
   return (
     <UidContext.Provider value={uid}>
       <Navigation />

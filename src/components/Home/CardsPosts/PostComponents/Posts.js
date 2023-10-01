@@ -55,8 +55,8 @@ const Posts = ({ post }) => {
                 <div className='flex flex-row'>
                   <NavLink to={`/profile/${post.posterId}`}>
                     <img
-                      onMouseEnter={handleInitialMouseEnter}
-                      onMouseLeave={handleInitialMouseLeave}
+                      //onMouseEnter={handleInitialMouseEnter}
+                      //onMouseLeave={handleInitialMouseLeave}
                       src={
                         !isEmpty(usersData[0]) &&
                         usersData
