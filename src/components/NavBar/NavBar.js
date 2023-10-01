@@ -88,46 +88,46 @@ const NavBar = () => {
                                                 size="20" color='black' />
                                         </NavLink>
                                     </div>
-                                    <div className=" xl:flex items-center focus:outline-none bg-slate-500 p-1 xl:w-32 xl:hover:bg-gray-500 rounded-full cursor-pointer">
-                                        <NavLink to={`/profile/${userData._id}`}>
-                                            <img className="w-8 h-8 rounded-full" src={userData.picture} alt="Profil" />
-                                        </NavLink>
-                                        <div onClick={handleClick} className="xl:flex hidden">
-                                            <h2 className="text-[16px]  font-semibold text-gray-400">{userData.pseudo}</h2>
+                                    <div className=" xl:flex items-center focus:outline-none bg-slate-500  xl:hover:bg-gray-500 rounded-full cursor-pointer">
+                                        <div onClick={handleClick}>
+                                            <img className="w-10 h-10 rounded-full" src={userData.picture} alt="Profil" />
                                         </div>
                                         {nav &&
                                             <div className="fixed top-14 right-2 rounded-lg shadow-lg border border-gray-200 flex ">
                                                 <div className="w-[600px] xl:w-[300px] bg-white p-4 rounded-lg shadow-lg transform transition-all ease-in-out duration-300 scale-100">
-                                                    <div className="flex  justify-between" >
-                                                        <h3 className='text-black text-xl'>LET'S SEE WHAT'S NEW</h3>
+                                                    <NavLink to={`/profile/${userData._id}`}>
+                                                        <div className=" flex flex-row justify-center h-12 w-[100%] xl:rounded-xl sm:rounded-full sm:w-16 xl:w-[100%] hover:bg-gray-400 p-2 xl:justify-start text-xl items-center space-x-2.5 hoverAnimation">
 
+                                                            <img className="w-10 h-10 rounded-full" src={userData.picture} alt="Profil" />
+                                                            <div className="xl:flex hidden">
+                                                                <h2 className="text-[16px]  font-semibold text-gray-900">{userData.pseudo}</h2>
+                                                            </div>
+                                                        </div>
+                                                    </NavLink>
+                                                    <div className='mt-4 '>
+                                                        <div className='flex justify-center h-12 w-[100%] xl:rounded-xl sm:rounded-full sm:w-16 xl:w-[100%] hover:bg-gray-400 p-2 xl:justify-start text-xl items-center space-x-2.5 hoverAnimation'>
+                                                            <TbSmartHome className='text-4xl text-blue-300' />
+                                                            <h4 className=' text-[16px] text-black hidden xl:inline'>
+                                                                Home
+                                                            </h4>
+                                                        </div>
+                                                        <div className='flex justify-center h-12 w-[100%] xl:rounded-xl sm:rounded-full sm:w-16 xl:w-[100%] hover:bg-gray-400 p-2 xl:justify-start text-xl items-center space-x-2.5 hoverAnimation'>
+                                                            <TbSmartHome className='text-4xl text-blue-300' />
+                                                            <h4 className=' text-[16px] text-black hidden xl:inline'>
+                                                                Home
+                                                            </h4>
+                                                        </div>
+                                                        <div className='flex justify-center h-12 w-[100%] xl:rounded-xl sm:rounded-full sm:w-16 xl:w-[100%] hover:bg-gray-400 p-2 xl:justify-start text-xl items-center space-x-2.5 hoverAnimation'>
+                                                            <TbSmartHome className='text-4xl text-blue-300' />
+                                                            <h4 className=' text-[16px] text-black hidden xl:inline'>
+                                                                Home
+                                                            </h4>
+                                                        </div>
                                                     </div>
-                                                    <div className='flex justify-center h-12 w-[100%] xl:rounded-xl sm:rounded-full sm:w-16 xl:w-[100%] hover:bg-gray-400 p-2 xl:justify-start text-xl items-center space-x-2.5 hoverAnimation'>
-                                                        <TbSmartHome className='text-4xl text-blue-300' />
-                                                        <h4 className=' text-[16px] text-black hidden xl:inline'>
-                                                            Home
-                                                        </h4>
-                                                    </div>
-                                                    <div className='flex justify-center h-12 w-[100%] xl:rounded-xl sm:rounded-full sm:w-16 xl:w-[100%] hover:bg-gray-400 p-2 xl:justify-start text-xl items-center space-x-2.5 hoverAnimation'>
-                                                        <TbSmartHome className='text-4xl text-blue-300' />
-                                                        <h4 className=' text-[16px] text-black hidden xl:inline'>
-                                                            Home
-                                                        </h4>
-                                                    </div>
-                                                    <div className='flex justify-center h-12 w-[100%] xl:rounded-xl sm:rounded-full sm:w-16 xl:w-[100%] hover:bg-gray-400 p-2 xl:justify-start text-xl items-center space-x-2.5 hoverAnimation'>
-                                                        <TbSmartHome className='text-4xl text-blue-300' />
-                                                        <h4 className=' text-[16px] text-black hidden xl:inline'>
-                                                            Home
-                                                        </h4>
-                                                    </div>
+
                                                 </div>
                                             </div>
                                         }
-                                        <div className="xl:flex xl:items-center xl:justify-center hidden xl:mr-2">
-                                            <button type="">
-                                                <BsCaretDownFill size="14" color='black' />
-                                            </button>
-                                        </div>
                                     </div>
                                     {/*<div className='xl:flex hidden justify-between items-center '  >
                                         <Logout />
