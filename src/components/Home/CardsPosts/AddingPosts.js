@@ -74,7 +74,7 @@ const AddingPosts = () => {
     return (
 
 
-        <div className="  w-screen sm:w-full sm:h-auto  shadow-xl shadow-gray-800  border-gray-900  bg-black  rounded-2xl ">
+        <div className=" w-screen sm:w-full sm:h-auto  shadow-xl shadow-gray-800  border-gray-900  bg-black  rounded-2xl ">
             {isLoading ? (
                 <i className="fas fa-spinner fa-pulse"></i>
             ) : (
@@ -140,7 +140,7 @@ const AddingPosts = () => {
                         ) : null
                         }
 
-                        <div className="flex space-x-10 items-center">
+                        <div className="xl:flex xl:space-x-10 hidden xl:items-center">
                             <div className="flex items-center space-x-3">
                                 <div className="flex justify-between">
 
@@ -233,11 +233,8 @@ const AddingPosts = () => {
                             >
                                 Send
                             </button>
-
-
                         </div>
                     </div>
-
 
                 </>
             )

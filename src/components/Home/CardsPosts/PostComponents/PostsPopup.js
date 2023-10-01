@@ -30,7 +30,7 @@ const PostsPopup = ({ post }) => {
     };
     return (
         <>
-            <div className="flex p-2 w-full items-center  border-b-2 h-20" >
+            <div className="xl:flex xl:p-2 xl:w-full xl:items-center hidden xl:border-b-2 xl:h-20" >
                 <img
                     className="w-14 h-14 rounded-full object-cover"
                     src={

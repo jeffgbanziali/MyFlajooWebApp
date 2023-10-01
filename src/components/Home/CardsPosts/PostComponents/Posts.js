@@ -207,7 +207,7 @@ const Posts = ({ post }) => {
             </div>
             {commentPopup && (
               <>
-                <div className='fixed top-0 left-0 w-full z-50 h-full bg-black bg-opacity-75 flex items-center justify-center'>
+                <div className='fixed top-0 left-0 w-full z-50 h-full hidden bg-opacity-75 xl:flex items-center justify-center'>
                   <div className='w-[70%] h-[95%] bg-black p-2 rounded-lg shadow-lg transform transition-all ease-in-out duration-300 scale-100'>
                     <div className='flex w-[100%] h-[100%]  '>
                       <div className='flex flex-col border-l-2 border-r-2  w-[60%] h-[100%]  text-justify'>

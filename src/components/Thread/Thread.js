@@ -22,11 +22,11 @@ const Thread = () => {
     return (
         <>
             <div className='flex space-y-4 w-full flex-col  justify-center '>
+            <div className='flex justify-center '>
+                    {uid ? <AddingPosts title='Home' /> : null}
+                </div>
                 <div className='flex justify-center'>
                     <Stories />
-                </div>
-                <div className='flex justify-center '>
-                    {uid ? <AddingPosts title='Home' /> : null}
                 </div>
                 <div className='space-y-4'>
                     {!isEmpty(posts[0]) &&
