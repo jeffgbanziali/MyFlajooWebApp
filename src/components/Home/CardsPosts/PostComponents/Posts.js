@@ -43,7 +43,7 @@ const Posts = ({ post }) => {
   return (
     <>
       <div
-        className=' w-screen sm:w-full  h-auto border py-4 px-6 relative min-h-100 shadow-xl shadow-gray-800  border-gray-900 rounded-2xl bg-black'
+        className=' w-screen sm:w-full  h-auto border py-4 px-6 relative min-h-100 shadow-xl shadow-gray-200  border-gray-100 rounded-2xl bg-white'
         key={post._id}
       >
         {loading ? (
@@ -73,7 +73,7 @@ const Posts = ({ post }) => {
                   <div className='flex  md:ml-18'>
                     <div className=' flex flex-col min-h-35'>
                       <div className='flex md:translate-y-18 mb-4 '>
-                        <h4 className='text-white font-normal'>
+                        <h4 className='text-black  font-bold'>
                           {!isEmpty(usersData[0]) &&
                             usersData.map(user => {
                               if (user._id === post.posterId) return user.pseudo
@@ -89,7 +89,7 @@ const Posts = ({ post }) => {
                           )}
                         </div>
                       </div>
-                      <span className='flex text-gray-500 translate-y-5 -mt-9 sm:-mt-8 sm:pt-0 sm:pb-10 text-[10px] mb-10 font-normal'>
+                      <span className='flex text-gray-800 translate-y-5 -mt-9 sm:-mt-8 sm:pt-0 sm:pb-10 text-[10px] mb-10 font-normal'>
                         {dateParser(post.createdAt)}
                       </span>
                       {showInitialContent && (
@@ -110,10 +110,10 @@ const Posts = ({ post }) => {
                   </div>
                 </div>
 
-                <div className='bg-gray-800 w-10 h-10 flex items-center justify-center cursor-pointer hover:bg-slate-400 rounded-full '>
+                <div className='w-10 h-10 flex items-center justify-center cursor-pointer hover:bg-slate-400 rounded-full '>
                   <FiMoreHorizontal
                     name='more'
-                    className=' text-white '
+                    className=' text-gray-800 '
                     size={25}
                     color='white hover:bg-black'
                   />
@@ -121,7 +121,7 @@ const Posts = ({ post }) => {
               </div>
             </div>
             <div id='post-body' className='sm:-mt-10'>
-              <p className='text-gray-100 sm:text-lg font-normal text-justify text-[13px] md:text-sm lg:text-[14px] xl:text-[16x]'>
+              <p className='text-black  sm:text-lg font-normal text-justify text-[13px] md:text-sm lg:text-[14px] xl:text-[16x]'>
                 {post.message}
               </p>
               <div className=' flex justify-center mt-4 items-center '>
@@ -181,7 +181,7 @@ const Posts = ({ post }) => {
                   </span>
                 </div>
               </div>
-              <div className='flex  mt-2 border-t-2 border-gray-600'>
+              <div className='flex  mt-2 border-t border-gray-400'>
                 <div className='flex space-x-4'>
                   <div>
                     <LikeButton post={post} />
@@ -190,10 +190,10 @@ const Posts = ({ post }) => {
                     <div>
                       <div
                         onClick={() => setShowComments(!showComments)}
-                        className='flex w-36 h-10 mt-2  bg-black hover:bg-gray-60 cursor-pointer justify-center items-center rounded-2xl'
+                        className='flex w-36 h-10 mt-2  bg-white hover:bg-gray-600 cursor-pointer justify-center items-center rounded-2xl'
                       >
-                        <FaRegComment className='text-white ' size={20} />
-                        <p className='text-white text-sm ml-2 font-normal text-justify sm:text-base md:text-lg lg:text-xl xl:text-sm'>
+                        <FaRegComment className='text-gray-800 ' size={20} />
+                        <p className='text-gray-800 text-sm ml-2 font-normal text-justify sm:text-base md:text-lg lg:text-xl xl:text-sm'>
                           Comment
                         </p>
                       </div>

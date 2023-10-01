@@ -3,14 +3,14 @@ import React from 'react';
 
 const FollowBar = () => {
     return (
-        <div className=" shadow-xl shadow-gray-800 flex flex-col w-80 h-auto md:h-auto md:w-72 lg:h-auto lg:w-[360px] bg-black  border-1 border-red-700 border-opacity-0 rounded-xl">
+        <div className=" shadow-xl shadow-gray-200 flex flex-col w-80 h-auto md:h-auto md:w-72 lg:h-auto lg:w-[360px] bg-white  border-1 border-red-700 border-opacity-0 rounded-xl">
             <div className="flex p-3 ml-6 mt-4 rounded-b-xl ">
-                <h1 className="text-center text-slate-400 font-semibold text-2xl">
+                <h1 className="text-center text-slate-900 font-semibold text-2xl">
                     Who is follow you
                 </h1>
             </div>
             <div className="flex flex-col -space-y-2 ">
-                <div className="flex mt-2 p-4 hover:bg-gray-800 cursor-pointer rounded-b-xl  items-center justify-between   " >
+                <div className="flex mt-2 p-4 hover:bg-gray-200 cursor-pointer rounded-b-xl  items-center justify-between   " >
                     <div className="" >
                         <div className="flex flex-row items-center ">
                             <div className="flex items-center" >

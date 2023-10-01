@@ -22,8 +22,8 @@ const NavBar = () => {
         <>
 
 
-            <div className=' xl:fixed z-10 justify-end h-14 flex w-screen  xl:w-[80%] '>
-                <div className='  absolute  h-auto w-full mt-2 items-center flex xl:justify-between shadow-lg  '>
+            <div className=' xl:fixed z-10 justify-end h-14 bg-white flex w-screen shadow-lg xl:w-[100%] '>
+                <div className='  absolute  h-auto w-full  items-center flex xl:justify-between   '>
                     <div className='flex items-center p-2'>
                         <NavLink to={uid ? "/" : "/start"} >
                             <img src={image} alt="logo" className="h-10 w-10" />

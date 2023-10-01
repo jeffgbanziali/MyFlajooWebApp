@@ -31,7 +31,7 @@ const LikeButton = ({ post }) => {
             {uid === null && (
                 <Popup
                     trigger={
-                        <div className='flex w-32 h-10 mt-2  bg-black hover:bg-red-800 cursor-pointer justify-center items-center rounded-2xl'>
+                        <div className='flex w-32 h-10 mt-2  text-gray-800 hover:bg-red-800 cursor-pointer justify-center items-center rounded-2xl'>
                             <AiOutlineHeart className='text-white ' size={20} />
                             <p className='text-white text-sm ml-2 font-normal text-justify sm:text-base md:text-lg lg:text-xl xl:text-sm'>
                                 Like
@@ -51,10 +51,10 @@ const LikeButton = ({ post }) => {
             {uid && liked === false && (
                 <div
                     onClick={like}
-                    className='flex w-32 h-10 mt-2  bg-black hover:bg-gray-600 cursor-pointer justify-center items-center rounded-2xl'
+                    className='flex w-32 h-10 mt-2  text-gray-800 hover:bg-gray-600 cursor-pointer justify-center items-center rounded-2xl'
                 >
-                    <AiOutlineHeart className='text-white transition duration-200 transform hover:scale-110' size={20} />
-                    <p className='text-white text-sm ml-2 font-normal text-justify sm:text-base md:text-lg lg:text-xl xl:text-sm'>
+                    <AiOutlineHeart className='text-gray-800 transition duration-200 transform hover:scale-110' size={20} />
+                    <p className='text-gray-800 text-sm ml-2 font-normal text-justify sm:text-base md:text-lg lg:text-xl xl:text-sm'>
                         Like
                     </p>
                 </div>
@@ -62,7 +62,7 @@ const LikeButton = ({ post }) => {
             {uid && liked && (
                 <div
                     onClick={unlike}
-                    className='flex w-32 h-10 mt-2   bg-black hover:bg-red-800 cursor-pointer justify-center items-center rounded-2xl'
+                    className='flex w-32 h-10 mt-2   text-gray-800 hover:bg-red-800 cursor-pointer justify-center items-center rounded-2xl'
                 >
                     <FaHeart className='text-red-500 transition duration-200 transform hover:scale-110 delay-100' size={20} />
                     <p className='text-red-500 text-sm ml-2 font-normal text-justify sm:text-base md:text-lg lg:text-xl xl:text-sm'>

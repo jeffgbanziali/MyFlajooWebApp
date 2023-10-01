@@ -39,7 +39,7 @@ const EditDeleteComment = ({ comment, postId }) => {
             {
                 isAuthor && edit === false && (
                     <div className="flex flex-row ">
-                        <span className="text-gray-100 text-sm mr-1 cursor-pointer hover:text-gray-300" onClick={() => setEdit(!edit)}>
+                        <span className="text-gray-900 text-sm mr-1 cursor-pointer hover:text-gray-300" onClick={() => setEdit(!edit)}>
                             <FiEdit />
                         </span>
                     </div>

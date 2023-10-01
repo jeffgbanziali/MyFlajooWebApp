@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom'
 const Stories = () => {
     return (
         <>
-            <div className='w-screen flex flex-row sh p-2 bg-black rounded-2xl shadow-lg shadow-gray-800 sm:w-full  '>
+            <div className='w-screen flex flex-row sh p-2  rounded-2xl  sm:w-full  '>
                 <div className='w-screen h-32 sm:w-full sm:h-48  items-center justify-start p-2 flex space-x-1 sm:space-x-2 rounded-[1rem] '>
                     <div className='flex flex-col items-center justify-center '>
                         <AddingPostsProfile />

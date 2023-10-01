@@ -34,7 +34,7 @@ const LikeButton = ({ post }) => {
                 <Popup
                     trigger={
                         <div
-                            className="flex w-32 h-10 mt-2  bg-black hover:bg-red-800 cursor-pointer justify-center items-center rounded-2xl">
+                            className="flex w-32 h-10 mt-2  bg-white hover:bg-red-800 cursor-pointer justify-center items-center rounded-2xl">
                             <AiOutlineHeart
                                 className="text-red-500 "
                                 size={20} />

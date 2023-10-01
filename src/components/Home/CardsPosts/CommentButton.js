@@ -47,13 +47,13 @@ const CommentButton = ({ post }) => {
                                     </div>
                                     <div >
 
-                                        <div className={comment.commenterId === userData._id ? "flex flex-col  text-justify border-gray-200 rounded-br-2xl rounded-t-2xl  p-2  bg-slate-700" : "flex  flex-col text-justify border-gray-200 rounded-bl-2xl rounded-t-2xl  p-2  bg-gray-900"}>
-                                            <h4 className="text-white ml-1 text-[16px] font-semibold">
+                                        <div className={comment.commenterId === userData._id ? "flex flex-col  text-justify border-gray-200 rounded-br-2xl rounded-t-2xl  p-2  bg-slate-200" : "flex  flex-col text-justify border-gray-200 rounded-bl-2xl rounded-t-2xl  p-2  bg-gray-300"}>
+                                            <h4 className="text-black ml-1 text-[16px] font-semibold">
                                                 {
                                                     comment.commenterPseudo
                                                 }
                                             </h4>
-                                            <p className="text-gray-400 ml-1  text-[14px]">
+                                            <p className="text-gray-800 ml-1  text-[14px]">
                                                 {
                                                     comment.text
                                                 }
@@ -110,7 +110,7 @@ const CommentButton = ({ post }) => {
                                         type="text"
                                         placeholder="Write a comment..."
                                         placeholderTextColor="gray-500-400"
-                                        className="w-[80%] text-slate-400  bg-gray-700 p-2 border-gray-500 rounded-3xl border-1 " />
+                                        className="w-[80%] text-slate-400  bg-gray-200 p-2 border-gray-500 rounded-3xl border-1 " />
                                     <div className="flex flex-row items-center justify-center" >
                                         <button
                                             onClick={handleComment}

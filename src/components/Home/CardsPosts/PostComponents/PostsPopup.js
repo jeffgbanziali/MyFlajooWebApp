@@ -45,7 +45,7 @@ const PostsPopup = ({ post }) => {
                     alt="" />
                 <div className="flex flex-row  ml-2 ">
                     <div className="flex flex-col justify-center ">
-                        <h2 className="text-gray-200   font-normal ">
+                        <h2 className="text-gray-800   font-normal ">
                             {
                                 !isEmpty(usersData[0]) &&
                                 usersData

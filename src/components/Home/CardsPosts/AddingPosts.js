@@ -74,7 +74,7 @@ const AddingPosts = () => {
     return (
 
 
-        <div className=" w-screen sm:w-full sm:h-auto  shadow-xl shadow-gray-800  border-gray-900  bg-black  rounded-2xl ">
+        <div className=" w-screen sm:w-full sm:h-auto  shadow-xl shadow-gray-200  border-gray-900  bg-white  rounded-2xl ">
             {isLoading ? (
                 <i className="fas fa-spinner fa-pulse"></i>
             ) : (
@@ -90,7 +90,7 @@ const AddingPosts = () => {
                             </NavLink>
                         </div>
                         <input
-                            className="w-full h-10 rounded-full border-2  ml-1 justify-center items-center border-gray-300 p-2 focus:outline-none focus:border-red-800"
+                            className="w-full h-10 rounded-full border-2 text-black ml-1 justify-center items-center bg-slate-200 border-gray-200 p-2 focus:outline-none focus:border-red-50"
                             name="message"
                             id="message"
                             placeholder="Quoi de neuf ?"
@@ -172,15 +172,17 @@ const AddingPosts = () => {
                                                 name="file"
                                                 accept=".jpg, .jpeg, .png"
                                                 onChange={(e) => handlePicture(e)}
-                                                style={{ display: "none" }}
+                                                style={{ 
+                                                    display: "none",
+                                             }}
                                             />
                                             <label htmlFor="file" className="cursor-pointer">
-                                                <div className="flex w-12 h-12 justify-center sm:w-24 sm:h-10 sm:rounded-xl rounded-xl bg-gray-700 hover:bg-slate-600  items-center" >
+                                                <div className="flex w-12 h-12 justify-center sm:w-24 sm:h-10 sm:rounded-xl rounded-xl bg-white hover:bg-slate-600  items-center" >
                                                     <BsImageFill
-                                                        size={20}
-                                                        className="h-8 mr-4  "
+                                                        size={25}
+                                                        className="h-8 mr-2 text-red-500  "
                                                     />
-                                                    <span className="text-sm hidden xl:inline text-white">Photo</span>
+                                                    <span className="text-sm hidden xl:inline text-gray-500">Photo</span>
                                                 </div>
                                             </label>
                                         </>
@@ -199,12 +201,12 @@ const AddingPosts = () => {
                                                 style={{ display: "none" }}
                                             />
                                             <label htmlFor="video" className="cursor-pointer">
-                                                <div className="flex w-12 h-12 justify-center sm:w-24 sm:h-10 sm:rounded-xl rounded-xl bg-gray-700 hover:bg-slate-600  items-center" >
+                                                <div className="flex w-12 h-12 justify-center sm:w-24 sm:h-10 sm:rounded-xl rounded-xl bg-white hover:bg-slate-600  items-center" >
                                                     <HiVideoCamera
-                                                        className="h-8 mr-4"
-                                                        size={20}
+                                                        className="h-8 mr-2 text-green-500"
+                                                        size={25}
                                                     />
-                                                    <span className="text-sm hidden xl:inline text-white">Video</span>
+                                                    <span className="text-sm hidden xl:inline text-gray-500">Video</span>
                                                 </div>
                                             </label>
                                         </>
@@ -218,12 +220,12 @@ const AddingPosts = () => {
                                     style={{ display: "none" }}
                                 />
                                 <label className="cursor-pointer">
-                                    <div className="flex w-12 h-12 justify-center sm:w-24 sm:h-10 sm:rounded-xl rounded-xl bg-gray-700 hover:bg-slate-600  items-center" >
+                                    <div className="flex w-12 h-12 justify-center sm:w-24 sm:h-10 sm:rounded-xl rounded-xl bg-white hover:bg-slate-600  items-center" >
                                         <IoPricetagsSharp
-                                            size={20}
-                                            className="h-8 mr-4"
+                                            size={25}
+                                            className="h-8 mr-2 text-yellow-500"
                                         />
-                                        <span className="text-sm hidden xl:inline text-white">Tags</span>
+                                        <span className="text-sm hidden xl:inline text-gray-500">Tags</span>
                                     </div>
                                 </label>
                             </div>
