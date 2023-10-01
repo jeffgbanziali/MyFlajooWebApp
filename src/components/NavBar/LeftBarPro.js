@@ -18,7 +18,10 @@ const LeftBarPro = () => {
                     <div className='flex  h-12 w-[100%] items-center rounded-2xl  hover:bg-gray-400 p-2 '>
                         <NavLink to={`/profile/${userData._id}`}>
                             <div className='flex justify-center xl:justify-start text-xl items-center space-x-2.5 hoverAnimation'>
-                                <img className='w-8 h-8 rounded-full' src='https://play-lh.googleusercontent.com/H-BL_nBtFpQY92qaBHGZ4cHAcceuBfLiXWAHGOUDPS-9Gp4TPnhEjQSCZWvpfEFOv_A' alt='profile' />
+                                <img className='w-8 h-8 rounded-full' src={
+                                    userData.picture
+                                }
+                                    alt='profile' />
                                 <span className='hidden text-black xl:inline'>
                                     {userData.pseudo}
                                 </span>

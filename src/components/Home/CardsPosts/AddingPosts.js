@@ -116,7 +116,7 @@ const AddingPosts = () => {
                                 <img
                                     src={userData.picture}
                                     alt="user-img"
-                                    className="w-12 h-12 rounded-full border-2 border-red-800 object-cover"
+                                    className="sm:w-10 sm:h-10 xl:w-10 xl:h-10 w-12 h-12 rounded-full border-2 border-red-800 object-cover"
                                 />
                             </NavLink>
                         </div>

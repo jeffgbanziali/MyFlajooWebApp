@@ -4,7 +4,6 @@ import FollowBar from '../../components/NavBar/FollowBar';
 import LeftBarPro from '../../components/NavBar/LeftBarPro';
 import UsersFriends from '../../components/NavBar/UsersFriends';
 import NavBar from '../../components/NavBar/NavBar';
-import LeftNavBar from '../../components/NavBar/LeftNavBar';
 
 
 
@@ -12,7 +11,7 @@ const HomeScreen = () => {
 
     return (
         <>
-        <NavBar />
+            <NavBar />
             <div className="flex flex-row ">
                 <div className=" h-auto xl:inline mt-10  flex-col w-[20%] ">
                     <LeftBarPro />

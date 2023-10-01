@@ -3,6 +3,7 @@ import UsersUtils from '../../components/ProfileUtils/UsersUtils';
 import PostImage from '../../components/ProfileUtils/PostImage';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import NavBar from '../../components/NavBar/NavBar';
 
 
 
@@ -24,6 +25,7 @@ const Profile = () => {
 
     return (
         <>
+            <NavBar />
             <div className="flex w-screen sm:justify-center sm:items-center ">
                 <div className=" w-screen sm:w-[80%]">
                     <div>
