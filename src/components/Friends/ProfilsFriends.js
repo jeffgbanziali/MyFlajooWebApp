@@ -10,7 +10,7 @@ const FriendProfiles = () => {
     console.log(friendId);
 
     useEffect(() => {
-        axios.get(`http://localhost:5000/api/user/${friendId}`).then((response) => {
+        axios.get(`http://localhost:4000/api/user/${friendId}`).then((response) => {
             setFriend(response.data);
         });
     }, [friendId]);

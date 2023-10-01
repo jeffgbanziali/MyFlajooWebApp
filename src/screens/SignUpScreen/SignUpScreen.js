@@ -27,7 +27,7 @@ const SignUpScreen = () => {
 
         axios({
             method: "post",
-            url: 'http://localhost:5000/api/user/register',
+            url: 'http://localhost:4000/api/user/register',
             data: {
                 email,
                 password,

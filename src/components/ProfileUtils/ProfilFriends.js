@@ -11,11 +11,12 @@ const ProfilFriends = () => {
         const getFriends = async () => {
             try {
                 if (uid) {
-                    const FriendList = await axios.get(`http://localhost:5000/api/user/friends/${uid}`);
+                    const FriendList = await axios.get(`http://localhost:4000/api/user/friends/${uid}`);
                     setFriends(FriendList.data);
                 }
             } catch (err) {
                 console.log(err);
+            
             }
         }
         getFriends();

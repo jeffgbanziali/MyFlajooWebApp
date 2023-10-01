@@ -25,7 +25,7 @@ const SignInScreen = () => {
 
       axios({
          method: "post",
-         url: "http://localhost:5000/api/user/login",
+         url: "http://localhost:4000/api/user/login",
          withCredentials: true,
          data: {
             email,

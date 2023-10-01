@@ -15,7 +15,7 @@ const UsersFriends = () => {
             try {
                 const FriendList = await axios({
                     method: "get",
-                    url: `http://localhost:5000/api/user/friends/` + uid,
+                    url: `http://localhost:4000/api/user/friends/` + uid,
                     withCredentials: true,
                 });
                 console.log(FriendList.data);

@@ -3,7 +3,7 @@ import "./Conversations.css";
 import axios from "axios";
 
 const Conversations = ({ uid, conversation: { pseudo, picture } }) => {
-    const [user, setInfo] = useState(null);
+    const [, setInfo] = useState(null);
 
     useEffect(() => {
         const fetchUserInfo = async () => {

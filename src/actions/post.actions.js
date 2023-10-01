@@ -18,7 +18,7 @@ export const GET_POST_ERRORS = "GET_POST_ERRORS";
 export const getPosts = (num) => {
     return (dispatch) => {
         return axios
-            .get(`http://localhost:5000/api/post`)
+            .get(`http://localhost:4000/api/post`)
             .then((res) => {
                 const array = res.data.slice(0, num);
                 dispatch({ type: GET_POSTS, payload: array });
@@ -30,7 +30,7 @@ export const getPosts = (num) => {
 export const addPosts = (data) => {
     return (dispatch) => {
         return axios
-            .post(`http://localhost:5000/api/post/`, data)
+            .post(`http://localhost:4000/api/post/`, data)
             .then((res) => {
                 dispatch({ type: GET_ADD_POSTS, payload: res.data });
             })
@@ -43,7 +43,7 @@ export const likePost = (postId, userId) => {
     return (dispatch) => {
         return axios({
             method: "patch",
-            url: `http://localhost:5000/api/post/like-post/` + postId,
+            url: `http://localhost:4000/api/post/like-post/` + postId,
             data: { id: userId },
         })
             .then((res) => {
@@ -57,7 +57,7 @@ export const unlikePost = (postId, userId) => {
     return (dispatch) => {
         return axios({
             method: "patch",
-            url: `http://localhost:5000/api/post/unlike-post/` + postId,
+            url: `http://localhost:4000/api/post/unlike-post/` + postId,
             data: { id: userId },
         })
             .then((res) => {
@@ -71,7 +71,7 @@ export const updatePost = (postId, message) => {
     return (dispatch) => {
         return axios({
             method: "put",
-            url: `http://localhost:5000/api/post/${postId}`,
+            url: `http://localhost:4000/api/post/${postId}`,
             data: { message },
         })
             .then((res) => {
@@ -85,7 +85,7 @@ export const deletePost = (postId) => {
     return (dispatch) => {
         return axios({
             method: "delete",
-            url: `http://localhost:5000/api/post/${postId}`,
+            url: `http://localhost:4000/api/post/${postId}`,
         })
             .then((res) => {
                 dispatch({ type: DELETE_POST, payload: { postId } });
@@ -98,7 +98,7 @@ export const addComment = (postId, commenterId, text, commenterPseudo) => {
     return (dispatch) => {
         return axios({
             method: "patch",
-            url: `http://localhost:5000/api/post/comment-post/${postId}`,
+            url: `http://localhost:4000/api/post/comment-post/${postId}`,
             data: { commenterId, text, commenterPseudo },
         })
             .then((res) => {
@@ -112,7 +112,7 @@ export const allComments = (postId) => {
     return (dispatch) => {
         return axios({
             method: "get",
-            url: `http://localhost:5000/api/post/all-comments-post/${postId}`,
+            url: `http://localhost:4000/api/post/all-comments-post/${postId}`,
         })
             .then((res) => {
                 dispatch({ type: ALL_COMMENTS, payload: { postId, comments: res.data } });
@@ -125,7 +125,7 @@ export const editComment = (postId, commentId, text) => {
     return (dispatch) => {
         return axios({
             method: "patch",
-            url: `http://localhost:5000/api/post/edit-comment-post/${postId}`,
+            url: `http://localhost:4000/api/post/edit-comment-post/${postId}`,
             data: { commentId, text },
         })
             .then((res) => {
@@ -139,7 +139,7 @@ export const deleteComment = (postId, commentId) => {
     return (dispatch) => {
         return axios({
             method: "patch",
-            url: `http://localhost:5000/api/post/delete-comment-post/${postId}`,
+            url: `http://localhost:4000/api/post/delete-comment-post/${postId}`,
             data: { commentId },
         })
             .then((res) => {

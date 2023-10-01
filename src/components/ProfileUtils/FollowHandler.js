@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { isEmpty } from '../Utils/Utils'
 import { followUser, unfollowUser } from '../../actions/user.action'
-import { BsFillCheckCircleFill, BsPlusCircleFill } from 'react-icons/bs'
 import { FaUserCheck, FaUserPlus } from 'react-icons/fa'
 
 const FollowHandler = ({ idToFollow, type }) => {
