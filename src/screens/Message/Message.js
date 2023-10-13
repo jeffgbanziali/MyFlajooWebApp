@@ -6,16 +6,43 @@ import ChatOnline from "../../components/MessageComponents/ChatOnline";
 import Messaging from "../../components/MessageComponents/Messaging";
 import axios from "axios";
 import { UidContext } from "../../Context/AppContext";
+import { io } from "socket.io-client";
 
 const Message = () => {
   const uid = useContext(UidContext);
   const [conver, setConver] = useState([]);
   const [currentChat, setCurrentChat] = useState(null); // Initialize currentChat as null
   const [chat, setChat] = useState([]);
-  const [newChat, setNewChat] = useState([]);
+  const [newChat, setNewChat] = useState("");
+  const [arrivalChat, setArrivalChat] = useState(null);
   const scrollRef = useRef();
+  const socket = useRef(io("ws://localhost:8900"));
 
   console.log(uid);
+
+  useEffect(() => {
+    socket.current = io("ws://localhost:8900");
+    socket.current.on("getMessage", (data) => {
+      setArrivalChat({
+        sender: data.senderId,
+        text: data.text,
+        createdAt: Date.now(),
+      });
+    });
+  }, []);
+
+  useEffect(() => {
+    arrivalChat &&
+      currentChat?.members.includes(arrivalChat.sender) &&
+      setChat((prev) => [...prev, arrivalChat]);
+  }, [arrivalChat, currentChat]);
+
+  useEffect(() => {
+    socket.current.emit("addUser", uid);
+    socket.current.on("getUSers", (users) => {
+      console.log(users);
+    });
+  }, [uid]);
 
   useEffect(() => {
     const getConversation = async () => {
@@ -61,12 +88,21 @@ const Message = () => {
       conversationId: currentChat._id,
     };
 
+    const receiverId = currentChat.members.find((member) => member !== uid);
+
+    socket.current.emit("sendMessage", {
+      senderId: uid,
+      receiverId,
+      text: newChat,
+    });
+
     try {
       const response = await axios.post(
         "http://localhost:4000/api/message/",
         message
       );
-      setChat([...chat, response.data]);
+
+      setChat((prevChat) => [...prevChat, response.data]);
       setNewChat("");
     } catch (err) {
       console.log(err);
