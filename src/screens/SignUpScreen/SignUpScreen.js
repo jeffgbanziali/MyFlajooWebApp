@@ -72,7 +72,7 @@ const SignUpScreen = () => {
                     </div>
                     <form className=' flex w-full px-8 py-10' action='' onSubmit={handleLogin} id="sin-up-form">
                         <div className='w-full  '>
-                            <input className='flex  mt-4 items-center xl:pl-[8px] xl:w-[300px] xl:h-[40px] rounded-[10px] bg-white border-0 text-gray-800' type="text" name="pseudo" id='pseudo' placeholder='enter your first name' onChange={(e) => setPseudo(e.target.value)} />
+                            <input className='flex  mt-4 items-center xl:pl-[8px] xl:w-[300px] xl:h-[40px] rounded-[10px] bg-white border-0 text-gray-800' type="text" name="pseudo" id='pseudo' placeholder='enter your pseudo' onChange={(e) => setPseudo(e.target.value)} />
                             <input className='flex  mt-4 items-center xl:pl-[8px] xl:w-[300px] xl:h-[40px] rounded-[10px] bg-white border-0 text-gray-800' type="text" name="firstName" id='firstName' placeholder='enter your first name' onChange={(e) => setFirstName(e.target.value)} />
                             <input className='flex  mt-4 items-center xl:pl-[8px] xl:w-[300px] xl:h-[40px] rounded-[10px] bg-white border-0 text-gray-800' type="text" name="lastName" id='lastName' placeholder='enter your last name' onChange={(e) => setLastName(e.target.value)} />
                             <input className='flex  mt-4 items-center xl:pl-[8px] xl:w-[300px] xl:h-[40px] rounded-[10px] bg-white border-0 text-gray-800' type="email" name="email" id='email' placeholder='enter your email' onChange={(e) => setEmail(e.target.value)} />

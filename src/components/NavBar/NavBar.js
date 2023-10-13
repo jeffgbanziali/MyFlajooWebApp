@@ -1,6 +1,5 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { UidContext } from '../../Context/AppContext';
-import Logout from '../../screens/Logout/Logout';
 import { NavLink } from 'react-router-dom';
 import image from "../../../src/assets/Logos/1.png";
 import { BsMessenger } from "react-icons/bs";
@@ -70,7 +69,7 @@ const NavBar = () => {
                                         </div>
                                     </div>
                                     <div>
-                                        <NavLink to="/chat">
+                                        <NavLink to="/chat/"> 
                                             <div className="w-8 h-8 hover:bg-gray-500   bg-gray-300 rounded-full cursor-pointer flex items-center justify-center">
                                                 <div className="absolute flex xl:ml-8 xl:mb-7 ml-8 mb-6">
                                                     <div class="flex  bg-red-600  w-5 h-5 rounded-full items-center justify-center ">

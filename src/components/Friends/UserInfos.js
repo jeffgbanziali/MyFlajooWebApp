@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { FaUserPlus } from 'react-icons/fa';
 import { MdMoreHoriz } from 'react-icons/md';
 import { useSelector } from 'react-redux';
-import Message from '../Message/Message';
 import FollowHandler from '../ProfileUtils/FollowHandler';
 
 const UserInfos = ({ friend: {
@@ -37,9 +36,9 @@ const UserInfos = ({ friend: {
                                         <div>
                                             <FollowHandler idToFollow={_id} type={'card'} />
                                         </div>
-                                        <div>
+                                       { /*<div>
                                             <Message idToFollow={userData._id} type={'friends'} />
-                                        </div>
+                                        </div>*/}
                                         <div className='w-8 h-8 hover:bg-gray-500 bg-blue-300 rounded-full cursor-pointer flex items-center justify-center'>
                                             <FaUserPlus className="text-[16px] text-black" />
                                         </div>

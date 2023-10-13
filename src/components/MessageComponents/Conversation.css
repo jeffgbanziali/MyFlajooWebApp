@@ -21,6 +21,7 @@
 .conversationName {
     font-weight: 500;
     font-size: 20px;
+    color: black;
 }
 
 @media screen and (max-width: 768px) {

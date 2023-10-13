@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { isEmpty } from '../Utils/Utils';
 import FollowHandler from './FollowHandler';
-import Message from '../Message/Message';
+//import Message from '../Message/Message';
 
 const ProfileMouse = ({ post }) => {
     const usersData = useSelector((state) => state.usersReducer);
@@ -120,9 +120,9 @@ const ProfileMouse = ({ post }) => {
                     <div className="">
                         <FollowHandler idToFollow={post.posterId} type={'profile'} />
                     </div>
-                    <div className="">
+                   {/* <div className="">
                         <Message idToMessage={post.posterId} type={'profile'} />
-                    </div>
+                    </div>*/}
                 </div>
             </div>
         </div>

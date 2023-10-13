@@ -23,6 +23,7 @@ function App() {
           console.log(res);
           setUid(res.data);
           localStorage.setItem('uid', res.data); // Stockage de l'ID utilisateur dans le localStorage
+          console.log(localStorage.getItem('uid'))
         })
         .catch((err) => console.log("No token"));
     };

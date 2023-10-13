@@ -3,7 +3,7 @@ import { FaUserPlus } from 'react-icons/fa';
 import { MdMoreHoriz } from 'react-icons/md';
 import { useSelector } from 'react-redux';
 import FollowHandler from './FollowHandler';
-import Message from '../Message/Message';
+//import Message from '../Message/Message';
 
 
 
@@ -41,9 +41,9 @@ const UsersUtils = ({ user: { pseudo, picture, _id, bio, following, followers } 
                                                     <div>
                                                         <FollowHandler idToFollow={_id} type={'card'} />
                                                     </div>
-                                                    <div>
+                                                   { /*<div>
                                                         <Message idToFollow={_id} type={'friends'} />
-                                                    </div>
+                                            </div>*/}
                                                 </>
                                             )
 

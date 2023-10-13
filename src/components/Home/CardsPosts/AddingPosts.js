@@ -112,7 +112,7 @@ const AddingPosts = () => {
                 <>
                     <div className="flex p-2 lg:flex-row items-center">
                         <div className="flex lg:flex-row items-center">
-                            <NavLink exact to="/profil">
+                            <NavLink exact="true" to="/profil">
                                 <img
                                     src={userData.picture}
                                     alt="user-img"
