@@ -144,6 +144,7 @@ const Message = () => {
                     type="text"
                     className="chatMessageInput"
                     placeholder="write something..."
+                    value={newChat}
                     onChange={(e) => setNewChat(e.target.value)}
                   />
                   <button
