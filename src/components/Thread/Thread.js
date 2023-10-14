@@ -22,7 +22,7 @@ const Thread = () => {
     return (
         <>
             <div className='flex space-y-4 w-full flex-col  justify-center '>
-                <div className='flex justify-center'>
+                <div className='flex '>
                     <Stories />
                 </div>
                 <div className='flex justify-center '>

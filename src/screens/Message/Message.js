@@ -15,8 +15,11 @@ const Message = () => {
   const [chat, setChat] = useState([]);
   const [newChat, setNewChat] = useState("");
   const [arrivalChat, setArrivalChat] = useState(null);
+  const [onlineUser, setOnlineUser] = useState([]);
   const scrollRef = useRef();
   const socket = useRef(io("ws://localhost:8900"));
+
+  //const userData = useSelector((state) => state.userReducer);
 
   console.log(uid);
 
@@ -41,8 +44,12 @@ const Message = () => {
     socket.current.emit("addUser", uid);
     socket.current.on("getUSers", (users) => {
       console.log(users);
+      setOnlineUser(
+        uid.followings.filter((f) => users.some((u) => u._id === f))
+      );
     });
   }, [uid]);
+  console.log(uid);
 
   useEffect(() => {
     const getConversation = async () => {
@@ -164,7 +171,11 @@ const Message = () => {
         </div>
         <div className="chatOnline mt-20  ">
           <div className="chatOnlineWrapper">
-            <ChatOnline />
+            <ChatOnline
+              onlineUser={onlineUser}
+              currentId={uid}
+              setCurrentChat={setCurrentChat}
+            />
           </div>
         </div>
       </div>

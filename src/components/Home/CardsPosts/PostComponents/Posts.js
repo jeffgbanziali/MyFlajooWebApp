@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
-import { dateParser, isEmpty } from '../../../Utils/Utils'
+import { dateParser, formatPostDate, isEmpty } from '../../../Utils/Utils'
 import { FiMoreHorizontal } from 'react-icons/fi'
 import { FaPen, FaRegComment } from 'react-icons/fa'
 import LikeButton from '../LikeButton'
@@ -90,7 +90,7 @@ const Posts = ({ post }) => {
                         </div>
                       </div>
                       <span className='flex text-gray-800 translate-y-5 -mt-9 sm:-mt-8 sm:pt-0 sm:pb-10 text-[10px] mb-10 font-normal'>
-                        {dateParser(post.createdAt)}
+                        {formatPostDate(post.createdAt)}
                       </span>
                       {showInitialContent && (
                         <>

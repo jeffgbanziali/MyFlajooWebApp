@@ -9,6 +9,9 @@ import Thread from "../components/Thread/Thread";
 import ProfilsFriends from "../components/Friends/ProfilsFriends";
 import Message from "../screens/Message/Message";
 import StoriesSteams from "../components/Home/Stories/StoriesSteams";
+import CreateStories from "../components/Home/Stories/createStories";
+
+
 
 const Navigation = () => {
   return (
@@ -20,6 +23,7 @@ const Navigation = () => {
           <Route path="/profile/:pseudo" element={<Profile />} />
           <Route path="/friends/:friendId" element={<ProfilsFriends />} />
           <Route path="/stories" element={<StoriesSteams />} />
+          <Route path="/createStories" element={<CreateStories/>} />
           <Route path="/chat" element={<Message />} />
           <Route path="/start" element={<StartPage />} />
           <Route path="sign-in" element={<SignInScreen />} />

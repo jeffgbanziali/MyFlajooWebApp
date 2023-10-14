@@ -1,7 +1,7 @@
 import React from 'react';
 import './Messaging.css'
 import { useSelector } from 'react-redux';
-import { dateParser } from '../Utils/Utils';
+import { dateParser, formatPostDate } from '../Utils/Utils';
 
 const Messaging = ({message, own}) => {
   const userData = useSelector((state) => state.userReducer);
@@ -18,7 +18,7 @@ const Messaging = ({message, own}) => {
                 </p>
             </div>
             <div className="messageBottom">
-            {dateParser(message.createdAt)}
+            {formatPostDate(message.createdAt)}
             </div>
         </div>
     );
