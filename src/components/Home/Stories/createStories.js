@@ -1,13 +1,15 @@
 import React from "react";
 
-const createStories = () =>  {
+const createStories = () => {
   return (
-    <div>
-      <div className="fixed bottom-10  w-full h-full   flex items-center justify-center">
-        <p>BOnjour papa</p>
+    
+      <div className=" flex w-full h-full items-center justify-center">
+        <div className=" flex w-96 h-96 bg-red-400  items-center justify-center">
+          <p>BOnjour papa</p>
+        </div>
       </div>
-    </div>
+    
   );
-}
+};
 
 export default createStories;
