@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
-import { dateParser, formatPostDate, isEmpty } from '../../../Utils/Utils'
+import { formatPostDate, isEmpty } from '../../../Utils/Utils'
 import { FiMoreHorizontal } from 'react-icons/fi'
 import { FaPen, FaRegComment } from 'react-icons/fa'
 import LikeButton from '../LikeButton'

@@ -31,7 +31,7 @@ const Stories = () => {
           <>
             <div className=" absolute z-40 top-0 bg-black left-0 w-full h-full bg-opacity-75 flex ">
               <span
-                className="text-gray-200 flex ml-4  justify-end text-xl cursor-pointer"
+                className="text-gray-200 flex ml-4 mt-2  justify-end text-xl cursor-pointer"
                 onClick={() => setStore(false)}
               >
                 &#10005;

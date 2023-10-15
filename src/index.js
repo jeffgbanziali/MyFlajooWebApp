@@ -10,6 +10,7 @@ import thunk from 'redux-thunk';
 import rootReducer from './reducers';
 import { getUsers } from './actions/users.action';
 import { getPosts } from './actions/post.actions';
+import { getStories } from './actions/story.action';
 
 
 
@@ -19,6 +20,7 @@ const store = createStore(
 
 store.dispatch(getUsers());
 store.dispatch(getPosts());
+store.dispatch(getStories());
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
