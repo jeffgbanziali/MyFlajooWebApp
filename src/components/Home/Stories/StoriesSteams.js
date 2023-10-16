@@ -122,11 +122,33 @@ function StoriesSteams() {
               </div>
             </div>
             <div className="absolute  w-[30%] items-center justify-center flex h-20 bg-gradient-to-t from-transparent to-gray-900"></div>
-            <img
-              src={selectedStory.media}
-              alt="user-img"
-              className="  border-2 w-[100%]  rounded-xl h-[100%] object-cover"
-            />
+
+            {!selectedStory.media && (
+              <div className=" flex items-center  w-[100%]  bg-green-900  justify-center">
+                <p className="text-white text-xl text-justify font-normal">
+                  {selectedStory.text}
+                </p>
+              </div>
+            )}
+            {!selectedStory.text && (
+              <img
+                src={selectedStory.media}
+                alt="user-img"
+                className="border-2 w-[100%] rounded-xl  h-[100%] object-cover"
+              />
+            )}
+            {selectedStory.media && selectedStory.text && (
+              <div className=" w-[100%] h-[100%] flex flex-col items-center justify-center">
+                <img
+                  src={selectedStory.media}
+                  alt="user-img"
+                  className="border-2 w-[100%] rounded-xl  h-[100%] object-cover"
+                />
+                <p className="text-white absolute top-[85%] text-justify text-xl font-normal ml-4">
+                  {selectedStory.text}
+                </p>
+              </div>
+            )}
           </div>
           <div className="absolute flex justify-between  w-[40%] left-[30%] top-[40%] ">
             <button
