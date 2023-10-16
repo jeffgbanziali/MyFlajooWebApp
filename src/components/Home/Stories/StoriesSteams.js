@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import { NavLink, useNavigate, useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { RxCross2 } from "react-icons/rx";
-import { AiOutlineHeart } from "react-icons/ai";
+import { MdArrowForwardIos } from "react-icons/md";
+import { MdArrowBackIosNew } from "react-icons/md";
 import { IoSendOutline } from "react-icons/io5";
 import { formatPostDate, isEmpty } from "../../Utils/Utils";
 import LikeStoriesButton from "./LikeStoriesButton";
@@ -15,7 +16,6 @@ function StoriesSteams() {
   const [text, setText] = useState("");
   const [elapsedTime, setElapsedTime] = useState(0);
   const [storyProgress, setStoryProgress] = useState(0);
-  const [currentStoryIndex, setCurrentStoryIndex] = useState(0);
 
   const navigate = useNavigate();
 
@@ -36,54 +36,26 @@ function StoriesSteams() {
     setStoryProgress(progress);
     setStoryProgress(Math.min(progress, 100));
 
-    // Si la progression atteint 100%, passer à la story suivante
+    // Si la progression atteint 100%, rediriger vers la page d'accueil
     if (progress >= 100) {
-      goToNextStory();
-    }
-  }, [elapsedTime]);
-
-  const selectedStory = storiesData[currentStoryIndex];
-
-  const goToNextStory = () => {
-    // Passer à la story suivante
-    const nextIndex = currentStoryIndex + 1;
-
-    if (nextIndex < storiesData.length) {
-      // Si la story suivante existe, passer à celle-ci
-      setCurrentStoryIndex(nextIndex);
-    } else {
-      // Si la story suivante n'existe pas, passer à la story d'un autre utilisateur
-      const nextUserStories = storiesData.filter(
-        (story) => story.posterId !== selectedStory.posterId
-      );
-
-      if (nextUserStories.length > 0) {
-        setCurrentStoryIndex(0); // Passer à la première story de l'autre utilisateur
-      } else {
-        // Si aucun utilisateur suivant n'a de story, rediriger vers la page d'accueil
-        navigate("/");
-      }
-    }
-  };
-
-  const goToNextUserStory = () => {
-    // Passer à la story d'un autre utilisateur
-    const nextUserStories = storiesData.filter(
-      (story) => story.posterId !== selectedStory.posterId
-    );
-
-    if (nextUserStories.length > 0) {
-      setCurrentStoryIndex(0); // Passer à la première story de l'autre utilisateur
-    } else {
-      // Si aucun utilisateur suivant n'a de story, rediriger vers la page d'accueil
+      console.log("Story terminée, rediriger ou effectuer une action");
       navigate("/");
     }
-  };
+  }, [elapsedTime, navigate]);
+
+  const selectedStory = storiesData.find((story) => story._id === id);
 
   if (!selectedStory) {
-    // Gérer le cas où la story n'est pas trouvée
     return <div>Story non trouvée</div>;
   }
+
+  const goToNextStory = () => {
+    console.log("Selected next");
+  };
+
+  const goToPreviewStory = () => {
+    console.log("Selected preview");
+  };
 
   // Trouver l'utilisateur correspondant dans les données Redux
   const user = usersData.find((user) => user._id === selectedStory.posterId);
@@ -92,23 +64,10 @@ function StoriesSteams() {
     <div className="fixed flex-col  w-full h-full flex bg-black ">
       <div className="w-full  absolute flex justify-between mt-2">
         <div className="flex ml-2">
-        <button
-              className="   h-10 rounded-lg  bg-gray-200"
-              onClick={goToNextUserStory}
-            >
-              Next User Story
-            </button>
           <p className="text-white text-[20px] italic  font-bold">Flajooo</p>
         </div>
         <NavLink to={`/`}>
           <div className="flex ml-2 cursor-pointer">
-            <button
-              className="  h-10 rounded-lg  bg-gray-200"
-              onClick={goToNextStory}
-            >
-              Next Story
-            </button>
-           
             <RxCross2 size={30} className="mr-2 text-white" />
           </div>
         </NavLink>
@@ -168,6 +127,20 @@ function StoriesSteams() {
               alt="user-img"
               className="  border-2 w-[100%]  rounded-xl h-[100%] object-cover"
             />
+          </div>
+          <div className="absolute flex justify-between  w-[40%] left-[30%] top-[40%] ">
+            <button
+              className="w-6 h-6 rounded-full flex items-center hover:bg-slate-300 justify-center bg-gray-600"
+              onClick={goToPreviewStory}
+            >
+              <MdArrowBackIosNew className="text-black" size={16} />
+            </button>
+            <button
+              className=" w-6 flex h-6 rounded-full items-center hover:bg-slate-300 justify-center bg-gray-600"
+              onClick={goToNextStory}
+            >
+              <MdArrowForwardIos className="text-black" size={16} />
+            </button>
           </div>
 
           <div className="flex justify-center items-center  ">
