@@ -11,7 +11,7 @@ const Stories = () => {
 
   return (
     <>
-      <div className="w-screen flex flex-row p-2 overflow-x-auto rounded-2xl  sm:w-full bg-black  ">
+      <div className="w-screen flex flex-row p-2 overflow-x-auto rounded-2xl  sm:w-full bg-gray-200  ">
         <div
           onClick={() => setStore(true)}
           className=" items-center p-2 flex space-x-1  rounded-[1rem]  "
@@ -22,8 +22,11 @@ const Stories = () => {
               className=" w-32  h-48 rounded "
               alt=""
             />
-            <div className=" flex w-10 h-10 bg-gray-400 mt-28 items-center justify-center rounded-full absolute z-20  ">
-              <BsPlusCircleFill size="30" color="red" />
+            <div className="flex flex-col items-center mt-28 space-y-2 justify-center rounded-full absolute z-20 ">
+              <div className=" flex w-8 h-8 bg-white justify-center items-center rounded-full ">
+                <BsPlusCircleFill size="30" color="blue" />
+              </div>
+              <p className="text-white text-center text-[14px] font-bold">Create your story</p>
             </div>
           </div>
         </div>
