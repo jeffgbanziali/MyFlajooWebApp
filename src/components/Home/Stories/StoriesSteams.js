@@ -39,8 +39,34 @@ function StoriesSteams() {
       <div className="flex w-full  justify-center  h-full  ">
         <div className="flex flex-col w-[30%] h-[100%]  mt-4 rounded-2xl ">
           <div className="flex  w-[100%]  h-[90%]  rounded-2xl ">
+            <div className="flex flex-row space-x-2 ml-4 w-[28%] mt-4 items-center justify-center rounded-full absolute z-20">
+              <div className="flex flex-row justify-between w-[100%]">
+                <div className="flex flex-row space-x-2 items-center">
+                  <img
+                    src="https://www.bdch.com/sites/bdch.com/assets/images/Staff/profileNone.jpg"
+                    className="w-10 h-10   rounded-full"
+                    alt="user-pic"
+                  />
+                  <p className="text-white text-center text-[16px] font-medium ">
+                    Bonjour
+                  </p>
+                  <p className="text-gray-400 text-center text-[16px] font-medium ">
+                    21h
+                  </p>
+                </div>
+                <div className="flex flex-row space-x-2 items-center">
+                  <p className="text-white text-center text-[16px] font-medium ">
+                    Bonjour
+                  </p>
+                  <p className="text-gray-400 text-center text-[16px] font-medium ">
+                    21h
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="absolute  w-[30%] items-center justify-center flex h-20 bg-gradient-to-t from-transparent to-gray-900"></div>
             <img
-              src="https://cap.img.pmdstatic.net/fit/http.3A.2F.2Fprd2-bone-image.2Es3-website-eu-west-1.2Eamazonaws.2Ecom.2Fcap.2F2018.2F11.2F08.2Fa6f621fc-0d8b-45ca-aa77-b89536ace837.2Ejpeg/1200x630/background-color/ffffff/quality/70/cr/wqkgwqkyMDEzIFRNIFRFTEVWSVNJT04gUFJPRFVDVElPTlMgTElNSVRFRC9UNSBWSUtJTkdTIFBST0RVQ1RJT05TIElOQy4gQUxMIFJJR0hUUyBSRVNFUlZFRCAvIE1HTS4gLyBDQVBJVEFM/au-boulot-inspirez-vous-du-heros-de-la-serie-vikings-1315042.jpg"
+              src="https://www.viking-clan.com/cdn/shop/articles/Ragnar_Lothbrok_mythe_ou_realite_1200x1200.jpg?v=1651614627"
               alt="user-img"
               className="  border-2 w-[100%]  rounded-xl h-[100%] object-cover"
             />
