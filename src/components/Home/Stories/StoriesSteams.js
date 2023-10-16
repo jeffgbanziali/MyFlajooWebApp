@@ -3,9 +3,9 @@ import { NavLink, useNavigate, useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { RxCross2 } from "react-icons/rx";
 import { AiOutlineHeart } from "react-icons/ai";
-import { IoSend } from "react-icons/io5";
 import { IoSendOutline } from "react-icons/io5";
 import { formatPostDate, isEmpty } from "../../Utils/Utils";
+import LikeStoriesButton from "./LikeStoriesButton";
 
 function StoriesSteams() {
   const { id } = useParams();
@@ -15,6 +15,7 @@ function StoriesSteams() {
   const [text, setText] = useState("");
   const [elapsedTime, setElapsedTime] = useState(0);
   const [storyProgress, setStoryProgress] = useState(0);
+  const [currentStoryIndex, setCurrentStoryIndex] = useState(0);
 
   const navigate = useNavigate();
 
@@ -35,19 +36,53 @@ function StoriesSteams() {
     setStoryProgress(progress);
     setStoryProgress(Math.min(progress, 100));
 
-    // Si la progression atteint 100%, rediriger vers la page d'accueil
+    // Si la progression atteint 100%, passer à la story suivante
     if (progress >= 100) {
-      console.log("Story terminée, rediriger ou effectuer une action");
+      goToNextStory();
+    }
+  }, [elapsedTime]);
+
+  const selectedStory = storiesData[currentStoryIndex];
+
+  const goToNextStory = () => {
+    // Passer à la story suivante
+    const nextIndex = currentStoryIndex + 1;
+
+    if (nextIndex < storiesData.length) {
+      // Si la story suivante existe, passer à celle-ci
+      setCurrentStoryIndex(nextIndex);
+    } else {
+      // Si la story suivante n'existe pas, passer à la story d'un autre utilisateur
+      const nextUserStories = storiesData.filter(
+        (story) => story.posterId !== selectedStory.posterId
+      );
+
+      if (nextUserStories.length > 0) {
+        setCurrentStoryIndex(0); // Passer à la première story de l'autre utilisateur
+      } else {
+        // Si aucun utilisateur suivant n'a de story, rediriger vers la page d'accueil
+        navigate("/");
+      }
+    }
+  };
+
+  const goToNextUserStory = () => {
+    // Passer à la story d'un autre utilisateur
+    const nextUserStories = storiesData.filter(
+      (story) => story.posterId !== selectedStory.posterId
+    );
+
+    if (nextUserStories.length > 0) {
+      setCurrentStoryIndex(0); // Passer à la première story de l'autre utilisateur
+    } else {
+      // Si aucun utilisateur suivant n'a de story, rediriger vers la page d'accueil
       navigate("/");
     }
-  }, [elapsedTime, navigate]);
-
-
-  const selectedStory = storiesData.find((story) => story._id === id);
+  };
 
   if (!selectedStory) {
-  // Gérer le cas où la story n'est pas trouvée
-  return <div>Story non trouvée</div>;
+    // Gérer le cas où la story n'est pas trouvée
+    return <div>Story non trouvée</div>;
   }
 
   // Trouver l'utilisateur correspondant dans les données Redux
@@ -57,10 +92,23 @@ function StoriesSteams() {
     <div className="fixed flex-col  w-full h-full flex bg-black ">
       <div className="w-full  absolute flex justify-between mt-2">
         <div className="flex ml-2">
+        <button
+              className="   h-10 rounded-lg  bg-gray-200"
+              onClick={goToNextUserStory}
+            >
+              Next User Story
+            </button>
           <p className="text-white text-[20px] italic  font-bold">Flajooo</p>
         </div>
         <NavLink to={`/`}>
           <div className="flex ml-2 cursor-pointer">
+            <button
+              className="  h-10 rounded-lg  bg-gray-200"
+              onClick={goToNextStory}
+            >
+              Next Story
+            </button>
+           
             <RxCross2 size={30} className="mr-2 text-white" />
           </div>
         </NavLink>
@@ -69,7 +117,7 @@ function StoriesSteams() {
         <div className="flex flex-col w-[30%] h-[100%]  mt-4 rounded-2xl ">
           <div className="flex  w-[100%] h-[90%]  rounded-2xl ">
             <div className="flex flex-col space-y-2 ml-4 w-[28%]  mt-4  rounded-full absolute z-20">
-            <div className=" w-[100%] native rounded-lg bg-gray-500">
+              <div className=" w-[100%] native rounded-lg bg-gray-500">
                 <div
                   className="  h-2 rounded-lg  bg-gray-200"
                   style={{ width: `${storyProgress}%` }}
@@ -93,26 +141,26 @@ function StoriesSteams() {
                     alt="user-pic"
                   />
                   <p className="text-white text-center text-[16px] font-medium ">
-                  {!isEmpty(usersData[0]) &&
+                    {!isEmpty(usersData[0]) &&
                       usersData.map((user) => {
-                        if (user._id === selectedStory.posterId) return user.pseudo;
+                        if (user._id === selectedStory.posterId)
+                          return user.pseudo;
                         else return null;
                       })}
                   </p>
                   <p className="text-gray-400 text-center text-[16px] font-medium ">
-                  {formatPostDate(selectedStory.createdAt)}
+                    {formatPostDate(selectedStory.createdAt)}
                   </p>
                 </div>
                 <div className="flex flex-row space-x-2 items-center">
                   <p className="text-white text-center text-[16px] font-medium ">
-                    Bonjour
+                    {selectedStory.likers.length} likes
                   </p>
                   <p className="text-gray-400 text-center text-[16px] font-medium ">
                     21h
                   </p>
                 </div>
               </div>
-              
             </div>
             <div className="absolute  w-[30%] items-center justify-center flex h-20 bg-gradient-to-t from-transparent to-gray-900"></div>
             <img
@@ -136,9 +184,7 @@ function StoriesSteams() {
               <div className="flex w-12 h-12 mt-2    cursor-pointer justify-center items-center rounded-full">
                 <IoSendOutline className="text-white" size={30} />
               </div>
-              <div className="flex w-12 h-12 mt-2    cursor-pointer justify-center items-center rounded-full">
-                <AiOutlineHeart className="text-gray-100 " size={30} />
-              </div>
+              <LikeStoriesButton store={selectedStory} />
             </div>
           </div>
         </div>
