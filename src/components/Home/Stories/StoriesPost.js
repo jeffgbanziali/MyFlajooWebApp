@@ -28,7 +28,7 @@ function StoriesPost() {
         storiesData.map((story) => {
 
           return (
-            <NavLink key={story._id} to={`/stories/`}>{/*${story._id}*/}
+            <NavLink key={story._id} to={`/stories/${story._id}`}>{/*${story._id}*/}
               <div className="w-32 h-48 bg-white flex items-center justify-center rounded">
                 {story.media && (
                   <img src={story.media} className="w-32 h-48 opacity-90 rounded" alt="" />

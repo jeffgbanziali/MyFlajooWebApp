@@ -22,7 +22,7 @@ const Navigation = () => {
           <Route path="/thread" element={<Thread />} />
           <Route path="/profile/:pseudo" element={<Profile />} />
           <Route path="/friends/:friendId" element={<ProfilsFriends />} />
-          <Route path="/stories" element={<StoriesSteams />} />
+          <Route path="/stories/:id" element={<StoriesSteams />} />
           <Route path="/createStories" element={<CreateStories/>} />
           <Route path="/chat" element={<Message />} />
           <Route path="/start" element={<StartPage />} />
