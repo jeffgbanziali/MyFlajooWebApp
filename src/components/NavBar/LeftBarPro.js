@@ -30,7 +30,7 @@ const LeftBarPro = () => {
                         </NavLink>
                     </div>
                     <div className=' flex space-y-4 flex-col mt-4'>
-                        <NavLink to={`/profile`}>
+                        <NavLink to={`/`}>
                             <div className='flex justify-center h-12 w-[100%] xl:rounded-xl sm:rounded-full sm:w-16 xl:w-[100%] hover:bg-gray-400 p-2 xl:justify-start text-xl items-center space-x-2.5 hoverAnimation'>
                                 <TbSmartHome className='text-4xl text-blue-300' />
                                 <h4 className=' text-[16px] text-black hidden xl:inline'>
@@ -54,7 +54,7 @@ const LeftBarPro = () => {
                                 </span>
                             </div>
                         </NavLink>
-                        <NavLink to='/profile'>
+                        <NavLink to='/videoReels'>
                             <div className='flex justify-center h-12 w-[100%] xl:rounded-xl sm:rounded-full sm:w-16 xl:w-[100%] hover:bg-gray-400 p-2 xl:justify-start text-xl items-center space-x-2.5 hoverAnimation'>
                                 <MdOutlineOndemandVideo className='text-4xl text-pink-500' />
                                 <span className='text-[16px] hidden text-black xl:inline'>
