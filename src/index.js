@@ -11,6 +11,7 @@ import rootReducer from './reducers';
 import { getUsers } from './actions/users.action';
 import { getPosts } from './actions/post.actions';
 import { getStories } from './actions/story.action';
+import { getVideoReels } from './actions/reels.action';
 
 
 
@@ -21,6 +22,7 @@ const store = createStore(
 store.dispatch(getUsers());
 store.dispatch(getPosts());
 store.dispatch(getStories());
+store.dispatch(getVideoReels());
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
