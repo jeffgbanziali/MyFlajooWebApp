@@ -9,6 +9,7 @@ import { getVideoReels } from "../../actions/reels.action";
 import { isEmpty } from "../Utils/Utils";
 import { RxCross2 } from "react-icons/rx";
 import { HiOutlineEye } from "react-icons/hi";
+import LikeRéelsButton from "./LikeRéelsButton";
 
 const RéelsComponent = () => {
   const [loadPosts, setLoadPosts] = useState(true);
@@ -147,7 +148,7 @@ const RéelsComponent = () => {
                     <div className="flex flex-col">
                       <div className="flex flex-col justify-center items-center mt-6 ">
                         <div className="flex flex-col w-12 h-12   cursor-pointer justify-center items-center rounded-full">
-                          <AiOutlineHeart className="text-white" size={30} />
+                          <LikeRéelsButton reels={reels} />
                         </div>
                         <p className="text-white text-[12px]">
                           {reels.likers.length}

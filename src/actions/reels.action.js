@@ -37,7 +37,7 @@ export const likeVideoReels = (videoRéelsId, userId) => {
   return (dispatch) => {
     return axios
       .patch(
-        `http://localhost:4000/api/videoReels/like-videoRéels/${videoRéelsId}`,
+        `http://localhost:4000/api/videoReels/like-videoReels/${videoRéelsId}`,
         { id: userId }
       )
       .then((res) => {
@@ -51,7 +51,7 @@ export const dislikeVideoReels = (videoRéelsId, userId) => {
   return (dispatch) => {
     return axios
       .patch(
-        `http://localhost:4000/api/videoReels/dislike-videoRéels/${videoRéelsId}`,
+        `http://localhost:4000/api/videoReels/dislike-videoReels/${videoRéelsId}`,
         { id: userId }
       )
       .then((res) => {
@@ -68,7 +68,7 @@ export const viewVideoReels = (videoRéelsId, viewerId) => {
   return (dispatch) => {
     return axios
       .patch(
-        `http://localhost:4000/api/videoReels/view-videoRéels/${videoRéelsId}`,
+        `http://localhost:4000/api/videoReels/view-videoReels/${videoRéelsId}`,
         { viewerId }
       )
       .then((res) => {
@@ -90,7 +90,7 @@ export const commentVideoReels = (
   return (dispatch) => {
     return axios
       .patch(
-        `http://localhost:4000/api/videoReels/comment-videoRéels/${videoRéelsId}`,
+        `http://localhost:4000/api/videoReels/comment-videoReels/${videoRéelsId}`,
         {
           commenterId,
           text,
