@@ -32,7 +32,7 @@ const NavBar = () => {
         <>
 
 
-            <div className=' xl:fixed z-10 justify-end h-14 bg-white flex w-screen shadow-lg xl:w-[100%] '>
+            <div className=' xl:fixed z-10 justify-end h-14 bg-white sm:h-14 flex w-screen shadow-lg xl:w-[100%] '>
                 <div className='  absolute  h-auto w-full  items-center flex xl:justify-between   '>
                     <div className='flex items-center p-2'>
                         <NavLink to={uid ? "/" : "/start"} >
@@ -45,7 +45,6 @@ const NavBar = () => {
                     </div>
                     {uid ? (
                         <>
-
                             <div className='xl:flex flex p-2 ml-20'>
                                 <div className='flex xl:mr-10 xl:ml-10 xl:h-10 mr-2 h-10 ml-2 justify-center  xl:rounded-2xl w-20 rounded-xl items-center bg-gray-800 xl:space-x-4 ' >
                                     <NavLink to="/">
@@ -69,7 +68,7 @@ const NavBar = () => {
                                         </div>
                                     </div>
                                     <div>
-                                        <NavLink to="/chat/"> 
+                                        <NavLink to="/chat/">
                                             <div className="w-8 h-8 hover:bg-gray-500   bg-gray-300 rounded-full cursor-pointer flex items-center justify-center">
                                                 <div className="absolute flex xl:ml-8 xl:mb-7 ml-8 mb-6">
                                                     <div class="flex  bg-red-600  w-5 h-5 rounded-full items-center justify-center ">
@@ -92,7 +91,7 @@ const NavBar = () => {
                                             <img className="w-10 h-10 rounded-full" src={userData.picture} alt="Profil" />
                                         </div>
                                         {nav &&
-                                            <NavbarPopup/>
+                                            <NavbarPopup />
                                         }
                                     </div>
                                     {/*<div className='xl:flex hidden justify-between items-center '  >

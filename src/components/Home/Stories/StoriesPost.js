@@ -23,24 +23,41 @@ function StoriesPost() {
   }, [usersData]);
 
   return (
-    <div className="items-center flex  relative justify-center  space-x-1 sm:space-x-2 rounded-[1rem]">
+    <div className="items-center flex  relative justify-center  space-x-1 sm:space-x-2 rounded-lg">
       {!isEmpty(storiesData) &&
         storiesData.map((story) => {
           return (
             <NavLink key={story._id} to={`/stories/${story._id}`}>
-              {/*${story._id}*/}
-              <div className=" items-center flex flex-col space-x-1 rounded-[1rem]  ">
+              <div className=" items-center flex flex-col space-x-1 rounded-lg  ">
                 {story.media && (
-                  <div className="w-32 h-48 bg-black  bg-opacity-90  flex items-center justify-center rounded">
-                    <img
-                      src={story.media}
-                      className="w-32 h-48 opacity-90 rounded"
-                      alt=""
-                    />
+                  <div className="sm:w-32 sm:h-48 h-32 w-24 bg-black  bg-opacity-90  flex items-center justify-center rounded-xl">
+
+                    {
+                      story.mediaType === "image" && (
+                        <img
+                          src={story.media}
+                          className="sm:w-32 sm:h-48 h-32 w-24 opacity-90 rounded-xl"
+                          alt=""
+                        />
+                      )
+                    }
+
+                    {
+                      story.mediaType === "video" && (
+                        <video
+                          className="sm:w-32 sm:h-48 h-32 w-24 opacity-90 rounded-xl"
+
+                        >
+                          <source src={story.media} type="video/webm" />
+                          <source src={story.media} type="video/mp4" />
+                        </video>
+                      )
+                    }
+
                   </div>
                 )}
                 {!story.media && (
-                  <div className="w-32 h-48 border-4 bg-black   border-gray-500  p-1   flex items-center justify-center rounded-lg">
+                  <div className="sm:w-32 sm:h-48 h-32 w-24 border-4 bg-black   border-gray-500  p-1   flex items-center justify-center rounded-lg">
                     <div className="w-32 h-[99%] bg-green-900  bg-opacity-60  flex items-center justify-center rounded">
                       <p className="text-white text-[10px]  text-center ">
                         {story.text}
@@ -49,7 +66,7 @@ function StoriesPost() {
                   </div>
                 )}
 
-                <div className="flex absolute mt-32 flex-col w-12 h-12  items-center justify-center rounded-full  z-20">
+                <div className="flex absolute  sm:mt-32 mt-20 flex-col sm:w-12 sm:h-12 w-10 h-10 items-center justify-center rounded-full  z-20">
                   <img
                     src={
                       (!isEmpty(usersData) &&
@@ -62,10 +79,10 @@ function StoriesPost() {
                           .join("")) ||
                       "https://www.bdch.com/sites/bdch.com/assets/images/Staff/profileNone.jpg"
                     }
-                    className="w-10 h-10  border-red-100 border rounded-full"
+                    className="sm:w-10 sm:h-10 h-8 w-8  border-red-100 border rounded-full"
                     alt="user-pic"
                   />
-                  <p className="text-white text-[12px] text-center  font-bold">
+                  <p className="text-white sm:text-[12px] text-[10px]  text-center  font-bold">
                     {!isEmpty(usersData[0]) &&
                       usersData.map((user) => {
                         if (user._id === story.posterId) return user.pseudo;

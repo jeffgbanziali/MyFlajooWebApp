@@ -21,11 +21,11 @@ const Thread = () => {
     }, [loadPosts, dispatch])
     return (
         <>
-            <div className='flex space-y-4 w-full flex-col  justify-center '>
+            <div className='flex space-y-4 w-full  flex-col  justify-center '>
                 <div className='flex '>
                     <Stories />
                 </div>
-                <div className='flex justify-center '>
+                <div className=' hidden sm:flex  sm:justify-center '>
                     {uid ? <AddingPosts title='Home' /> : null}
                 </div>
                 <div className='space-y-4'>

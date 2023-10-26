@@ -43,7 +43,7 @@ const Posts = ({ post }) => {
   return (
     <>
       <div
-        className=' w-screen sm:w-full  h-auto border py-4 px-6 relative min-h-100 shadow-xl shadow-gray-200  border-gray-100 rounded-2xl bg-white'
+        className=' w-screen sm:w-full h-auto border py-4 px-6 relative min-h-100 shadow-xl shadow-gray-200  border-gray-100 rounded-2xl bg-white'
         key={post._id}
       >
         {loading ? (
