@@ -6,15 +6,12 @@ import StoriesPost from "./StoriesPost";
 
 const Stories = () => {
   const userData = useSelector((state) => state.userReducer);
-  const [store, setStore] = useState(false);
-
   return (
     <>
       <div className="w-screen flex flex-row  overflow-x-auto  sm:w-full   ">
         <div className=" items-center relative  p-2 flex flex-col space-x-1 rounded-xl  ">
           <NavLink to={"/createStories"}>
             <div
-              onClick={() => setStore(true)}
               className="sm:w-32 sm:h-48 h-32 w-24  bg-black  bg-opacity-90 flex items-center justify-center  rounded-xl "
             >
               <img

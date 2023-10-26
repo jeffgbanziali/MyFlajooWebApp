@@ -20,31 +20,31 @@ function StoriesSteams() {
 
   const navigate = useNavigate();
 
-  {
-    useEffect(() => {
-      const intervalId = setInterval(() => {
-        setElapsedTime((prevTime) => prevTime + 0.1);
-      }, 100);
 
-      // Nettoyer l'intervalle lorsqu'on quitte le composant
-      return () => clearInterval(intervalId);
-    }, []);
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setElapsedTime((prevTime) => prevTime + 0.1);
+    }, 100);
 
-    useEffect(() => {
-      // Calculer la progression de l'histoire en pourcentage
-      const progress = (elapsedTime / 10) * 100;
+    // Nettoyage l'intervalle lorsqu'on quitte le composant
+    return () => clearInterval(intervalId);
+  }, []);
 
-      // Mettre à jour la progression de l'histoire
-      setStoryProgress(progress);
-      setStoryProgress(Math.min(progress, 100));
+  useEffect(() => {
+    // Calcul la progression de l'histoire en pourcentage
+    const progress = (elapsedTime / 10) * 100;
 
-      // Si la progression atteint 100%, rediriger vers la page d'accueil
-      if (progress >= 100) {
-        console.log("Story terminée, rediriger ou effectuer une action");
-        navigate("/");
-      }
-    }, [elapsedTime, navigate]);
-  }
+    // Mettre à jour la progression de l'histoire
+    setStoryProgress(progress);
+    setStoryProgress(Math.min(progress, 100));
+
+    // Si la progression atteint 100%, redirirection vers la page d'accueil
+    if (progress >= 100) {
+      console.log("Story terminée, rediriger ou effectuer une action");
+      navigate("/");
+    }
+  }, [elapsedTime, navigate]);
+
 
   const selectedStory = storiesData.find((story) => story._id === id);
 
@@ -82,57 +82,54 @@ function StoriesSteams() {
 
 
       {!selectedStory.media && (
-        <div className="flex w-full flex-col  sm:justify-center  h-full  ">
-          <div className="flex flex-row sm:mt-0 mt-8 w-[96%] sm:w-[100%]">
-            <div className="flex flex-row w-full  space-x-2 items-center">
-              <p className="text-white text-center text-[14px] sm:text-[16px] font-medium ">
-                {!isEmpty(usersData[0]) &&
-                  usersData.map((user) => {
-                    if (user._id === selectedStory.posterId)
-                      return user.pseudo;
-                    else return null;
-                  })}
-              </p>
-            </div>
-            <div className="w-64 flex items-center space-x-1 flex-row ">
-              <div className="bg-gray-900 h-8 items-center justify-around rounded-lg flex flex-row w-32">
-                <GoClock className="text-white" size={16} />
-                <p className="text-gray-400 text-center sm:text-[11px] text-[11px] font-medium ">
-                  {formatPostDate(selectedStory.createdAt)}
-                </p>
-              </div>
-
-              <img
-                src={
-                  (!isEmpty(usersData) &&
-                    usersData
-                      .map((user) => {
-                        if (user._id === selectedStory.posterId)
-                          return user.picture;
-                        else return null;
-                      })
-                      .join("")) ||
-                  "https://www.bdch.com/sites/bdch.com/assets/images/Staff/profileNone.jpg"
-                }
-                className="sm:w-10  sm:h-10 h-10 w-10 rounded-full"
-                alt="user-pic"
-              />
-            </div>
-
-          </div>
-          <div className="flex flex-col sm:w-[30%] items-center justify-center w-screen h-[100%] sm:h-[100%] mt-2 sm:mt-4 rounded-2xl ">
-            <div className="flex  sm:w-[100%] sm:h-[100%] w-[85%]  h-[100%]  rounded-2xl ">
-              <div className="flex flex-col w-[100%]  sm:space-y-2  sm:ml-4 ml-2 sm:w-[28%]  sm:mt-4 absolute z-10">
+        <div className="flex w-full flex-col sm:justify-center sm:items-center h-full  ">
+          <div className="flex flex-col sm:w-[30%] justify-center w-screen h-[100%] sm:h-[100%]   sm:mt-4 sm:rounded-2xl ">
+            <div className="flex  sm:w-[100%] sm:h-[90%] w-[100%] h-[100%]  justify-center   sm:mt-0 mt-10 sm:rounded-2xl ">
+              <div className="flex flex-col w-[100%] justify-center items-center sm:space-y-2  sm:ml-4 ml-2 sm:w-[28%]  sm:mt-4 absolute z-10">
                 <div className=" sm:w-[100%] sm:flex hidden sm:rounded-lg sm:bg-gray-500">
                   <div
                     className=" h-2 rounded-lg  bg-gray-200"
                     style={{ width: `${storyProgress}%` }}
                   ></div>
                 </div>
+                <div className="flex flex-row sm:mt-0  w-[95%] sm:w-[100%]">
+                  <div className="flex flex-row w-full space-x-2 items-center">
+                    <p className="text-white text-center text-[14px] sm:text-[16px] font-medium ">
+                      {!isEmpty(usersData[0]) &&
+                        usersData.map((user) => {
+                          if (user._id === selectedStory.posterId)
+                            return user.pseudo;
+                          else return null;
+                        })}
+                    </p>
+                  </div>
+                  <div className="w-64 flex items-center space-x-1 flex-row ">
+                    <div className="bg-gray-900 h-8 items-center justify-around rounded-lg flex flex-row w-32">
+                      <GoClock className="text-white" size={16} />
+                      <p className="text-gray-400 text-center sm:text-[11px] text-[11px] font-medium ">
+                        {formatPostDate(selectedStory.createdAt)}
+                      </p>
+                    </div>
+
+                    <img
+                      src={
+                        (!isEmpty(usersData) &&
+                          usersData
+                            .map((user) => {
+                              if (user._id === selectedStory.posterId)
+                                return user.picture;
+                              else return null;
+                            })
+                            .join("")) ||
+                        "https://www.bdch.com/sites/bdch.com/assets/images/Staff/profileNone.jpg"
+                      }
+                      className="sm:w-10  sm:h-10 h-10 w-10 rounded-full"
+                      alt="user-pic"
+                    />
+                  </div>
+                </div>
 
               </div>
-
-
               <>
 
                 <div className=" flex items-center p-4 bg-green-900 rounded-2xl  justify-center">
@@ -159,33 +156,34 @@ function StoriesSteams() {
                 <MdArrowForwardIos className="text-black" size={16} />
               </button>
             </div>
-          </div>
-          <div className="flex sm:bottom-0 justify-center items-center  ">
-            <input
-              className="text-white bg-transparent border border-white w-[90%] h-10 text-sm rounded-2xl pl-4 cursor-pointer"
-              type="text"
-              value={text}
-              placeholder="Answer to Madame"
-              style={{ outline: "none", color: "white" }}
-              onChange={(e) => setText(e.target.value)}
-            />
+            <div className="flex sm:bottom-0 justify-center  items-center  ">
+              <input
+                className="text-white bg-transparent border border-white w-[90%] h-10 text-sm rounded-2xl pl-4 cursor-pointer"
+                type="text"
+                value={text}
+                placeholder="Answer to Madame"
+                style={{ outline: "none", color: "white" }}
+                onChange={(e) => setText(e.target.value)}
+              />
 
-            <div className="flex flex-row">
-              <div className="flex w-12 h-12 mt-2    cursor-pointer justify-center items-center rounded-full">
-                <IoSendOutline className="text-white" size={30} />
+              <div className="flex flex-row">
+                <div className="flex w-12 h-12 mt-2    cursor-pointer justify-center items-center rounded-full">
+                  <IoSendOutline className="text-white" size={30} />
+                </div>
+                <LikeStoriesButton store={selectedStory} />
               </div>
-              <LikeStoriesButton store={selectedStory} />
             </div>
           </div>
+
         </div>
       )}
 
 
       {!selectedStory.text && selectedStory.media && (
         <div className="flex w-full  sm:justify-center  h-full  ">
-          <div className="flex flex-col sm:w-[30%] bg-red-500  w-screen h-[100%] sm:h-[100%]   sm:mt-4 rounded-2xl ">
+          <div className="flex flex-col sm:w-[30%] w-screen h-[100%] sm:h-[100%]   sm:mt-4 rounded-2xl ">
             <div className="flex  sm:w-[100%] sm:h-[90%]  rounded-2xl ">
-              <div className="flex flex-col w-[100%]  sm:space-y-2  sm:ml-4 ml-2 sm:w-[28%]  sm:mt-4 absolute z-10">
+              <div className="flex flex-col w-[100%] sm:space-y-2  sm:ml-4 ml-2 sm:w-[28%]  sm:mt-4 absolute z-10">
                 <div className=" sm:w-[100%] sm:flex hidden sm:rounded-lg sm:bg-gray-500">
                   <div
                     className=" h-2 rounded-lg  bg-gray-200"
@@ -231,7 +229,6 @@ function StoriesSteams() {
                 </div>
               </div>
 
-
               <>
                 <div className="absolute  sm:w-[30%] w-screen items-center justify-center flex h-20 bg-gradient-to-t opacity-25 from-transparent to-gray-900"></div>
 
@@ -260,8 +257,6 @@ function StoriesSteams() {
                 }
 
               </>
-
-
 
             </div>
             <div className="absolute flex justify-between  w-[40%] left-[30%] top-[40%] ">
@@ -301,8 +296,8 @@ function StoriesSteams() {
       )}
 
       {selectedStory.media && selectedStory.text && (
-        <div className="flex w-full flex-col sm:justify-center  h-full  ">
-          <div className="flex flex-col sm:w-[30%]  items-center justify-center w-screen h-[100%] sm:h-[100%]   sm:mt-4 sm:rounded-2xl ">
+        <div className="flex w-full flex-col sm:justify-center sm:items-center h-full  ">
+          <div className="flex flex-col sm:w-[30%]  justify-center w-screen h-[100%] sm:h-[100%]   sm:mt-4 sm:rounded-2xl ">
             <div className="flex  sm:w-[100%] sm:h-[90%] w-[100%] h-[100%]  justify-center   sm:mt-0 mt-10 sm:rounded-2xl ">
               <div className="flex flex-col w-[100%]  sm:space-y-2  sm:ml-4 ml-2 sm:w-[28%]  sm:mt-4 absolute z-10">
                 <div className=" sm:w-[100%] sm:flex hidden sm:rounded-lg sm:bg-gray-500">
@@ -349,8 +344,6 @@ function StoriesSteams() {
 
                 </div>
               </div>
-
-
               <>
                 <div className=" sm:w-[100%] sm:h-[100%] w-[78%] h-[92%] sm:mt-0 mt-10 rounded-2xl flex flex-col items-center justify-center">
                   <div className="sm:absolute hidden sm:w-[30%] w-screen items-center justify-center sm:flex h-20 bg-gradient-to-t opacity-25 from-transparent to-gray-900"></div>
@@ -403,24 +396,22 @@ function StoriesSteams() {
                 <MdArrowForwardIos className="text-black" size={16} />
               </button>
             </div>
+            <div className="flex sm:bottom-0 justify-center items-center  ">
+              <input
+                className="text-white bg-transparent border border-white w-[90%] h-10 text-sm rounded-2xl pl-4 cursor-pointer"
+                type="text"
+                value={text}
+                placeholder="Answer to Madame"
+                style={{ outline: "none", color: "white" }}
+                onChange={(e) => setText(e.target.value)}
+              />
 
-
-          </div>
-          <div className="flex sm:bottom-0 justify-center items-center  ">
-            <input
-              className="text-white bg-transparent border border-white w-[90%] h-10 text-sm rounded-2xl pl-4 cursor-pointer"
-              type="text"
-              value={text}
-              placeholder="Answer to Madame"
-              style={{ outline: "none", color: "white" }}
-              onChange={(e) => setText(e.target.value)}
-            />
-
-            <div className="flex flex-row">
-              <div className="flex w-12 h-12 mt-2    cursor-pointer justify-center items-center rounded-full">
-                <IoSendOutline className="text-white" size={30} />
+              <div className="flex flex-row">
+                <div className="flex w-12 h-12 mt-2    cursor-pointer justify-center items-center rounded-full">
+                  <IoSendOutline className="text-white" size={30} />
+                </div>
+                <LikeStoriesButton store={selectedStory} />
               </div>
-              <LikeStoriesButton store={selectedStory} />
             </div>
           </div>
         </div>

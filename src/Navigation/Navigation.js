@@ -9,6 +9,7 @@ import ProfilsFriends from "../components/Friends/ProfilsFriends";
 import Message from "../screens/Message/Message";
 import StoriesSteams from "../components/Home/Stories/StoriesSteams";
 import Réels from "../screens/Réels/Réels";
+import StoryCreated from "../components/Home/Stories/StoryCreated";
 
 
 
@@ -21,7 +22,8 @@ const Navigation = () => {
           <Route path="/profile/:pseudo" element={<Profile />} />
           <Route path="/friends/:friendId" element={<ProfilsFriends />} />
           <Route path="/stories/:id" element={<StoriesSteams />} />
-          <Route path="/videoReels" element={<Réels/>} />
+          <Route path="/createStories" element={<StoryCreated />} />
+          <Route path="/videoReels" element={<Réels />} />
           <Route path="/chat" element={<Message />} />
           <Route path="/start" element={<StartPage />} />
           <Route path="sign-in" element={<SignInScreen />} />

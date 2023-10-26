@@ -46,6 +46,7 @@ function StoriesPost() {
                       story.mediaType === "video" && (
                         <video
                           className="sm:w-32 sm:h-48 h-32 w-24 opacity-90 rounded-xl"
+                          width="100%"
 
                         >
                           <source src={story.media} type="video/webm" />

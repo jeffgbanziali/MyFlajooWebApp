@@ -20,13 +20,6 @@ const Posts = ({ post }) => {
   const [showInitialContent, setShowInitialContent] = useState(false)
   const [showHoverContent, setShowHoverContent] = useState(false)
 
-  const handleInitialMouseEnter = () => {
-    setShowInitialContent(true)
-  }
-
-  const handleInitialMouseLeave = () => {
-    setShowInitialContent(false)
-  }
 
   const handleHoverMouseEnter = () => {
     setShowHoverContent(true)
@@ -55,8 +48,6 @@ const Posts = ({ post }) => {
                 <div className='flex flex-row'>
                   <NavLink to={`/profile/${post.posterId}`}>
                     <img
-                      //onMouseEnter={handleInitialMouseEnter}
-                      //onMouseLeave={handleInitialMouseLeave}
                       src={
                         !isEmpty(usersData[0]) &&
                         usersData
@@ -124,7 +115,7 @@ const Posts = ({ post }) => {
               <p className='text-black  sm:text-lg font-normal text-justify text-[13px] md:text-sm lg:text-[14px] xl:text-[16x]'>
                 {post.message}
               </p>
-              <div className=' flex justify-center mt-4 items-center '>
+              <div className=' flex  justify-center mt-4 items-center '>
                 {post.picture && (
                   <>
                     <button
@@ -141,17 +132,17 @@ const Posts = ({ post }) => {
                 )}
               </div>
               <div>
-                {/*  {post.video && (
-                                        <iframe
-                                            className="flex w-[100%] h-96 rounded-2xl transition duration-150 cursor-pointer hover:scale-120 hover:translate-0 transform hover:shadow-none"
-                                            src={post.video}
-                                            frameBorder="0"
-                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                            allowFullScreen
-                                            title={post._id}
-                                        >
-                                        </iframe>
-                                  )}*/}
+                {post.video && (
+                  <iframe
+                    className="flex w-[100%] h-96 rounded-2xl transition duration-150 cursor-pointer hover:scale-120 hover:translate-0 transform hover:shadow-none"
+                    src={post.video}
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    title={post._id}
+                  >
+                  </iframe>
+                )}
                 {userData._id === post.posterId && (
                   <div className='flex '>
                     <button
