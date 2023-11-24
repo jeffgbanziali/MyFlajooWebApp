@@ -25,43 +25,41 @@ function StoriesPost() {
   return (
     <div className="items-center flex  relative justify-center  space-x-1 sm:space-x-2 rounded-lg">
       {!isEmpty(storiesData) &&
-        storiesData.map((story) => {
+        storiesData.map((item) => {
           return (
-            <NavLink key={story._id} to={`/stories/${story._id}`}>
+            <NavLink key={item.container._id} to={`/stories/${item.container.stories[0]._id}`}>
               <div className=" items-center flex flex-col space-x-1 rounded-lg  ">
-                {story.media && (
+                {item.container.stories && item.container.stories.length > 0 && item.container.stories[item.container.stories.length - 1].media && (
                   <div className="sm:w-32 sm:h-48 h-32 w-24 bg-black  bg-opacity-90  flex items-center justify-center rounded-xl">
 
-                    {
-                      story.mediaType === "image" && (
-                        <img
-                          src={story.media}
-                          className="sm:w-32 sm:h-48 h-32 w-24 opacity-90 rounded-xl"
-                          alt=""
-                        />
-                      )
+                    {item.container.stories[item.container.stories.length - 1].media_type === "image" && (
+                      <img
+                        src={item.container.stories[item.container.stories.length - 1].media}
+                        className="sm:w-32 sm:h-48 h-32 w-24 opacity-90 rounded-xl"
+                        alt=""
+                      />
+                    )
                     }
 
-                    {
-                      story.mediaType === "video" && (
-                        <video
-                          className="sm:w-32 sm:h-48 h-32 w-24 opacity-90 rounded-xl"
-                          width="100%"
+                    {item.container.stories[item.container.stories.length - 1].media_type === "video" && (
+                      <video
+                        className="sm:w-32 sm:h-48 h-32 w-24 opacity-90 rounded-xl"
+                        width="100%"
 
-                        >
-                          <source src={story.media} type="video/webm" />
-                          <source src={story.media} type="video/mp4" />
-                        </video>
-                      )
+                      >
+                        <source src={item.container.stories[item.container.stories.length - 1].media} type="video/webm" />
+                        <source src={item.container.stories[item.container.stories.length - 1].media} type="video/mp4" />
+                      </video>
+                    )
                     }
 
                   </div>
                 )}
-                {!story.media && (
+                {item.container.stories && item.container.stories.length > 0 && !item.container.stories[item.container.stories.length - 1].media && (
                   <div className="sm:w-32 sm:h-48 h-32 w-24 border-4 bg-black   border-gray-500  p-1   flex items-center justify-center rounded-lg">
                     <div className="w-32 h-[99%] bg-green-900  bg-opacity-60  flex items-center justify-center rounded">
                       <p className="text-white text-[10px]  text-center ">
-                        {story.text}
+                        {item.container.stories[item.container.stories.length - 1].text}
                       </p>
                     </div>
                   </div>
@@ -73,8 +71,8 @@ function StoriesPost() {
                       (!isEmpty(usersData) &&
                         usersData
                           .map((user) => {
-                            if (user._id === story.posterId)
-                              return user.picture;
+                            if (user._id === item.container.posterId)
+                              return user.picture || "https://pbs.twimg.com/media/EFIv5HzUcAAdjhl.png";
                             else return null;
                           })
                           .join("")) ||
@@ -86,7 +84,7 @@ function StoriesPost() {
                   <p className="text-white sm:text-[12px] text-[10px]  text-center  font-bold">
                     {!isEmpty(usersData[0]) &&
                       usersData.map((user) => {
-                        if (user._id === story.posterId) return user.pseudo;
+                        if (user._id === item.container.posterId) return user.pseudo;
                         else return null;
                       })}
                   </p>

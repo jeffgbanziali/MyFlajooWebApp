@@ -21,9 +21,11 @@ const LikeStoriesButton = ({ store }) => {
   };
 
   useEffect(() => {
-    if (store.likers.includes(uid)) setLiked(true);
-    else setLiked(false);
-  }, [uid, store.likers, liked]);
+    setLiked((prevLiked) => {
+      if (store?.likers.includes(uid)) return true;
+      else return false;
+    });
+  }, [uid, store?.likers]);
   return (
     <div>
       {uid && liked === false && (

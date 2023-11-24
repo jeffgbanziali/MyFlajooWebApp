@@ -1,9 +1,10 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
-import "./Message.css";
 import Conversations from "../../components/MessageComponents/Conversations";
 import NavBar from "../../components/NavBar/NavBar";
 import ChatOnline from "../../components/MessageComponents/ChatOnline";
 import Messaging from "../../components/MessageComponents/Messaging";
+import { LuPenSquare } from "react-icons/lu";
+import { HiDotsHorizontal } from "react-icons/hi";
 import axios from "axios";
 import { UidContext } from "../../Context/AppContext";
 import { io } from "socket.io-client";
@@ -57,7 +58,11 @@ const Message = () => {
         const response = await axios.get(
           `http://localhost:4000/api/conversation/${uid}`
         );
-        setConver(response.data);
+
+        const sortedConversations = response.data.sort(
+          (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+        );
+        setConver(sortedConversations);
         console.log(response);
       } catch (error) {
         console.error(error);
@@ -122,63 +127,68 @@ const Message = () => {
 
   return (
     <>
-      <NavBar />
-      <div className="messenger flex">
-        <div className="chatMenu mt-20">
-          <div className="chatMenuWrapper">
-            <input placeholder="Search for friends" className="chatMenuInput" />
+      {/*<NavBar />*/}
+      <div className="fixed  w-full h-full flex items-center justify-center">
+        <div className="w-[100%] h-[100%] flex items-center justify-center  bg-gray-900  ">
+          <div className="w-[25%] h-[90%] bg-blue-500 ">
+            <div className="w-[100%] flex justify-between flex-col h-[20%] bg-green-500 ">
 
-            {conver.map((c, index) => (
-              <div key={index} onClick={() => setCurrentChat(c)}>
-                <Conversations key={index} conversation={c} currentUser={uid} />
+              <div className="w-[100%] flex h-[50%] bg-blue-200 " >
+                <div className="w-[50%] flex items-center justify-center h-[100%] bg-black">
+                  <p className="text-[40px] font-semibold text-white ">Messages</p>
+                </div>
+                <div className="w-[50%] items-center space-x-4 justify-center flex h-[100%] bg-green-800 ">
+                  <div className="w-10 h-10 flex items-center justify-center bg-blue-800 rounded-full ">
+                    <LuPenSquare size={20} color="white" />
+                  </div>
+                  <div className="w-10 h-10 flex items-center justify-center bg-blue-800 rounded-full   ">
+                    <HiDotsHorizontal size={20} color="white" />
+                  </div>
+                </div>
+
               </div>
-            ))}
-          </div>
-        </div>
-        <div className="chatBox mt-20">
-          <div className="chatBoxWrapper">
-            {currentChat ? (
-              <>
-                <div className="chatBoxTop">
-                  {chat.map((mes) => (
-                    <div ref={scrollRef}>
-                      <Messaging message={mes} own={mes.sender === uid} />
-                    </div>
-                  ))}
+              <div className="w-[100%] h-[50%] bg-blue-200 " >
+
+              </div>
+            </div>
+            <div className="chatMenuWrapper">
+              {conver.map((c, index) => (
+                <div key={index} onClick={() => setCurrentChat(c)}>
+                  <Conversations key={index} conversation={c} currentUser={uid} />
                 </div>
-                <div className="chatBoxBottom">
-                  <input
-                    type="text"
-                    className="chatMessageInput"
-                    placeholder="write something..."
-                    value={newChat}
-                    onChange={(e) => setNewChat(e.target.value)}
-                  />
-                  <button
-                    onClick={handleSendMessage}
-                    className="chatSubmitButton"
-                  >
-                    Send
-                  </button>
-                </div>
-              </>
-            ) : (
-              <span className=" text-5xl top-[10%] text-gray-400 text-center cursor-pointer">
-                Open conversation
-              </span>
-            )}
+              ))}
+            </div>
           </div>
-        </div>
-        <div className="chatOnline mt-20  ">
-          <div className="chatOnlineWrapper">
-            <ChatOnline
-              onlineUser={onlineUser}
-              currentId={uid}
-              setCurrentChat={setCurrentChat}
-            />
+          <div className="w-[75%] flex h-[90%] bg-red-500 ">
+            <div className="w-[65%] flex flex-col  h-[100%] bg-green-200 " >
+              <div className="w-[100%] h-[10%] bg-blue-200 " >
+                <div className="w-[50%] space-x-4 flex items-center  h-[100%] " >
+                  <div className="w-14 h-14  bg-blue-300"  >
+                    <img
+                      src={
+                        "https://pbs.twimg.com/media/EFIv5HzUcAAdjhl.png"
+                      }
+                      alt="user"
+                      className="w-14 h-14 rounded-full"
+                    />
+                  </div>
+                  <div className="w-[50%] flex flex-col justify-center  h-[100%] bg-red-700 ">
+                    <p className="text-[20px] font-semibold text-white ">Jeff Flajj</p>
+                    <p className="text-[10px] font-semibold text-white ">Online</p>
+                  </div>
+                </div>
+              </div>
+              <div className="w-[100%] h-[70%] bg-yellow-200 " >
+
+              </div>
+              <div className="w-[100%] h-[20%] bg-red-200 " >
+
+              </div>
+            </div>
           </div>
         </div>
       </div>
+
     </>
   );
 };
